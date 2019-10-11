@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Navbar.module.css';
 
-interface Navbar {}
+interface INavbar {}
 
 const Navbar = () => {
 	const { NavbarStyle } = styles;
