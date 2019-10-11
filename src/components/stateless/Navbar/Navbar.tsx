@@ -3,12 +3,10 @@ import styles from './Navbar.module.css';
 
 interface INavbar {}
 
-const Navbar = () => {
+const Navbar: React.FC = () => {
 	const { NavbarStyle } = styles;
 
-	return <div className={NavbarStyle}>
-		
-	</div>;
+	return <div className={NavbarStyle}></div>;
 };
 
 export default Navbar;

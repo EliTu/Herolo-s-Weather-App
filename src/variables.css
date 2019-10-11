@@ -1,5 +1,9 @@
 :root {
+    /* Theme specs */
+    --background-main-light-theme: rgba(247, 247, 247, 0.863);
+    --background-main-dark-theme: rgba(44, 42, 42, 0.76);
     /* coloring */
-
+    --color-main-black: rgba(39, 36, 36, 0.774);
+    /* Typography */
     /* sizes */
 }
