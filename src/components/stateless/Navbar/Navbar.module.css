@@ -1,1 +1,5 @@
-.NavbarStyle {}
+.NavbarStyle {
+    width: 100%;
+    height: 5rem;
+    border-bottom: 2px solid black;
+}
