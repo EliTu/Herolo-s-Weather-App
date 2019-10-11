@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Backdrop component should render without errors 1`] = `
+<Fragment>
+  <div
+    className="BackdropStyles"
+  />
+</Fragment>
+`;

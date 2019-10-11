@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Logo component should render without errors 1`] = `
+<div
+  className="LogoStyles"
+>
+  <div
+    className="testDiv"
+  />
+  <span>
+    Herolo Weather app!
+  </span>
+</div>
+`;
