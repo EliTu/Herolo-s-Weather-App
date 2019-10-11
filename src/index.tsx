@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import './index.css';
 import * as serviceWorker from './serviceWorker';
 
 // Importing & enabling the 'why-did-you-update' library, to check for unnecessary component renders in dev mode

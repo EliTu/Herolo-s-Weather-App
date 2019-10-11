@@ -1,3 +1,6 @@
-.ItemStyle {
-    
+@import '../../../../../variables.css';
+
+.ItemStyles {
+    font-size: var(--text-size-medium);
+    margin: 2rem;
 }

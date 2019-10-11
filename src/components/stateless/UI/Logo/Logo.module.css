@@ -1,0 +1,14 @@
+.LogoStyles {
+    margin: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+.testDiv {
+    margin-right: 1rem;
+    width: 4.5rem;
+    height: 4.5rem;
+    border: 1px solid black;
+}

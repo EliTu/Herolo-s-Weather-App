@@ -1,10 +1,14 @@
 import React from 'react';
-import styles from '.Item.module.css';
+import styles from './Item.module.css';
 
-const Item: React.FC = () => {
-    const { ItemStyles } = styles;
-    
-	return <div className={ItemStyles}></div>;
+interface IProps {
+	children: string;
+}
+
+const Item: React.FC<IProps> = ({ children }) => {
+	const { ItemStyles } = styles;
+
+	return <div className={ItemStyles}>{children}</div>;
 };
 
 export default Item;
