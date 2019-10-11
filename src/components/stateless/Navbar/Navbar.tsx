@@ -1,12 +1,12 @@
 import React from 'react';
 import styles from './Navbar.module.css';
 
-const Navbar = () => {
-	const { Navbar } = styles;
+interface Navbar {}
 
-	return <div className={Navbar}>
-        
-    </div>;
+const Navbar = () => {
+	const { NavbarStyle } = styles;
+
+	return <div className={NavbarStyle}></div>;
 };
 
 export default Navbar;
