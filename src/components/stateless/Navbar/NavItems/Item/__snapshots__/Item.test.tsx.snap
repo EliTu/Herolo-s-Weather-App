@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Item component should render without errors 1`] = `
+<div
+  className="ItemStyles"
+>
+  Test Item
+</div>
+`;

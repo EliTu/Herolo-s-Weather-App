@@ -8,6 +8,7 @@ const App: React.FC = () => {
 		<div className="App">
 			<Layout>
 				<Navbar />
+				<div className="Wrapper"></div>
 			</Layout>
 		</div>
 	);

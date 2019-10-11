@@ -9,10 +9,10 @@ const Navbar: React.FC = () => {
 	const { NavbarStyle } = styles;
 
 	return (
-		<div className={NavbarStyle}>
+		<header className={NavbarStyle}>
 			<Logo />
 			<NavItems />
-		</div>
+		</header>
 	);
 };
 
