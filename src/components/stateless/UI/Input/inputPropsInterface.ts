@@ -5,12 +5,12 @@ export interface IInputProps {
 		type: string;
 		placeholder: string;
 		label: string;
-		options?: [{ value: string; displayValue: string; disabled: boolean }];
+		options: [{ value: string; displayValue: string; disabled: boolean }];
 		min?: number;
 		max?: number;
 	};
 	value: string | number;
-	validation?: {
+	validation: {
 		required: boolean;
 		valid: boolean;
 		hasUserInput: boolean;

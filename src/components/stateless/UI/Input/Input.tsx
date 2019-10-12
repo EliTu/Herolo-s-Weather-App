@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, SyntheticEvent } from 'react';
 import styles from './Input.module.css';
 import { IInputProps } from './inputPropsInterface';
 
@@ -12,7 +12,7 @@ const Input: React.FC<IInputProps> = ({
 	handleEnterPress,
 	data,
 }) => {
-	const { InputStyles, validationStyles } = styles;
+	const { InputStyles, invalidStyle, ValidStyle } = styles;
 
 	let inputElement = null;
 
@@ -22,27 +22,27 @@ const Input: React.FC<IInputProps> = ({
 
 	// Listen to keyboard enter click to submit form:
 	const enterPressCallback = (
-		event: object,
-		func: (e: object) => void,
+		event: any,
+		func: (e: Event) => void,
 		data?: string
 	) => {
 		if (event.key === 'Enter' && data !== 'search') func(event);
 	};
 
 	// Focus the first input field upon component mount
-	const focusRef: object = useRef();
+	const focusRef: React.RefObject<any> = useRef();
 	useEffect(() => {
 		if (isFocused) focusRef.current.focus();
 	}, [isFocused]);
 
 	// Set validation styles:
-	// let validationStyles = [];
-	// validationStyles =
-	// 	!validation.valid && validation.hasUserInput
-	// 		? InvalidStyle
-	// 		: validation.valid && validation.hasUserInput && value !== ''
-	// 		? ValidStyle
-	// 		: [];
+	let validationStyles: string = '';
+	validationStyles =
+		!validation.valid && validation.hasUserInput
+			? invalidStyle
+			: validation.valid && validation.hasUserInput && value !== ''
+			? ValidStyle
+			: '';
 
 	switch (elementType) {
 		case 'input':

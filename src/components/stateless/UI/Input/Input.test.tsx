@@ -7,15 +7,15 @@ const onChange: () => void = jest.fn();
 const onEnterPress: () => void = jest.fn();
 
 const setComponentProps = (
-	elemType: string,
+	elementType: string,
 	configType: string = 'text',
 	value: string = 'abc',
 	isValid: boolean = false,
 	hasInput: boolean = true,
-	options: object[] = []
+	options: object[]
 ) => {
 	const props = {
-		elementType: `${elemType}`,
+		elementType: `${elementType}`,
 		elementConfig: {
 			type: `${configType}`,
 			placeholder: 'abc',
