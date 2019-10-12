@@ -1,0 +1,19 @@
+@import '../../../variables.css';
+
+.FooterStyles {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    width: 100%;
+    border-top: 2px solid;
+    border-color: var(--color-main-black);
+    padding: 1rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.FooterStyles a {
+    text-decoration: none;
+}

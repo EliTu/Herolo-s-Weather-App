@@ -2,6 +2,6 @@
   /* text-align: center; */
 }
 
-.wrapper {
+.content-wrapper {
   min-height: calc(100vh - 122px);
 }

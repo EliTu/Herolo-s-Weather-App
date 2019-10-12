@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer component should render without issues 1`] = `
+<div
+  className="FooterStyles"
+>
+  <p>
+    Made for
+     
+    <a
+      href="https://herolo.co.il/"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Herolo
+    </a>
+     
+    using
+     
+    <a
+      href="https://reactjs.org/"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      React
+    </a>
+     
+    with ❤️, by
+     
+    <a
+      href="https://github.com/EliTu"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Eliad Tuksher
+    </a>
+     
+    2019
+  </p>
+</div>
+`;

@@ -1,6 +1,7 @@
 import React from 'react';
-import Navbar from './components/stateless/Navbar/Navbar';
 import Layout from './components/containers/Layout/Layout';
+import Navbar from './components/stateless/Navbar/Navbar';
+import Footer from './components/stateless/Footer/Footer';
 import './App.css';
 
 const App: React.FC = () => {
@@ -8,7 +9,8 @@ const App: React.FC = () => {
 		<div className="App">
 			<Layout>
 				<Navbar />
-				<div className="Wrapper"></div>
+				<div className="content-wrapper"></div>
+				<Footer />
 			</Layout>
 		</div>
 	);
