@@ -5,7 +5,7 @@ export interface IInputProps {
 		type: string;
 		placeholder: string;
 		label: string;
-		options: [{ value: string; displayValue: string; disabled: boolean }];
+		options?: [{ value: string; displayValue: string; disabled: boolean }];
 		min?: number;
 		max?: number;
 	};
@@ -17,7 +17,6 @@ export interface IInputProps {
 		errorMessage: string;
 	};
 	isFocused: boolean;
-	data: string;
 	handleChange: (event: object) => void;
 	handleEnterPress: (event: object) => void;
 }

@@ -65,6 +65,7 @@ describe('Input component', () => {
 			expect(component).toHaveClassName('InputStyles');
 			expect(component.length).toBe(1);
 			expect(component.length).not.toBe(2);
+			expect(component).toHaveClassName('InputStyles');
 		});
 	});
 

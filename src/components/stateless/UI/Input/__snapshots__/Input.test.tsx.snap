@@ -8,7 +8,7 @@ exports[`Input component Component (not testing the input fields) should render 
     abc
   </label>
   <input
-    className="validationStyles"
+    className="ValidStyle"
     data-test="input-test"
     label="abc"
     onChange={[Function]}
@@ -31,6 +31,11 @@ exports[`Input component Component (not testing the input fields) should render 
     type="text"
     value="abc"
   />
+  <p
+    className="errorMessageStyle"
+  >
+    abc
+  </p>
 </div>
 `;
 
@@ -59,6 +64,11 @@ exports[`Input component Type: input="select" test should render without errors 
       Another Value
     </option>
   </select>
+  <p
+    className="errorMessageStyle"
+  >
+    abc
+  </p>
 </div>
 `;
 
@@ -90,6 +100,11 @@ exports[`Input component Type: input="text" test should not render if elementTyp
     type="text"
     value="abc"
   />
+  <p
+    className="errorMessageStyle"
+  >
+    abc
+  </p>
 </div>
 `;
 
@@ -101,7 +116,7 @@ exports[`Input component Type: input="text" test should render the component wit
     abc
   </label>
   <input
-    className="validationStyles"
+    className="ValidStyle"
     data-test="input-test"
     label="abc"
     onChange={[Function]}
@@ -124,6 +139,11 @@ exports[`Input component Type: input="text" test should render the component wit
     type="text"
     value="abc"
   />
+  <p
+    className="errorMessageStyle"
+  >
+    abc
+  </p>
 </div>
 `;
 
@@ -157,5 +177,10 @@ exports[`Input component Type: input="textarea" test should render without error
     type=""
     value="abc"
   />
+  <p
+    className="errorMessageStyle"
+  >
+    abc
+  </p>
 </div>
 `;

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, SyntheticEvent } from 'react';
+import React, { useRef, useEffect } from 'react';
 import styles from './Input.module.css';
 import { IInputProps } from './inputPropsInterface';
 
@@ -10,27 +10,23 @@ const Input: React.FC<IInputProps> = ({
 	isFocused,
 	handleChange,
 	handleEnterPress,
-	data,
 }) => {
-	const { InputStyles, invalidStyle, ValidStyle } = styles;
+	const { InputStyles, invalidStyle, ValidStyle, errorMessageStyle } = styles;
 
 	let inputElement = null;
 
-	// let errorMessageElement = (
-	// 	<p className={errorMessageStyle}>{validation.errorMessage}</p>
-	// );
+	let errorMessageElement: JSX.Element = (
+		<p className={errorMessageStyle}>{validation.errorMessage}</p>
+	);
 
 	// Listen to keyboard enter click to submit form:
-	const enterPressCallback = (
-		event: any,
-		func: (e: Event) => void,
-		data?: string
-	) => {
-		if (event.key === 'Enter' && data !== 'search') func(event);
+	const enterPressCallback = (event: any, func: (e: Event) => void) => {
+		if (event.key === 'Enter') func(event);
 	};
 
 	// Focus the first input field upon component mount
 	const focusRef: React.RefObject<any> = useRef();
+
 	useEffect(() => {
 		if (isFocused) focusRef.current.focus();
 	}, [isFocused]);
@@ -54,7 +50,7 @@ const Input: React.FC<IInputProps> = ({
 					value={value}
 					onChange={handleChange}
 					onKeyPress={event =>
-						enterPressCallback(event, handleEnterPress, data)
+						enterPressCallback(event, handleEnterPress)
 					}
 					data-test="input-test"
 				/>
@@ -82,15 +78,16 @@ const Input: React.FC<IInputProps> = ({
 					onChange={handleChange}
 					data-test="select-test"
 				>
-					{elementConfig.options.map(option => (
-						<option
-							value={option.value}
-							key={option.value}
-							disabled={option.disabled}
-						>
-							{option.displayValue}
-						</option>
-					))}
+					{elementConfig.options &&
+						elementConfig.options.map(option => (
+							<option
+								value={option.value}
+								key={option.value}
+								disabled={option.disabled}
+							>
+								{option.displayValue}
+							</option>
+						))}
 				</select>
 			);
 			break;
@@ -111,6 +108,7 @@ const Input: React.FC<IInputProps> = ({
 		<div className={InputStyles}>
 			<label>{elementConfig.label}</label>
 			{inputElement}
+			{errorMessageElement}
 		</div>
 	);
 };
