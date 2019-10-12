@@ -1,28 +1,18 @@
 import React, { useRef, useEffect } from 'react';
 import styles from './Input.module.css';
+import { IInputProps } from './inputPropsInterface';
 
-interface IProps {
-	elementType: string;
-	elementConfig: object;
-	value: string | number;
-	validation?: object;
-	focused: boolean;
-	data: string;
-	handleChange: (event: object) => void;
-	handleEnterPress: (event: object) => void;
-}
-
-const Input: React.FC<IProps> = ({
+const Input: React.FC<IInputProps> = ({
 	elementType,
 	elementConfig,
 	value,
 	validation,
-	focused,
+	isFocused,
 	handleChange,
 	handleEnterPress,
 	data,
 }) => {
-	const { InputStyles } = styles;
+	const { InputStyles, validationStyles } = styles;
 
 	let inputElement = null;
 
@@ -32,18 +22,18 @@ const Input: React.FC<IProps> = ({
 
 	// Listen to keyboard enter click to submit form:
 	const enterPressCallback = (
-		data?: string,
 		event: object,
-		func: () => void
+		func: (e: object) => void,
+		data?: string
 	) => {
 		if (event.key === 'Enter' && data !== 'search') func(event);
 	};
 
 	// Focus the first input field upon component mount
-	const focusRef = useRef();
+	const focusRef: object = useRef();
 	useEffect(() => {
-		if (focused) focusRef.current.focus();
-	}, [focused]);
+		if (isFocused) focusRef.current.focus();
+	}, [isFocused]);
 
 	// Set validation styles:
 	// let validationStyles = [];
@@ -64,7 +54,7 @@ const Input: React.FC<IProps> = ({
 					value={value}
 					onChange={handleChange}
 					onKeyPress={event =>
-						enterPressCallback(data, event, handleEnterPress)
+						enterPressCallback(event, handleEnterPress, data)
 					}
 					data-test="input-test"
 				/>
@@ -110,7 +100,7 @@ const Input: React.FC<IProps> = ({
 				<input
 					{...elementConfig}
 					value={value}
-					className={!validation.valid ? InvalidStyle : null}
+					// className={!validation.valid ? InvalidStyle : null}
 					onKeyPress={event =>
 						enterPressCallback(event, handleEnterPress)
 					}
