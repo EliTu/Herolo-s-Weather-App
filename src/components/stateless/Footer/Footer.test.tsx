@@ -4,7 +4,6 @@ import Footer from './Footer';
 
 describe('Footer component', () => {
 	let component;
-
 	beforeEach(() => (component = shallow(<Footer />)));
 
 	it('should render without issues', () => {
