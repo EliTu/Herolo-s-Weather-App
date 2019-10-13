@@ -1,4 +1,6 @@
-export const inputTemplateData = {
+import { IInputProps } from './../../stateless/UI/Input/inputPropsInterface';
+
+export const inputTemplateData: IInputProps = {
 	elementType: 'input',
 	elementConfig: {
 		type: 'search',

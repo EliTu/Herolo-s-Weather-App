@@ -1,4 +1,27 @@
-.InputStyles {}
+@import './../../../../variables.css';
+
+.InputStyles {
+    width: 100%;
+    padding: 0.2rem;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.InputStyles input,
+select,
+textarea {
+    background-color: rgba(241, 238, 238, 0);
+    color: var(--color-main-dark);
+    font-size: 0.9rem;
+    width: 60%;
+    border: 2px solid;
+    border-radius: 8px;
+    border-color: var(--color-main-dark);
+    padding: 0.3rem 0.7rem;
+    margin: 0.7rem auto;
+    display: inline-block;
+    transition: all 0.5s;
+}
 
 .validationStyles {}
 

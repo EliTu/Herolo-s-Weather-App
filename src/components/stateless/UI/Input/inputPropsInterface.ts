@@ -17,6 +17,6 @@ export interface IInputProps {
 		errorMessage: string;
 	};
 	isFocused: boolean;
-	handleChange: (event: object) => void;
-	handleEnterPress: (event: object) => void;
+	handleChange?: (event: object) => void;
+	handleEnterPress?: (event: object) => void;
 }

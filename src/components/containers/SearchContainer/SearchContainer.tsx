@@ -8,8 +8,14 @@ const SearchContainer: React.FC = () => {
 
 	const [inputData, setInputData] = useState(inputTemplateData);
 
-	const handleSearchInputChange = (event: any) => {
-		setInputData(() => (inputData.value = event.target.value));
+	const handleSearchInputChange: (e: any) => void = (event: any) => {
+		const updatedValue: string = event.target.value;
+		const updatedSearchInput = {
+			...inputTemplateData,
+			value: updatedValue,
+		};
+
+		setInputData(() => updatedSearchInput);
 	};
 	const handleSearchSubmission = () => {};
 
