@@ -5,7 +5,6 @@ exports[`SearchContainer Component should render without errors 1`] = `
   className="SearchContainerStyles"
 >
   <Input
-    data="search"
     elementConfig={
       Object {
         "label": "",

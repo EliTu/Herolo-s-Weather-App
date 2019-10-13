@@ -1,5 +1,13 @@
 .SearchContainerStyles {
     width: 40%;
-    height: 4rem;
+    height: 40%;
     border: 2px solid black;
+    margin: 1.5rem auto;
+    display: flex;
+    justify-content: center;
+}
+
+.SearchContainerStyles input {
+    margin: 0.5rem auto;
+    font-size: 0.8rem;
 }

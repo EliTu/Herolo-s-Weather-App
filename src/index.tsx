@@ -4,12 +4,6 @@ import App from './App';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 
-// Importing & enabling the 'why-did-you-update' library, to check for unnecessary component renders in dev mode
-// if (process.env.NODE_ENV !== 'production') {
-// 	const { whyDidYouUpdate } = require('why-did-you-update');
-// 	whyDidYouUpdate(React);
-// }
-
 ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
