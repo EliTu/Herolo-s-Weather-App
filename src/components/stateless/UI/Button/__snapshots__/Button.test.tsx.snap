@@ -3,6 +3,7 @@
 exports[`Button component should render without errors 1`] = `
 <button
   className="ButtonStyles"
+  onClick={[MockFunction]}
   type="button"
 >
   abc

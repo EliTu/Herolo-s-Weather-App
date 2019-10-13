@@ -4,7 +4,14 @@ import Button from './Button';
 
 describe('Button component', () => {
 	let component: ShallowWrapper;
-	beforeEach(() => (component = shallow(<Button>abc</Button>)));
+	const clickFn: () => void = jest.fn();
+
+	beforeEach(
+		() =>
+			(component = shallow(
+				<Button handleButtonClick={clickFn}>abc</Button>
+			))
+	);
 
 	it('should render without errors', () => {
 		expect(component).toMatchSnapshot();
@@ -15,5 +22,13 @@ describe('Button component', () => {
 
 	it('should render children props with a string type', () => {
 		expect(component.children().text()).toBe('abc');
+		expect(component.children().text()).not.toBe('undefined');
+	});
+
+	it('should call the onClick callback function upon a click on the button', () => {
+		component.simulate('click');
+
+		expect(clickFn).toHaveBeenCalled();
+		expect(clickFn).toHaveBeenCalledTimes(1);
 	});
 });

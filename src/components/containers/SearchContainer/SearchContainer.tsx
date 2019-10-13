@@ -31,7 +31,7 @@ const SearchContainer: React.FC = () => {
 				handleChange={event => handleSearchInputChange(event)}
 				handleEnterPress={handleSearchSubmission}
 			/>
-			<Button>Search</Button>
+			<Button handleButtonClick={handleSearchSubmission}>Search</Button>
 		</div>
 	);
 };

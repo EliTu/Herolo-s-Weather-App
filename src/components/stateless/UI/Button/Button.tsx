@@ -3,13 +3,18 @@ import styles from './Button.module.css';
 
 interface IProps {
 	children: string;
+	handleButtonClick: () => void;
 }
 
-const Button: React.FC<IProps> = ({ children }) => {
-    const { ButtonStyles } = styles;
-    
+const Button: React.FC<IProps> = ({ children, handleButtonClick }) => {
+	const { ButtonStyles } = styles;
+
 	return (
-		<button className={ButtonStyles} type="button">
+		<button
+			className={ButtonStyles}
+			type="button"
+			onClick={handleButtonClick}
+		>
 			{children}
 		</button>
 	);
