@@ -3,5 +3,14 @@
 exports[`SelectedWeather Component should render without errors 1`] = `
 <div
   className="SelectedWeatherStyles"
-/>
+>
+  <div
+    className="testDiv"
+  >
+    Img
+  </div>
+  <p>
+    Current weather forcast
+  </p>
+</div>
 `;

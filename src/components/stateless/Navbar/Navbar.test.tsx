@@ -12,14 +12,7 @@ describe('Navbar component', () => {
 	});
 
 	it('should render without errors', () => {
-		expect(component).toMatchInlineSnapshot(`
-      <header
-        className="NavbarStyle"
-      >
-        <Logo />
-        <Navitems />
-      </header>
-    `);
+		expect(component).toMatchSnapshot();
 		expect(component.length).toBe(1);
 		expect(component.length).not.toBe(2);
 		expect(component).toHaveClassName('NavbarStyle');

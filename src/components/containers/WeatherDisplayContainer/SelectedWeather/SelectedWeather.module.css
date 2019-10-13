@@ -1,5 +1,21 @@
+@import '../../../../variables.css';
+
 .SelectedWeatherStyles {
     width: 80%;
     height: 40%;
     margin: 0 auto;
+}
+
+.SelectedWeatherStyles p {
+    margin: 0 auto;
+    text-align: center;
+    font-size: var(--text-size-extra-large);
+}
+
+.testDiv {
+    width: 15%;
+    height: 200px;
+    border: var(--border-thick);
+    border-color: var(--color-main-black-opaque);
+    margin: 2rem;
 }

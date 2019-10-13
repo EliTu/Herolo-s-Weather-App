@@ -12,4 +12,18 @@ describe('SelectedWeather Component', () => {
 		expect(component.length).not.toBe(2);
 		expect(component).toHaveClassName('SelectedWeatherStyles');
 	});
+
+	it('should render an img tag (div for testing), p tag and a favorites icon', () => {
+		expect(component.children().length).toBe(3);
+
+		const div = expect(component.children().find('div'));
+		expect(div).toBeTruthy();
+		expect(div).toHaveLength(1);
+		expect(div).not.toHaveLength(2);
+
+		const pTag = expect(component.find('p'));
+		expect(pTag).toBeTruthy();
+		expect(pTag).toHaveLength(1);
+		expect(pTag).not.toHaveLength(2);
+	});
 });
