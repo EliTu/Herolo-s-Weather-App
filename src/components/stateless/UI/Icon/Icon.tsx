@@ -9,11 +9,12 @@ import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 interface IProps {
 	iconType: IconDefinition;
 	size: FontAwesomeIconProps['size'];
+	color?: FontAwesomeIconProps['color'];
 	pulse?: boolean;
 	spin?: boolean;
 }
 
-const Icon: React.FC<IProps> = ({ iconType, size, pulse, spin }) => {
+const Icon: React.FC<IProps> = ({ iconType, size, pulse, spin, color }) => {
 	const { IconStyles } = styles;
 
 	return (
@@ -21,6 +22,7 @@ const Icon: React.FC<IProps> = ({ iconType, size, pulse, spin }) => {
 			<FontAwesomeIcon
 				icon={iconType}
 				size={size}
+				color={color}
 				pulse={pulse}
 				spin={spin}
 			/>

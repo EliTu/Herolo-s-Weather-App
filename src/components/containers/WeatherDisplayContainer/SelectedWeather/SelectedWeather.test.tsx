@@ -24,6 +24,6 @@ describe('SelectedWeather Component', () => {
 		const pTag = component.find('p');
 		expect(pTag).toBeTruthy();
 		expect(pTag).toHaveLength(1);
-		expect(pTag).not.toHaveLength(2);
+        expect(pTag).not.toHaveLength(2);
 	});
 });
