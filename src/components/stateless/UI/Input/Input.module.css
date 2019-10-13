@@ -9,7 +9,6 @@
 }
 
 .InputStyles input,
-select,
 textarea {
     background-color: rgba(241, 238, 238, 0);
     color: var(--color-main-dark);

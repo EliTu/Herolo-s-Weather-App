@@ -12,4 +12,8 @@ describe('Button component', () => {
 		expect(component.length).not.toBe(2);
 		expect(component).toHaveClassName('ButtonStyles');
 	});
+
+	it('should render children props with a string type', () => {
+		expect(component.children().text()).toBe('abc');
+	});
 });
