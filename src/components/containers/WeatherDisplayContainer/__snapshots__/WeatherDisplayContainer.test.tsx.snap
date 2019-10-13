@@ -3,5 +3,7 @@
 exports[`WeatherDisplayContainer should render without errors 1`] = `
 <section
   className="WeatherDisplayContainerStyles"
-/>
+>
+  <SelectedWeather />
+</section>
 `;
