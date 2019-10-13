@@ -1,7 +1,7 @@
 @import '../../../variables.css';
 
 .WeatherDisplayContainerStyles {
-    width: 85%;
+    width: 70%;
     height: 43em;
     border-color: var(--color-main-black-opaque);
     border: var(--border-thick);

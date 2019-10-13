@@ -2,6 +2,7 @@ import React from 'react';
 import Icon from '../../../stateless/UI/Icon/Icon';
 import styles from './SelectedWeather.module.css';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
+// import { faHeart } from '@fortawesome/free-regular-svg-icons';
 
 const SelectedWeather: React.FC = () => {
 	const { SelectedWeatherStyles, testDiv } = styles;
