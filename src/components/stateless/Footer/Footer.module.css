@@ -11,7 +11,10 @@
     border-color: var(--color-main-black);
     padding: 1rem;
     margin: 0 auto;
-    text-align: center;
+}
+
+.FooterStyles p {
+    margin: 0;
 }
 
 .FooterStyles a {

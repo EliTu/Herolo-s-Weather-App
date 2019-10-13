@@ -1,6 +1,10 @@
+@import '../../../variables.css';
+
 .WeatherDisplayContainerStyles {
     width: 85%;
     height: 43em;
-    border: 2px solid black;
+    border: 2px solid;
+    border-color: var(--color-main-black);
+    border-radius: 8px;
     margin: 0 auto;
 }
