@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Input from '../../stateless/UI/Input/Input';
+import Button from '../../stateless/UI/Button/Button';
 import { inputTemplateData } from './searchInputTemplate';
 import styles from './SearchContainer.module.css';
 
@@ -30,6 +31,7 @@ const SearchContainer: React.FC = () => {
 				handleChange={event => handleSearchInputChange(event)}
 				handleEnterPress={handleSearchSubmission}
 			/>
+			<Button>Search</Button>
 		</div>
 	);
 };

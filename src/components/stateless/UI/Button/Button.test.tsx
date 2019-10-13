@@ -1,9 +1,15 @@
-import React from 'react'
-import {shallow} from 'enzyme';
+import React from 'react';
+import { shallow, ShallowWrapper } from 'enzyme';
 import Button from './Button';
 
 describe('Button component', () => {
-    let component;
+	let component: ShallowWrapper;
+	beforeEach(() => (component = shallow(<Button>abc</Button>)));
 
-    beforeEach()
+	it('should render without errors', () => {
+		expect(component).toMatchSnapshot();
+		expect(component.length).toBe(1);
+		expect(component.length).not.toBe(2);
+		expect(component).toHaveClassName('ButtonStyles');
+	});
 });

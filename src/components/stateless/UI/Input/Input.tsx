@@ -15,9 +15,9 @@ const Input: React.FC<IInputProps> = ({
 
 	let inputElement = null;
 
-	let errorMessageElement: JSX.Element = (
-		<p className={errorMessageStyle}>{validation.errorMessage}</p>
-	);
+	// let errorMessageElement: JSX.Element = (
+	// 	<p className={errorMessageStyle}>{validation.errorMessage}</p>
+	// );
 
 	// Listen to keyboard enter click to submit form:
 	const enterPressCallback = (event: any, func?: (e: Event) => void) => {
@@ -108,7 +108,6 @@ const Input: React.FC<IInputProps> = ({
 		<div className={InputStyles}>
 			<label>{elementConfig.label}</label>
 			{inputElement}
-			{errorMessageElement}
 		</div>
 	);
 };

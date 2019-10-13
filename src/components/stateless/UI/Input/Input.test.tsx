@@ -1,6 +1,6 @@
 import React from 'react';
 import Input from './Input';
-import { shallow } from 'enzyme';
+import { shallow, ShallowWrapper } from 'enzyme';
 import { findByTestAttr } from './../../../../utilities/test-utilities/findByTestAttr';
 
 const onChange: () => void = jest.fn();
@@ -49,7 +49,7 @@ const setComponentProps = (
 };
 
 const setComponent = (props, changeFn = () => {}, enterFn = () => {}) => {
-	const component = shallow(
+	const component: ShallowWrapper = shallow(
 		<Input {...props} handleChange={changeFn} handleEnterPress={enterFn} />
 	);
 	return component;

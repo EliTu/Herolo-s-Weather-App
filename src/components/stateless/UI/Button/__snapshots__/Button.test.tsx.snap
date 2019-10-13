@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button component should render without errors 1`] = `
+<button
+  className="ButtonStyles"
+  type="button"
+>
+  abc
+</button>
+`;

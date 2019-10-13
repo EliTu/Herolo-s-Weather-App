@@ -28,5 +28,8 @@ exports[`SearchContainer Component should render without errors 1`] = `
     }
     value=""
   />
+  <Button>
+    Search
+  </Button>
 </div>
 `;
