@@ -1,1 +1,6 @@
-.WeatherDisplayContainerStyles {}
+.WeatherDisplayContainerStyles {
+    width: 85%;
+    height: 43em;
+    border: 2px solid black;
+    margin: 0 auto;
+}

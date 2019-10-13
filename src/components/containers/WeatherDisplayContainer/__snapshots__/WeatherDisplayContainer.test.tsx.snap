@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WeatherDisplayContainer should render without errors 1`] = `
+<section
+  className="WeatherDisplayContainerStyles"
+/>
+`;
