@@ -1,9 +1,9 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, ShallowWrapper } from 'enzyme';
 import Footer from './Footer';
 
 describe('Footer component', () => {
-	let component;
+	let component: ShallowWrapper;
 	beforeEach(() => (component = shallow(<Footer />)));
 
 	it('should render without issues', () => {

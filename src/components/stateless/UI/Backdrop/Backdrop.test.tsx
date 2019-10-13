@@ -1,9 +1,9 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, ShallowWrapper } from 'enzyme';
 import Backdrop from './Backdrop';
 
 describe('Backdrop component', () => {
-	let component;
+	let component: ShallowWrapper;
 
 	beforeEach(() => {
 		component = shallow(<Backdrop isDisplayed />);

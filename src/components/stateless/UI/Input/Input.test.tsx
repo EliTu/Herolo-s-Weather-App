@@ -1,5 +1,6 @@
 import React from 'react';
 import Input from './Input';
+import { IInputProps } from '../Input/inputPropsInterface';
 import { shallow, ShallowWrapper } from 'enzyme';
 import { findByTestAttr } from './../../../../utilities/test-utilities/findByTestAttr';
 
@@ -14,7 +15,7 @@ const setComponentProps = (
 	hasInput: boolean = true,
 	options: object[]
 ) => {
-	const props = {
+	const props: IInputProps = {
 		elementType: `${elementType}`,
 		elementConfig: {
 			type: `${configType}`,
@@ -48,7 +49,11 @@ const setComponentProps = (
 	return props;
 };
 
-const setComponent = (props, changeFn = () => {}, enterFn = () => {}) => {
+const setComponent = (
+	props: IInputProps,
+	changeFn = () => {},
+	enterFn = () => {}
+) => {
 	const component: ShallowWrapper = shallow(
 		<Input {...props} handleChange={changeFn} handleEnterPress={enterFn} />
 	);

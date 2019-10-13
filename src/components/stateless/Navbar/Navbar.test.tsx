@@ -1,12 +1,12 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, ShallowWrapper } from 'enzyme';
 import Navbar from './Navbar';
 import NavItems from './NavItems/NavItems';
 import Logo from '../UI/Logo/Logo';
 import '../../../setupTests';
 
 describe('Navbar component', () => {
-	let component;
+	let component: ShallowWrapper;
 	beforeEach(() => {
 		component = shallow(<Navbar />);
 	});

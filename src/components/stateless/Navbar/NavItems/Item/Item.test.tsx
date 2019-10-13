@@ -1,10 +1,10 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, ShallowWrapper } from 'enzyme';
 import Item from './Item';
 import '../../../../../setupTests';
 
 describe('Item component', () => {
-	let component;
+	let component: ShallowWrapper;
 	beforeEach(() => {
 		component = shallow(<Item>Test Item</Item>);
 	});

@@ -1,10 +1,10 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, ShallowWrapper } from 'enzyme';
 import Layout from './Layout';
 import Backdrop from '../../stateless/UI/Backdrop/Backdrop';
 
 describe('Layout component', () => {
-	let component;
+	let component: ShallowWrapper;
 
 	beforeEach(() => {
 		component = shallow(<Layout />);
@@ -26,6 +26,5 @@ describe('Layout component', () => {
 
 		expect(main.length).toBe(1);
 		expect(main.children()).toBeTruthy();
-		expect(main.props('children')).toBeTruthy();
 	});
 });
