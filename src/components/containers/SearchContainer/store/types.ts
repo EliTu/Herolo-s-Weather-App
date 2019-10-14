@@ -2,6 +2,7 @@ import { SearchResult } from './types';
 
 export interface SearchResult {
 	isLoading: boolean;
+	error: string;
 	key: string;
 	type: string;
 	localizedName: string;
@@ -13,17 +14,16 @@ export const SEARCH_REQUEST_FAIL = 'SEARCH_REQUEST_FAIL';
 
 interface SearchRequestInitAction {
 	type: typeof SEARCH_REQUEST_INIT;
-	action: any;
 }
 
 interface SearchRequestSuccessAction {
 	type: typeof SEARCH_REQUEST_SUCCESS;
-	action: SearchResult;
+	results: SearchResult;
 }
 
 interface SearchRequestFail {
 	type: typeof SEARCH_REQUEST_FAIL;
-	action: any;
+	error: string;
 }
 
 export type SearchResultActionTypes =
