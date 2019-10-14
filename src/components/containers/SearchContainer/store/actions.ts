@@ -5,14 +5,19 @@ import {
 	SEARCH_REQUEST_FAIL,
 	SearchResultActionTypes,
 } from './types';
+import { Action, ActionCreator, Dispatch, AnyAction } from 'redux';
+import { ThunkAction, ThunkDispatch } from 'redux-thunk';
+import axios, { AxiosResponse, AxiosRequestConfig } from 'axios';
 
-export const searchRequestInit = (): SearchResultActionTypes => {
+export const searchRequestInit: ActionCreator<
+	Action
+> = (): SearchResultActionTypes => {
 	return {
 		type: SEARCH_REQUEST_INIT,
 	};
 };
 
-export const searchRequestSuccess = (
+export const searchRequestSuccess: ActionCreator<Action> = (
 	searchResults: SearchResult
 ): SearchResultActionTypes => {
 	return {
@@ -21,9 +26,36 @@ export const searchRequestSuccess = (
 	};
 };
 
-export const searchRequestFail = (error: string): SearchResultActionTypes => {
+export const searchRequestFail: ActionCreator<Action> = (
+	error: string
+): SearchResultActionTypes => {
 	return {
 		type: SEARCH_REQUEST_FAIL,
 		error: error,
+	};
+};
+
+// Thunk action creator:
+export const fireSearchHttpRequest = (inputVal: string) => {
+	return async (dispatch: any) => {
+		dispatch(searchRequestInit());
+		try {
+			const url: string =
+				'http://dataservice.accuweather.com/locations/v1/cities/autocomplete';
+			const apiKey: string = '0Gub8jwlpiFGj7JYWAu9h9cGby8MnSAz';
+
+			const requestConfig: any = {
+				apikey: apiKey,
+				q: inputVal,
+				language: 'en-us',
+			};
+
+			await axios
+				.get(url, requestConfig)
+				.then((data: AxiosResponse) => console.log(data));
+		} catch (error) {
+			console.log(error);
+			dispatch(searchRequestFail(error));
+		}
 	};
 };

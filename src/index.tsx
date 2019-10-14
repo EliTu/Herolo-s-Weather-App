@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { createStore, compose, combineReducers } from 'redux';
+import { createStore, compose, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
 import searchReducer from './components/containers/SearchContainer/store/searchReducer';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
@@ -11,13 +12,14 @@ import * as serviceWorker from './serviceWorker';
 const composeEnhancers =
 	(window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-// Combine the multiple reducer states into one:
 const rootReducer = combineReducers({
 	search: searchReducer,
 });
 
-// Init store:
-const store = createStore(rootReducer, composeEnhancers());
+const store = createStore(
+	rootReducer,
+	composeEnhancers(applyMiddleware(thunk))
+);
 
 ReactDOM.render(
 	<Provider store={store}>
