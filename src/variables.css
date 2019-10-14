@@ -5,6 +5,7 @@
     /* coloring */
     --color-main-black: rgba(39, 36, 36, 0.774);
     --color-main-black-opaque: rgba(31, 28, 28, 0.507);
+    --color-main-grey-dark: #495057;
     /* Typography */
     --text-size-small: 0.7rem;
     --text-size-medium: 1.2rem;

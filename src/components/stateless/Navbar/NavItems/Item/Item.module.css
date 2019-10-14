@@ -3,4 +3,5 @@
 .ItemStyles {
     font-size: var(--text-size-medium);
     margin: 2rem;
+    color: var(--color-main-grey-dark);
 }
