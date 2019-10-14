@@ -36,26 +36,21 @@ export const searchRequestFail: ActionCreator<Action> = (
 };
 
 // Thunk action creator:
-export const fireSearchHttpRequest = (inputVal: string) => {
+export const fireSearchHttpRequest = (searchInputValue: string) => {
 	return async (dispatch: any) => {
 		dispatch(searchRequestInit());
 		try {
 			const url: string =
 				'http://dataservice.accuweather.com/locations/v1/cities/autocomplete';
 			const apiKey: string = '0Gub8jwlpiFGj7JYWAu9h9cGby8MnSAz';
+			const params: string = `?apikey=${apiKey}&q=${searchInputValue}&language=en-us HTTP/1.1`;
 
-			const requestConfig: any = {
-				apikey: apiKey,
-				q: inputVal,
-				language: 'en-us',
-			};
+			const data = await axios.get(`${url}${params}`);
 
-			await axios
-				.get(url, requestConfig)
-				.then((data: AxiosResponse) => console.log(data));
+			console.log(data);
 		} catch (error) {
 			console.log(error);
-			dispatch(searchRequestFail(error));
+			dispatch(searchRequestFail(error.message));
 		}
 	};
 };

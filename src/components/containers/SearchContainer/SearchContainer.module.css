@@ -7,3 +7,9 @@
     justify-items: center;
     align-content: center;
 }
+
+.InputWrapper {
+    display: flex;
+}
+
+.InputWrapper svg {}

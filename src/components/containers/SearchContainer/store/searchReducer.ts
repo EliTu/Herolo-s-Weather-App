@@ -31,7 +31,14 @@ const searchReducer = (
 				localizedName: action.results.localizedName,
 			};
 		case SEARCH_REQUEST_FAIL:
-			return { ...state, error: action.error };
+			return {
+				...state,
+				error: action.error,
+				isLoading: false,
+				key: '',
+				type: '',
+				localizedName: '',
+			};
 		default:
 			return state;
 	}
