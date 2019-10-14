@@ -3,5 +3,31 @@
 exports[`FiveDaysWeather component should render the component without errors 1`] = `
 <div
   className="FiveDaysForecastStyles"
-/>
+>
+  <Card
+    info="Hot"
+    mainHeading="Tomorrow"
+    secondaryHeading="30 c"
+  />
+  <Card
+    info="Hot"
+    mainHeading="Tomorrow"
+    secondaryHeading="30 c"
+  />
+  <Card
+    info="Hot"
+    mainHeading="Tomorrow"
+    secondaryHeading="30 c"
+  />
+  <Card
+    info="Hot"
+    mainHeading="Tomorrow"
+    secondaryHeading="30 c"
+  />
+  <Card
+    info="Hot"
+    mainHeading="Tomorrow"
+    secondaryHeading="30 c"
+  />
+</div>
 `;

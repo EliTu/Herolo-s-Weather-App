@@ -18,4 +18,23 @@ describe('FavIcon component', () => {
 		expect(faIcon).toBeTruthy();
 		expect(faIcon.length).toBe(2);
 	});
+
+	it('should set different colors if the isFavorite prop changes', () => {
+		let innerHeart = component.children().at(0);
+		let hallowHeart = component.children().at(1);
+
+		expect(innerHeart.length).toBe(1);
+		expect(innerHeart.prop('color')).toBe('transparent');
+
+		expect(hallowHeart.length).toBe(1);
+		expect(hallowHeart.prop('color')).toBe('#282828c0');
+
+		component.setProps({ isFavorite: true });
+		innerHeart = component.children().at(0);
+		hallowHeart = component.children().at(1);
+
+		expect(component).toMatchSnapshot();
+		expect(innerHeart.prop('color')).toBe('red');
+		expect(hallowHeart.prop('color')).toBe('black');
+	});
 });
