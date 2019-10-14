@@ -1,11 +1,11 @@
 import { SearchResult } from './types';
 
 export interface SearchResult {
-	isLoading: boolean;
-	error: string;
 	key: string;
 	type: string;
 	localizedName: string;
+	isLoading?: boolean;
+	error?: string;
 }
 
 export const SEARCH_REQUEST_INIT = 'SEARCH_REQUEST_INIT';

@@ -20,11 +20,18 @@ const searchReducer = (
 ): SearchResult => {
 	switch (action.type) {
 		case SEARCH_REQUEST_INIT:
-			return { ...state, ...payload };
+			return { ...state, isLoading: true, error: '' };
 		case SEARCH_REQUEST_SUCCESS:
-			return { ...state, ...payload };
+			return {
+				...state,
+				isLoading: false,
+				error: '',
+				key: action.results.key,
+				type: action.results.type,
+				localizedName: action.results.localizedName,
+			};
 		case SEARCH_REQUEST_FAIL:
-			return { ...state, ...payload };
+			return { ...state, error: action.error };
 		default:
 			return state;
 	}
