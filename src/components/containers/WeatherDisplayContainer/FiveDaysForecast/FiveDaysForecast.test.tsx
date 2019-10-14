@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
-import FiveDaysForecast from './';
+import FiveDaysForecast from './FiveDaysForecast';
 
 describe('FiveDaysWeather component', () => {
 	let component: ShallowWrapper;
-    beforeEach(() => shallow(<FiveDaysForecast />));
+	beforeEach(() => (component = shallow(<FiveDaysForecast />)));
 
 	it('should render the component without errors', () => {
 		expect(component).toMatchSnapshot();
