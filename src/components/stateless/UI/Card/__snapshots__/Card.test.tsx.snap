@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card component should render without errors 1`] = `
+<div
+  className="CardStyles"
+>
+  <h3>
+    card-test
+  </h3>
+  <h4>
+    1
+  </h4>
+  <p>
+    abc
+  </p>
+</div>
+`;

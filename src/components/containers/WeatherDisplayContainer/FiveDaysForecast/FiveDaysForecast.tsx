@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './FiveDaysWeather.module.css';
+import styles from './FiveDaysForecast.module.css';
 
 interface IProps {}
 

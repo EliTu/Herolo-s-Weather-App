@@ -1,5 +1,6 @@
 import React from 'react';
 import SelectedWeather from './SelectedWeather/SelectedWeather';
+import FiveDaysForecast from './FiveDaysForecast/FiveDaysForecast';
 import styles from './WeatherDisplayContainer.module.css';
 
 const WeatherDIsplayContainer: React.FC = () => {
@@ -7,6 +8,7 @@ const WeatherDIsplayContainer: React.FC = () => {
 	return (
 		<section className={WeatherDisplayContainerStyles}>
 			<SelectedWeather />
+			<FiveDaysForecast />
 		</section>
 	);
 };
