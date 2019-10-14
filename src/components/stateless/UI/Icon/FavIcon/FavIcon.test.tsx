@@ -25,7 +25,6 @@ describe('FavIcon component', () => {
 
 		expect(innerHeart.length).toBe(1);
 		expect(innerHeart.prop('color')).toBe('transparent');
-
 		expect(hallowHeart.length).toBe(1);
 		expect(hallowHeart.prop('color')).toBe('#282828c0');
 
