@@ -3,7 +3,11 @@ import Icon from '../Icon';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as hallowHeart } from '@fortawesome/free-regular-svg-icons';
 
-const FavIcon: React.FC = () => {
+interface IProps {
+	isFavorite: boolean;
+}
+
+const FavIcon: React.FC<IProps> = ({ isFavorite }) => {
 	return (
 		<span className="fa-layers fa-fw">
 			<Icon iconType={faHeart} size={'3x'} color={'transparent'} />
