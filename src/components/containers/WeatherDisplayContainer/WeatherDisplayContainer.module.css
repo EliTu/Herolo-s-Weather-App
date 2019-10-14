@@ -2,7 +2,7 @@
 
 .WeatherDisplayContainerStyles {
     width: 70%;
-    height: 43em;
+    height: 43rem;
     border-color: var(--color-main-black-opaque);
     border: var(--border-thick);
     border-radius: 8px;
