@@ -11,10 +11,12 @@ import * as serviceWorker from './serviceWorker';
 const composeEnhancers =
 	(window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
+// Combine the multiple reducer states into one:
 const rootReducer = combineReducers({
 	search: searchReducer,
 });
 
+// Init store:
 const store = createStore(rootReducer, composeEnhancers());
 
 ReactDOM.render(
