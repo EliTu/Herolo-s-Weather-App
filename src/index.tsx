@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { createStore, compose, Reducer } from 'redux';
+import { createStore, compose, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import appReducer from './store/appReducer';
 import './index.css';
@@ -11,10 +11,10 @@ import * as serviceWorker from './serviceWorker';
 const composeEnhancers =
 	(window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-// const store: (reducer: Reducer, composeEnhance: any) => void = createStore(
-// 	appReducer,
-// 	composeEnhancers
-// );
+const store: (reducer, composeEnhance) => void = createStore(
+	appReducer,
+	composeEnhancers
+);
 
 ReactDOM.render(
 	<Provider store={store}>
