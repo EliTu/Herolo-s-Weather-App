@@ -34,7 +34,7 @@ export const searchRequestFail: ActionCreator<Action> = (
 	};
 };
 
-// Thunk action creator:
+// Thunk async action creator:
 export const fireSearchHttpRequest = (searchInputValue: string) => {
 	return async (dispatch: any) => {
 		dispatch(searchRequestInit());
@@ -45,10 +45,9 @@ export const fireSearchHttpRequest = (searchInputValue: string) => {
 			const params: string = `?apikey=${apiKey}&q=${searchInputValue}&language=en-us HTTP/1.1`;
 
 			const result = await axios.get(`${url}${params}`);
-			const data: any[] = result.data.slice(0, 5);
+			const dataList: any[] = result.data.slice(0, 5);
 
-			console.log(data);
-			dispatch(searchRequestSuccess(data));
+			dispatch(searchRequestSuccess(dataList));
 		} catch (error) {
 			console.log(error);
 			dispatch(searchRequestFail(error.message));
