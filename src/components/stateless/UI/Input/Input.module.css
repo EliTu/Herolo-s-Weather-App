@@ -1,7 +1,7 @@
 @import './../../../../variables.css';
 
 .InputStyles {
-    width: 100%;
+    width: 98%;
     box-sizing: border-box;
     font-family: inherit;
 }
@@ -21,6 +21,7 @@ textarea {
     margin: 0;
     display: inline-block;
     transition: all 0.5s;
+    outline: none;
 }
 
 .validationStyles {}

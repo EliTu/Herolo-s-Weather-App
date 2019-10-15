@@ -45,7 +45,7 @@ const SearchContainer: React.FC<IProps> = ({ httpRequest }) => {
 					handleEnterPress={handleSearchSubmission}
 				/>
 			</div>
-			<Button handleButtonClick={handleSearchSubmission}>Search</Button>
+			{/* <Button handleButtonClick={handleSearchSubmission}>Search</Button> */}
 		</div>
 	);
 };
