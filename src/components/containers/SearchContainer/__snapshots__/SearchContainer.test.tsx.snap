@@ -35,22 +35,17 @@ exports[`SearchContainer Component should render without errors 1`] = `
       }
       elementType="input"
       handleChange={[Function]}
-      handleEnterPress={[Function]}
       isFocused={false}
-      validation={
-        Object {
-          "errorMessage": "Input should have at least one character long",
-          "hasUserInput": false,
-          "required": false,
-          "valid": true,
-        }
-      }
       value=""
     />
   </div>
   <SearchResults
     isDisplayed={false}
-    resultList={Array []}
+    outsideClickRef={
+      Object {
+        "current": undefined,
+      }
+    }
     searchValue=""
   />
 </div>

@@ -35,26 +35,47 @@ describe('SearchResults component', () => {
 							AdministrativeArea: { ID: 'LD' },
 						},
 					]}
-					searchValue={''}
+					searchValue={'Lon'}
 					isDisplayed={false}
 				/>
 			))
 	);
 
-	it('should render without errors', () =>
-		initialShallowRender(component, '.SearchResultsStyles'));
-
-	it('should be invisible if searchValue length is < 2', () => {
-		expect(component).toHaveStyle('display: none');
+	it('should render without errors', () => {
+		component.setProps({ isDisplayed: true });
+		initialShallowRender(component, '.SearchResultsStyles');
 	});
 
-	it('should be visible if searchValue length its > 2', () => {
-		component.setProps({ searchValue: 'Lon' });
-		expect(component).toHaveStyle('display: flex');
+	it('should not be displayed if searchValue length is < 2, isDisplayed is false or there are no elements in the resultList', () => {
+		component.setProps({ resultList: [] });
+		expect(component).toMatchSnapshot();
+		expect(component).not.toContainMatchingElement('div');
+
+		component.setProps({
+			resultList: [
+				{
+					LocalizedName: 'London',
+					Key: '1',
+					Country: { LocalizedName: 'UK' },
+					AdministrativeArea: { ID: 'LD' },
+				},
+			],
+			searchValue: 'a',
+		});
+		expect(component).not.toContainMatchingElement('div');
+
+		component.setProps({ searchValue: 'Lond', isDisplayed: false });
+		expect(component).not.toContainMatchingElement('div');
+	});
+
+	it('should be visible if searchValue length its > 2, isDisplayed is true and if there are elements in the resultList', () => {
+		component.setProps({ isDisplayed: true });
+		expect(component).toContainMatchingElement('div');
 	});
 
 	it('should render and display a list of results coming from the resultList prop', () => {
+		component.setProps({ isDisplayed: true });
 		expect(component.children()).toBeTruthy();
-		expect(component.children().length).toBe(5);
+		expect(component.children().children().length).toBe(4);
 	});
 });

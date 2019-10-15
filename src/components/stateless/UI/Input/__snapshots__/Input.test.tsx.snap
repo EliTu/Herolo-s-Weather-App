@@ -8,11 +8,9 @@ exports[`Input component Component (not testing the input fields) should render 
     abc
   </label>
   <input
-    className="ValidStyle"
     data-test="input-test"
     label="abc"
     onChange={[Function]}
-    onKeyPress={[Function]}
     options={
       Array [
         Object {
@@ -71,7 +69,6 @@ exports[`Input component Type: input="text" test should not render if elementTyp
   </label>
   <input
     label="abc"
-    onKeyPress={[Function]}
     options={
       Array [
         Object {
@@ -101,11 +98,9 @@ exports[`Input component Type: input="text" test should render the component wit
     abc
   </label>
   <input
-    className="ValidStyle"
     data-test="input-test"
     label="abc"
     onChange={[Function]}
-    onKeyPress={[Function]}
     options={
       Array [
         Object {
@@ -138,7 +133,6 @@ exports[`Input component Type: input="textarea" test should render without error
     data-test="textarea-test"
     label="abc"
     onChange={[Function]}
-    onKeyPress={[Function]}
     options={
       Array [
         Object {

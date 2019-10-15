@@ -6,7 +6,7 @@ interface IProps {
 	resultList: ResultListTypes[];
 	searchValue: any;
 	isDisplayed: boolean;
-	outsideClickRef: React.RefObject<any>;
+	outsideClickRef?: React.RefObject<any>;
 }
 
 const SearchResults: React.FC<IProps> = ({

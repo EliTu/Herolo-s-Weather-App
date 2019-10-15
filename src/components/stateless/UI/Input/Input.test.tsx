@@ -6,7 +6,6 @@ import findByTestAttr from './../../../../utilities/test-utilities/findByTestAtt
 import initialShallowRender from '../../../../utilities/test-utilities/initialShallowRender';
 
 const onChange: () => void = jest.fn();
-const onEnterPress: () => void = jest.fn();
 
 const setComponentProps = (
 	elementType: string,
@@ -36,12 +35,6 @@ const setComponentProps = (
 			],
 		},
 		value: `${value}`,
-		validation: {
-			required: true,
-			hasUserInput: `${hasInput}`,
-			valid: `${isValid}`,
-			errorMessage: 'abc',
-		},
 		focused: true,
 		handleChange: () => {},
 		handleEnterPress: () => {},
@@ -100,16 +93,6 @@ describe('Input component', () => {
 
 			expect(onChange).toHaveBeenCalled();
 		});
-
-		it('should call the onKeyPress event callback function on user press enter', () => {
-			props = setComponentProps('input');
-			component = setComponent(props, null, onEnterPress);
-			input = findByTestAttr(component, 'input-test');
-
-			input.simulate('keypress', { key: 'Enter' });
-
-			expect(onEnterPress).toHaveBeenCalled();
-		});
 	});
 
 	describe('Type: input="textarea" test', () => {
@@ -120,14 +103,6 @@ describe('Input component', () => {
 			expect(component).toMatchSnapshot();
 			expect(textarea.length).toBe(1);
 			expect(textarea.length).not.toBe(2);
-		});
-
-		it('should call the onKeyPress event callback function on user press enter', () => {
-			component = setComponent(props, null, onEnterPress);
-
-			textarea.simulate('keypress', { key: 'Enter' });
-
-			expect(onEnterPress).toHaveBeenCalled();
 		});
 	});
 
