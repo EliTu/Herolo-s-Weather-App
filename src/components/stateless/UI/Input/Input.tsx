@@ -9,16 +9,15 @@ const Input: React.FC<IInputProps> = ({
 	validation,
 	isFocused,
 	handleChange,
-	handleEnterPress,
 }) => {
 	const { InputStyles, invalidStyle, ValidStyle } = styles;
 
 	let inputElement = null;
 
-	// Listen to keyboard enter click to submit form:
-	const enterPressCallback = (event: any, func?: (e: Event) => void) => {
-		if (event.key === 'Enter' && func) func(event);
-	};
+	// // Listen to keyboard enter click to submit form:
+	// const enterPressCallback = (event: any, func?: (e: Event) => void) => {
+	// 	if (event.key === 'Enter' && func) func(event);
+	// };
 
 	// Focus the first input field upon component mount
 	const focusRef: React.RefObject<any> = useRef();
@@ -45,9 +44,6 @@ const Input: React.FC<IInputProps> = ({
 					{...elementConfig}
 					value={value}
 					onChange={handleChange}
-					onKeyPress={event =>
-						enterPressCallback(event, handleEnterPress)
-					}
 					data-test="input-test"
 				/>
 			);
@@ -59,9 +55,6 @@ const Input: React.FC<IInputProps> = ({
 					{...elementConfig}
 					value={value}
 					onChange={handleChange}
-					onKeyPress={event =>
-						enterPressCallback(event, handleEnterPress)
-					}
 					data-test="textarea-test"
 				/>
 			);
@@ -89,15 +82,7 @@ const Input: React.FC<IInputProps> = ({
 			break;
 
 		default:
-			inputElement = (
-				<input
-					{...elementConfig}
-					value={value}
-					onKeyPress={event =>
-						enterPressCallback(event, handleEnterPress)
-					}
-				/>
-			);
+			inputElement = <input {...elementConfig} value={value} />;
 	}
 	return (
 		<div className={InputStyles}>

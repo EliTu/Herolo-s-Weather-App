@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import Input from '../../stateless/UI/Input/Input';
 import Icon from '../../stateless/UI/Icon/Icon';
@@ -29,6 +29,7 @@ export const SearchContainer: React.FC<IProps> = ({
 	const { SearchContainerStyles, InputWrapper } = styles;
 
 	const [inputData, setInputData] = useState(inputTemplateData);
+	const [areResultsDisplayed, setAreResultsDisplayed] = useState(false);
 
 	const handleSearchInputChange: (e: any) => void = (event: any) => {
 		const updatedValue: string = event.target.value;
@@ -38,10 +39,13 @@ export const SearchContainer: React.FC<IProps> = ({
 		};
 
 		setInputData(() => updatedSearchInput);
-	};
-	const handleSearchSubmission = () => {
+		setAreResultsDisplayed(() => true);
 		httpRequest(inputData.value);
 	};
+
+	useEffect(() => {
+		if (!inputData.value) setAreResultsDisplayed(() => false);
+	}, [inputData.value]);
 
 	return (
 		<div className={SearchContainerStyles}>
@@ -54,13 +58,12 @@ export const SearchContainer: React.FC<IProps> = ({
 					validation={{ ...inputData.validation }}
 					isFocused={inputData.isFocused}
 					handleChange={event => handleSearchInputChange(event)}
-					handleEnterPress={handleSearchSubmission}
 				/>
 			</div>
 			<SearchResults
 				resultList={searchResultList}
 				searchValue={inputData.value}
-				isDisplayed={true}
+				isDisplayed={areResultsDisplayed}
 			/>
 		</div>
 	);

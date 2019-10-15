@@ -8,19 +8,15 @@ interface IProps {
 	isDisplayed: boolean;
 }
 
-const SearchResults: React.FC<IProps> = ({
-	resultList,
-	searchValue,
-	isDisplayed,
-}) => {
+const SearchResults: React.FC<IProps> = ({ resultList, searchValue }) => {
 	const { SearchResultsStyles } = styles;
-	return isDisplayed || searchValue.length > 2 ? (
+	return resultList.length > 0 && searchValue.length >= 2 ? (
 		<div className={SearchResultsStyles}>
 			<ul>
 				{resultList.map(result => (
 					<li
 						key={result.Key}
-					>{`${result.LocalizedName}, ${result.AdministrativeArea.ID},${result.Country.LocalizedName}`}</li>
+					>{`${result.LocalizedName}, ${result.AdministrativeArea.ID}, ${result.Country.LocalizedName}`}</li>
 				))}
 			</ul>
 		</div>
