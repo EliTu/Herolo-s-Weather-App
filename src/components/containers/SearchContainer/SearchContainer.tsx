@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, Reducer, ReducerState } from 'react';
 import { connect } from 'react-redux';
 import Input from '../../stateless/UI/Input/Input';
 // import Button from '../../stateless/UI/Button/Button';
 import Icon from '../../stateless/UI/Icon/Icon';
+import { SearchResult } from './store/types';
 import SearchResults from './SearchResults/SearchResults';
 import { inputTemplateData } from './searchInputTemplate';
 import { fireSearchHttpRequest } from './store/actions';
@@ -12,9 +13,13 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 interface IProps {
 	httpRequest: (val: any) => void;
+	searchResultList: {}[];
 }
 
-export const SearchContainer: React.FC<IProps> = ({ httpRequest }) => {
+export const SearchContainer: React.FC<IProps> = ({
+	httpRequest,
+	searchResultList,
+}) => {
 	const { SearchContainerStyles, InputWrapper } = styles;
 
 	const [inputData, setInputData] = useState(inputTemplateData);
@@ -56,6 +61,13 @@ export const SearchContainer: React.FC<IProps> = ({ httpRequest }) => {
 	);
 };
 
+// Redux state & dispatch setup:
+const mapStateToProps = (state: SearchResult) => {
+	return {
+		searchResultList: state.search.results,
+	};
+};
+
 const mapDispatchToProps = (dispatch: ThunkDispatch<{}, {}, any>) => {
 	return {
 		httpRequest: (val: string) => dispatch(fireSearchHttpRequest(val)),
@@ -63,6 +75,6 @@ const mapDispatchToProps = (dispatch: ThunkDispatch<{}, {}, any>) => {
 };
 
 export default connect(
-	null,
+	mapStateToProps,
 	mapDispatchToProps
 )(SearchContainer);

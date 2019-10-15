@@ -1,7 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { createStore, compose, combineReducers, applyMiddleware } from 'redux';
+import {
+	createStore,
+	compose,
+	combineReducers,
+	applyMiddleware,
+	Store,
+	Reducer,
+} from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import searchReducer from './components/containers/SearchContainer/store/searchReducer';
@@ -12,11 +19,11 @@ import * as serviceWorker from './serviceWorker';
 const composeEnhancers =
 	(window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const rootReducer = combineReducers({
+const rootReducer: Reducer = combineReducers({
 	search: searchReducer,
 });
 
-const store = createStore(
+const store: Store = createStore(
 	rootReducer,
 	composeEnhancers(applyMiddleware(thunk))
 );
