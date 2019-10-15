@@ -1,4 +1,4 @@
-import { IInputProps } from './../../stateless/UI/Input/inputPropsInterface';
+import { IInputProps } from '../../display/UI/Input/inputPropsInterface';
 
 export const inputTemplateData: IInputProps = {
 	elementType: 'input',

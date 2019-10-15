@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from '../../../stateless/UI/Card/Card';
+import Card from '../../../display/UI/Card/Card';
 import styles from './FiveDaysForecast.module.css';
 
 interface IProps {}

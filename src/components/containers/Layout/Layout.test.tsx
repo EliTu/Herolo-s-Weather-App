@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
 import Layout from './Layout';
-import Backdrop from '../../stateless/UI/Backdrop/Backdrop';
+import Backdrop from '../../display/UI/Backdrop/Backdrop';
 import initialShallowRender from '../../../utilities/test-utilities/initialShallowRender';
 
 describe('Layout component', () => {

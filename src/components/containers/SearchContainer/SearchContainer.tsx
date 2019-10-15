@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
-import Input from '../../stateless/UI/Input/Input';
-import Icon from '../../stateless/UI/Icon/Icon';
+import Input from '../../display/UI/Input/Input';
+import Icon from '../../display/UI/Icon/Icon';
 import SearchResults from './SearchResults/SearchResults';
 import { inputTemplateData } from './searchInputTemplate';
 import { fireSearchHttpRequest } from './store/actions';

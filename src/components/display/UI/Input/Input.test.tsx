@@ -1,8 +1,8 @@
 import React from 'react';
 import Input from './Input';
-import { IInputProps } from '../Input/inputPropsInterface';
+import { IInputProps } from './inputPropsInterface';
 import { shallow, ShallowWrapper } from 'enzyme';
-import findByTestAttr from './../../../../utilities/test-utilities/findByTestAttr';
+import findByTestAttr from '../../../../utilities/test-utilities/findByTestAttr';
 import initialShallowRender from '../../../../utilities/test-utilities/initialShallowRender';
 
 const onChange: () => void = jest.fn();

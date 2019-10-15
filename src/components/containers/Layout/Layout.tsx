@@ -1,5 +1,5 @@
 import React from 'react';
-import Backdrop from '../../stateless/UI/Backdrop/Backdrop';
+import Backdrop from '../../display/UI/Backdrop/Backdrop';
 import styles from './Layout.module.css';
 
 interface IProps {}

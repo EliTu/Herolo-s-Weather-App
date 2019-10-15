@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
 import { SearchContainer } from './SearchContainer';
-import Input from '../../stateless/UI/Input/Input';
-import Icon from '../../stateless/UI/Icon/Icon';
+import Input from '../../display/UI/Input/Input';
+import Icon from '../../display/UI/Icon/Icon';
 import initialShallowRender from '../../../utilities/test-utilities/initialShallowRender';
 
 describe('SearchContainer Component', () => {
