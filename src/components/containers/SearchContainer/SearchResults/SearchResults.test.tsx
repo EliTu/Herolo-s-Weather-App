@@ -75,7 +75,21 @@ describe('SearchResults component', () => {
 
 	it('should render and display a list of results coming from the resultList prop', () => {
 		component.setProps({ isDisplayed: true });
-		expect(component.children()).toBeTruthy();
-		expect(component.children().children().length).toBe(4);
+
+		const ul = component.children();
+		const li = component.children().children();
+		expect(ul).toBeTruthy();
+		expect(ul.length).toBe(1);
+		expect(li.length).toBe(4);
+	});
+
+	it('should render LocalizedName, Country LocalizedName and AdministrativeArea ID as a string', () => {
+		component.setProps({ isDisplayed: true });
+		const li = component.children().children();
+
+		expect(li.at(0).text()).toBe('London, LD, UK');
+		expect(li.at(1).text()).toBe('London, LD, UK');
+		expect(li.at(2).text()).toBe('London, LD, UK');
+		expect(li.at(3).text()).toBe('London, LD, UK');
 	});
 });
