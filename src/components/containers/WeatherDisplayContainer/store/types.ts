@@ -11,6 +11,7 @@ export interface CurrentWeatherResult {
 	temperatureMetricUnit: string;
 	temperatureImperialValue?: number;
 	temperatureImperialUnit?: string;
+	isLoading: boolean;
 }
 
 export const CURRENT_WEATHER_INIT = 'CURRENT_WEATHER_INIT';
