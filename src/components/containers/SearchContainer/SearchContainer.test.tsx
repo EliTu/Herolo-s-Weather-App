@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
-import SearchContainer from './SearchContainer';
-import Input from '../../stateless/UI/Input/Input';
+import { SearchContainer } from './SearchContainer';
 
 describe('SearchContainer Component', () => {
 	let component: ShallowWrapper;

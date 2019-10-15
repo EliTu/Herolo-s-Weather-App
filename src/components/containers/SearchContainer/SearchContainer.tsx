@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import Input from '../../stateless/UI/Input/Input';
-import Button from '../../stateless/UI/Button/Button';
+// import Button from '../../stateless/UI/Button/Button';
 import Icon from '../../stateless/UI/Icon/Icon';
 import { inputTemplateData } from './searchInputTemplate';
 import { fireSearchHttpRequest } from './store/actions';
@@ -13,7 +13,7 @@ interface IProps {
 	httpRequest: (val: any) => void;
 }
 
-const SearchContainer: React.FC<IProps> = ({ httpRequest }) => {
+export const SearchContainer: React.FC<IProps> = ({ httpRequest }) => {
 	const { SearchContainerStyles, InputWrapper } = styles;
 
 	const [inputData, setInputData] = useState(inputTemplateData);

@@ -45,9 +45,11 @@ export const fireSearchHttpRequest = (searchInputValue: string) => {
 			const apiKey: string = '0Gub8jwlpiFGj7JYWAu9h9cGby8MnSAz';
 			const params: string = `?apikey=${apiKey}&q=${searchInputValue}&language=en-us HTTP/1.1`;
 
-			const data = await axios.get(`${url}${params}`);
+			const result = await axios.get(`${url}${params}`);
+			const data: any[] = result.data;
 
 			console.log(data);
+			dispatch(searchRequestSuccess(data));
 		} catch (error) {
 			console.log(error);
 			dispatch(searchRequestFail(error.message));

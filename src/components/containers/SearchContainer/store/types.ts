@@ -1,9 +1,5 @@
-import { SearchResult } from './types';
-
 export interface SearchResult {
-	key: string;
-	type: string;
-	localizedName: string;
+	results: any;
 	isLoading?: boolean;
 	error?: string;
 }
@@ -18,7 +14,7 @@ interface SearchRequestInitAction {
 
 interface SearchRequestSuccessAction {
 	type: typeof SEARCH_REQUEST_SUCCESS;
-	results: SearchResult;
+	results: any;
 }
 
 interface SearchRequestFail {

@@ -11,9 +11,7 @@ describe('searchReducer', () => {
 			{
 				isLoading: true,
 				error: '',
-				key: '',
-				type: '',
-				localizedName: '',
+				results: [],
 			}
 		);
 	});
@@ -22,14 +20,12 @@ describe('searchReducer', () => {
 		expect(
 			searchReducer(undefined, {
 				type: SEARCH_REQUEST_SUCCESS,
-				results: { key: 'abc', type: 'abc', localizedName: 'abc' },
+				results: [{}, {}, {}],
 			})
 		).toEqual({
 			isLoading: false,
 			error: '',
-			key: 'abc',
-			type: 'abc',
-			localizedName: 'abc',
+			results: [{}, {}, {}],
 		});
 	});
 
@@ -42,9 +38,7 @@ describe('searchReducer', () => {
 		).toEqual({
 			isLoading: false,
 			error: 'abc',
-			key: '',
-			type: '',
-			localizedName: '',
+			results: [],
 		});
 	});
 });

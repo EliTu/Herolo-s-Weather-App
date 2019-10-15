@@ -7,11 +7,9 @@ import {
 } from './types';
 
 const INITIAL_STATE: SearchResult = {
+	results: [],
 	isLoading: false,
 	error: '',
-	key: '',
-	type: '',
-	localizedName: '',
 };
 
 const searchReducer = (
@@ -21,23 +19,20 @@ const searchReducer = (
 	switch (action.type) {
 		case SEARCH_REQUEST_INIT:
 			return { ...state, isLoading: true, error: '' };
+
 		case SEARCH_REQUEST_SUCCESS:
 			return {
 				...state,
+				results: [...action.results],
 				isLoading: false,
 				error: '',
-				key: action.results.key,
-				type: action.results.type,
-				localizedName: action.results.localizedName,
-			};
+			};gi
 		case SEARCH_REQUEST_FAIL:
 			return {
 				...state,
+				results: [],
 				error: action.error,
 				isLoading: false,
-				key: '',
-				type: '',
-				localizedName: '',
 			};
 		default:
 			return state;
