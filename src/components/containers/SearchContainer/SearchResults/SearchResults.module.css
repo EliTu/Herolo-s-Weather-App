@@ -4,10 +4,29 @@
     z-index: 2;
     display: flex;
     width: 90%;
-    height: 100px;
     border: var(--border-thick);
     border-color: var(--color-main-black-opaque);
     background-color: var(--background-main-light-theme);
     position: absolute;
     top: 50px;
+}
+
+.SearchResultsStyles ul {
+    width: 97%;
+    padding: 0.3rem;
+    margin: 0 0.3rem auto;
+}
+
+.SearchResultsStyles li {
+    list-style: none;
+    width: 100%;
+    font-size: var(--text-size-large);
+    cursor: pointer;
+    padding: 0;
+    margin: 0.3rem;
+    background: none;
+}
+
+.SearchResultsStyles li:hover {
+    background-color: rgba(156, 148, 148, 0.479);
 }

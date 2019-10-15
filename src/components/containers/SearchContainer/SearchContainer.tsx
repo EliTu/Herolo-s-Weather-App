@@ -10,9 +10,16 @@ import { ThunkDispatch } from 'redux-thunk';
 import styles from './SearchContainer.module.css';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
+export type ResultListTypes = {
+	LocalizedName: string;
+	Key: string;
+	Country: { LocalizedName: string };
+	AdministrativeArea: { ID: string };
+};
+
 interface IProps {
 	httpRequest: (val: any) => void;
-	searchResultList: { LocalizedName: string; Key: string }[];
+	searchResultList: ResultListTypes[];
 }
 
 export const SearchContainer: React.FC<IProps> = ({

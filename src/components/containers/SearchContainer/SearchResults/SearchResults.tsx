@@ -1,8 +1,9 @@
 import React from 'react';
 import styles from './SearchResults.module.css';
+import { ResultListTypes } from '../SearchContainer';
 
 interface IProps {
-	resultList: { LocalizedName: string; Key: string }[];
+	resultList: ResultListTypes[];
 	searchValue: any;
 	isDisplayed: boolean;
 }
@@ -17,7 +18,9 @@ const SearchResults: React.FC<IProps> = ({
 		<div className={SearchResultsStyles}>
 			<ul>
 				{resultList.map(result => (
-					<li key={result.Key}>{result.LocalizedName}</li>
+					<li
+						key={result.Key}
+					>{`${result.LocalizedName}, ${result.AdministrativeArea.ID},${result.Country.LocalizedName}`}</li>
 				))}
 			</ul>
 		</div>
