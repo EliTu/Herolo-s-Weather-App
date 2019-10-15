@@ -3,10 +3,10 @@ import Item from './Item/Item';
 import styles from './NavItems.module.css';
 
 const Navitems: React.FC = () => {
-	const { NavItemsStyle } = styles;
+	const { NavItemsStyles } = styles;
 
 	return (
-		<div className={NavItemsStyle}>
+		<div className={NavItemsStyles}>
 			<Item>Home</Item>
 			<Item>Favorites</Item>
 			<Item>About</Item>

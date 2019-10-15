@@ -2,20 +2,15 @@ import React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
 import Layout from './Layout';
 import Backdrop from '../../stateless/UI/Backdrop/Backdrop';
+import initialShallowRender from '../../../utilities/test-utilities/initialShallowRender';
 
 describe('Layout component', () => {
 	let component: ShallowWrapper;
 
-	beforeEach(() => {
-		component = shallow(<Layout />);
-	});
+	beforeEach(() => (component = shallow(<Layout />)));
 
-	it('should render without errors', () => {
-		expect(component).toMatchSnapshot();
-		expect(component.length).toBe(1);
-		expect(component.length).not.toBe(2);
-		expect(component).toHaveClassName('LayoutStyles');
-	});
+	it('should render without errors', () =>
+		initialShallowRender(component, '.LayoutStyles'));
 
 	it('should render the Backdrop component without errors', () => {
 		expect(component).toContainReact(<Backdrop isDisplayed />);

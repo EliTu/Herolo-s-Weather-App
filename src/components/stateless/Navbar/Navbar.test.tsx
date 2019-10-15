@@ -4,6 +4,7 @@ import Navbar from './Navbar';
 import NavItems from './NavItems/NavItems';
 import Logo from '../UI/Logo/Logo';
 import '../../../setupTests';
+import initialShallowRender from '../../../utilities/test-utilities/initialShallowRender';
 
 describe('Navbar component', () => {
 	let component: ShallowWrapper;
@@ -11,12 +12,8 @@ describe('Navbar component', () => {
 		component = shallow(<Navbar />);
 	});
 
-	it('should render without errors', () => {
-		expect(component).toMatchSnapshot();
-		expect(component.length).toBe(1);
-		expect(component.length).not.toBe(2);
-		expect(component).toHaveClassName('NavbarStyle');
-	});
+	it('should render without errors', () =>
+		initialShallowRender(component, '.NavbarStyles'));
 
 	it('should render Logo and NavItems without errors', () => {
 		expect(component.children().length).toBe(2);

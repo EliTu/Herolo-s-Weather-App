@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
 import Logo from './Logo';
+import initialShallowRender from '../../../../utilities/test-utilities/initialShallowRender';
 
 describe('Logo component', () => {
 	let component: ShallowWrapper;
@@ -8,12 +9,8 @@ describe('Logo component', () => {
 		component = shallow(<Logo />);
 	});
 
-	it('should render without errors', () => {
-		expect(component).toMatchSnapshot();
-		expect(component.length).toBe(1);
-		expect(component.length).not.toBe(2);
-		expect(component).toHaveClassName('LogoStyles');
-	});
+	it('should render without errors', () =>
+		initialShallowRender(component, '.LogoStyles'));
 
 	it('should render one span tag with a text', () => {
 		const span = component.children().find('span');

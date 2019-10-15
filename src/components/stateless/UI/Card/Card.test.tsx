@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
 import Card from './Card';
+import initialShallowRender from '../../../../utilities/test-utilities/initialShallowRender';
 
 describe('Card component', () => {
 	let component: ShallowWrapper;
@@ -15,12 +16,8 @@ describe('Card component', () => {
 			))
 	);
 
-	it('should render without errors', () => {
-		expect(component).toMatchSnapshot();
-		expect(component.length).toBe(1);
-		expect(component.length).not.toBe(2);
-		expect(component).toHaveClassName('CardStyles');
-	});
+	it('should render without errors', () =>
+		initialShallowRender(component, '.CardStyles'));
 
 	it('should render a div with an h3, h4 and p tags, containing the info passed as props', () => {
 		expect(

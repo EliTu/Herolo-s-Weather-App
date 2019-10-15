@@ -2,7 +2,8 @@ import React from 'react';
 import Input from './Input';
 import { IInputProps } from '../Input/inputPropsInterface';
 import { shallow, ShallowWrapper } from 'enzyme';
-import { findByTestAttr } from './../../../../utilities/test-utilities/findByTestAttr';
+import findByTestAttr from './../../../../utilities/test-utilities/findByTestAttr';
+import initialShallowRender from '../../../../utilities/test-utilities/initialShallowRender';
 
 const onChange: () => void = jest.fn();
 const onEnterPress: () => void = jest.fn();
@@ -65,12 +66,7 @@ describe('Input component', () => {
 		it('should render an Input component withot errors', () => {
 			let props = setComponentProps('input', 'text', 'abc', true);
 			let component = setComponent(props);
-			expect(component).toMatchSnapshot();
-			expect(component).toBeTruthy();
-			expect(component).toHaveClassName('InputStyles');
-			expect(component.length).toBe(1);
-			expect(component.length).not.toBe(2);
-			expect(component).toHaveClassName('InputStyles');
+			initialShallowRender(component, '.InputStyles');
 		});
 	});
 

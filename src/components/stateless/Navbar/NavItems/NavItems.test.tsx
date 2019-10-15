@@ -3,6 +3,7 @@ import { shallow, ShallowWrapper } from 'enzyme';
 import NavItems from './NavItems';
 import Item from './Item/Item';
 import '../../../../setupTests';
+import initialShallowRender from '../../../../utilities/test-utilities/initialShallowRender';
 
 describe('NavItems component', () => {
 	let component: ShallowWrapper;
@@ -11,12 +12,8 @@ describe('NavItems component', () => {
 		component = shallow(<NavItems />);
 	});
 
-	it('should render without errors', () => {
-		expect(component).toMatchSnapshot();
-		expect(component.length).toBe(1);
-		expect(component.length).not.toBe(2);
-		expect(component).toHaveClassName('NavItemsStyle');
-	});
+	it('should render without errors', () =>
+		initialShallowRender(component, '.NavItemsStyles'));
 
 	it('should render a div with 3 Item components with the texts Home, Favorites and About', () => {
 		const container = component.find('div');

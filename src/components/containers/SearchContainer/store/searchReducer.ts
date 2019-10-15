@@ -26,7 +26,8 @@ const searchReducer = (
 				results: [...action.results],
 				isLoading: false,
 				error: '',
-			};gi
+			};
+			gi;
 		case SEARCH_REQUEST_FAIL:
 			return {
 				...state,

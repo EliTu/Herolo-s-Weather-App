@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
 import Icon from './Icon';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import initialShallowRender from '../../../../utilities/test-utilities/initialShallowRender';
 
 describe('Icon component', () => {
 	let component: ShallowWrapper;
@@ -9,12 +10,8 @@ describe('Icon component', () => {
 		() => (component = shallow(<Icon iconType={faCoffee} size={'2x'} />))
 	);
 
-	it('should render without errors', () => {
-		expect(component).toMatchSnapshot();
-		expect(component.length).toBe(1);
-		expect(component.length).not.toBe(2);
-		expect(component).toHaveClassName('IconStyles');
-	});
+	it('should render without errors', () =>
+		initialShallowRender(component, '.IconStyles'));
 
 	it('should render a FontAwesome SVG icon, with a specified type and size', () => {
 		const faIcon = component.children().find('FontAwesomeIcon');

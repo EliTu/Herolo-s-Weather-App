@@ -3,6 +3,7 @@ import { shallow, ShallowWrapper } from 'enzyme';
 import { SearchContainer } from './SearchContainer';
 import Input from '../../stateless/UI/Input/Input';
 import Icon from '../../stateless/UI/Icon/Icon';
+import initialShallowRender from '../../../utilities/test-utilities/initialShallowRender';
 
 describe('SearchContainer Component', () => {
 	let component: ShallowWrapper;
@@ -10,12 +11,8 @@ describe('SearchContainer Component', () => {
 		() => (component = shallow(<SearchContainer httpRequest={() => {}} />))
 	);
 
-	it('should render without errors', () => {
-		expect(component).toMatchSnapshot();
-		expect(component.length).toBe(1);
-		expect(component.length).not.toBe(2);
-		expect(component).toHaveClassName('SearchContainerStyles');
-	});
+	it('should render without errors', () =>
+		initialShallowRender(component, '.SearchContainerStyles'));
 
 	it('should render a div wrapper that contains an Input and an Icon components', () => {
 		expect(component.children().find('div').length).toBe(1);

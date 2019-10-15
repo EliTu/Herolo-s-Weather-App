@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
 import Backdrop from './Backdrop';
+import initialShallowRender from '../../../../utilities/test-utilities/initialShallowRender';
 
 describe('Backdrop component', () => {
 	let component: ShallowWrapper;
@@ -10,9 +11,8 @@ describe('Backdrop component', () => {
 	});
 
 	it('should render without errors', () => {
-		expect(component).toMatchSnapshot();
-		expect(component.length).toBe(1);
-		expect(component.length).not.toBe(2);
+		const div = component.find('div');
+		initialShallowRender(div, '.BackdropStyles');
 	});
 
 	it('if isDisplayed props is true, should have a div with the className of BackdropStyles', () => {

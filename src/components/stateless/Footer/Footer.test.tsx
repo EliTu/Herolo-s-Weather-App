@@ -1,17 +1,14 @@
 import React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
 import Footer from './Footer';
+import initialShallowRender from '../../../utilities/test-utilities/initialShallowRender';
 
 describe('Footer component', () => {
 	let component: ShallowWrapper;
 	beforeEach(() => (component = shallow(<Footer />)));
 
-	it('should render without issues', () => {
-		expect(component).toMatchSnapshot();
-		expect(component.length).toBe(1);
-		expect(component.length).not.toBe(2);
-		expect(component).toHaveClassName('FooterStyles');
-	});
+	it('should render without issues', () =>
+		initialShallowRender(component, '.FooterStyles'));
 
 	it('should include a single p tag with a text, that also contains 3 a tags', () => {
 		const pTag = component.find('p');

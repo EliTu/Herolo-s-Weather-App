@@ -50,13 +50,6 @@ export const SearchContainer: React.FC<IProps> = ({ httpRequest }) => {
 	);
 };
 
-// Redux connect setup:
-// const mapStateToProps = (state) => {
-// 	return {
-
-// 	};
-// };
-
 const mapDispatchToProps = (dispatch: ThunkDispatch<{}, {}, any>) => {
 	return {
 		httpRequest: (val: string) => dispatch(fireSearchHttpRequest(val)),

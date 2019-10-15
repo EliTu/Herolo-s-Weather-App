@@ -6,10 +6,10 @@ import Logo from '../UI/Logo/Logo';
 interface IProps {}
 
 const Navbar: React.FC = () => {
-	const { NavbarStyle } = styles;
+	const { NavbarStyles } = styles;
 
 	return (
-		<header className={NavbarStyle}>
+		<header className={NavbarStyles}>
 			<Logo />
 			<NavItems />
 		</header>

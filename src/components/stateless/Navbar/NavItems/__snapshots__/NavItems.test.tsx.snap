@@ -2,7 +2,7 @@
 
 exports[`NavItems component should render without errors 1`] = `
 <div
-  className="NavItemsStyle"
+  className="NavItemsStyles"
 >
   <Item>
     Home

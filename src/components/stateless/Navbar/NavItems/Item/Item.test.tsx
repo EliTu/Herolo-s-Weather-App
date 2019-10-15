@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
 import Item from './Item';
 import '../../../../../setupTests';
+import initialShallowRender from '../../../../../utilities/test-utilities/initialShallowRender';
 
 describe('Item component', () => {
 	let component: ShallowWrapper;
@@ -9,12 +10,8 @@ describe('Item component', () => {
 		component = shallow(<Item>Test Item</Item>);
 	});
 
-	it('should render without errors', () => {
-		expect(component).toMatchSnapshot();
-		expect(component.length).toBe(1);
-		expect(component.length).not.toBe(2);
-		expect(component).toHaveClassName('ItemStyles');
-	});
+	it('should render without errors', () =>
+		initialShallowRender(component, '.ItemStyles'));
 
 	it('should render a children prop with a type of string without errors', () => {
 		expect(component.children().text()).toBe('Test Item');
