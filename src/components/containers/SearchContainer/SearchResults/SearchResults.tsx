@@ -1,9 +1,9 @@
-import React, { PropsWithChildren } from 'react';
+import React, { PropsWithChildren, ReactText } from 'react';
 import styles from './SearchResults.module.css';
 
 interface IProps {
 	resultList: {}[];
-	searchValue: string;
+	searchValue: string | ReactText;
 	isDisplayed: boolean;
 }
 

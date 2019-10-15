@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Input from '../../stateless/UI/Input/Input';
 // import Button from '../../stateless/UI/Button/Button';
 import Icon from '../../stateless/UI/Icon/Icon';
+import SearchResults from './SearchResults/SearchResults';
 import { inputTemplateData } from './searchInputTemplate';
 import { fireSearchHttpRequest } from './store/actions';
 import { ThunkDispatch } from 'redux-thunk';
@@ -45,6 +46,11 @@ export const SearchContainer: React.FC<IProps> = ({ httpRequest }) => {
 					handleEnterPress={handleSearchSubmission}
 				/>
 			</div>
+			<SearchResults
+				resultList={[]}
+				searchValue={inputData.value}
+				isDisplayed={false}
+			/>
 			{/* <Button handleButtonClick={handleSearchSubmission}>Search</Button> */}
 		</div>
 	);
