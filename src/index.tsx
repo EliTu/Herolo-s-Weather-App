@@ -22,7 +22,7 @@ const rootReducer: Reducer = combineReducers({
 	search: searchReducer,
 });
 
-export const store: Store = createStore(
+const store: Store = createStore(
 	rootReducer,
 	composeEnhancers(applyMiddleware(thunk))
 );

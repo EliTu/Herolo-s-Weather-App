@@ -6,7 +6,7 @@ import WeatherDIsplayContainer from './components/containers/WeatherDisplayConta
 import Footer from './components/stateless/Footer/Footer';
 import './App.css';
 
-export const App: React.FC = () => {
+const App: React.FC = () => {
 	return (
 		<div className="App">
 			<Layout>
