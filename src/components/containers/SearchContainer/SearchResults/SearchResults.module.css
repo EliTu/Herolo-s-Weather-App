@@ -1,1 +1,10 @@
-.SearchResultsStyles {}
+@import '../../../../variables.css';
+
+.SearchResultsStyles {
+    z-index: 2;
+    display: flex;
+    width: inherit;
+    height: 100px;
+    border: var(--border-thick);
+    border-color: var(--color-main-black-opaque);
+}

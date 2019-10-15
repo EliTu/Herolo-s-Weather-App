@@ -1,8 +1,8 @@
-import React, { PropsWithChildren, ReactText } from 'react';
+import React, { ReactText } from 'react';
 import styles from './SearchResults.module.css';
 
 interface IProps {
-	resultList: {}[];
+	resultList: { LocalizedName: string; Key: string }[];
 	searchValue: string | ReactText;
 	isDisplayed: boolean;
 }
@@ -13,7 +13,15 @@ const SearchResults: React.FC<IProps> = ({
 	isDisplayed,
 }) => {
 	const { SearchResultsStyles } = styles;
-	return <div className={SearchResultsStyles}></div>;
+	return isDisplayed ? (
+		<div className={SearchResultsStyles}>
+			<ul>
+				{resultList.map(result => (
+					<li key={result.Key}>{result.LocalizedName}</li>
+				))}
+			</ul>
+		</div>
+	) : null;
 };
 
 export default SearchResults;

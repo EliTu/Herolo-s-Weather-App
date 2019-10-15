@@ -46,7 +46,7 @@ export const fireSearchHttpRequest = (searchInputValue: string) => {
 			const params: string = `?apikey=${apiKey}&q=${searchInputValue}&language=en-us HTTP/1.1`;
 
 			const result = await axios.get(`${url}${params}`);
-			const data: any[] = result.data;
+			const data: any[] = result.data.slice(0, 5);
 
 			console.log(data);
 			dispatch(searchRequestSuccess(data));

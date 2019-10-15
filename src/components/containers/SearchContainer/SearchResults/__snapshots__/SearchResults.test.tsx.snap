@@ -1,7 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SearchResults component should render without errors 1`] = `
-<div
-  className="SearchResultsStyles"
-/>
-`;
+exports[`SearchResults component should render without errors 1`] = `""`;

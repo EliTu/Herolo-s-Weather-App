@@ -9,7 +9,13 @@ describe('SearchResults component', () => {
 		() =>
 			(component = shallow(
 				<SearchResults
-					resultList={[{}, {}, {}, {}, {}]}
+					resultList={[
+						{ LocalizedName: 'London', Key: '1' },
+						{ LocalizedName: 'London', Key: '2' },
+						{ LocalizedName: 'London', Key: '3' },
+						{ LocalizedName: 'London', Key: '4' },
+						{ LocalizedName: 'London', Key: '5' },
+					]}
 					searchValue={''}
 					isDisplayed={false}
 				/>

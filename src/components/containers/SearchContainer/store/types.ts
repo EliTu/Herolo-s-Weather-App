@@ -1,5 +1,4 @@
 export interface SearchResult {
-	search?: any;
 	results: any;
 	isLoading?: boolean;
 	error?: string;

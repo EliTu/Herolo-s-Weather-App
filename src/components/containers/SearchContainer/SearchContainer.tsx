@@ -13,7 +13,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 interface IProps {
 	httpRequest: (val: any) => void;
-	searchResultList: {}[];
+	searchResultList: { LocalizedName: string; Key: string }[];
 }
 
 export const SearchContainer: React.FC<IProps> = ({
@@ -52,9 +52,9 @@ export const SearchContainer: React.FC<IProps> = ({
 				/>
 			</div>
 			<SearchResults
-				resultList={[]}
+				resultList={searchResultList}
 				searchValue={inputData.value}
-				isDisplayed={false}
+				isDisplayed={true}
 			/>
 			{/* <Button handleButtonClick={handleSearchSubmission}>Search</Button> */}
 		</div>
@@ -62,7 +62,7 @@ export const SearchContainer: React.FC<IProps> = ({
 };
 
 // Redux state & dispatch setup:
-const mapStateToProps = (state: SearchResult) => {
+const mapStateToProps = (state: any) => {
 	return {
 		searchResultList: state.search.results,
 	};
