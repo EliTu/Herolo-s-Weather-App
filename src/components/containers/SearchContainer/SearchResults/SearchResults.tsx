@@ -1,9 +1,9 @@
-import React, { ReactText } from 'react';
+import React from 'react';
 import styles from './SearchResults.module.css';
 
 interface IProps {
 	resultList: { LocalizedName: string; Key: string }[];
-	searchValue: string | ReactText;
+	searchValue: any;
 	isDisplayed: boolean;
 }
 
@@ -13,7 +13,7 @@ const SearchResults: React.FC<IProps> = ({
 	isDisplayed,
 }) => {
 	const { SearchResultsStyles } = styles;
-	return isDisplayed ? (
+	return isDisplayed || searchValue.length > 2 ? (
 		<div className={SearchResultsStyles}>
 			<ul>
 				{resultList.map(result => (

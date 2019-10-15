@@ -1,9 +1,8 @@
-import React, { useState, Reducer, ReducerState } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import Input from '../../stateless/UI/Input/Input';
-// import Button from '../../stateless/UI/Button/Button';
 import Icon from '../../stateless/UI/Icon/Icon';
-import { SearchResult } from './store/types';
+// import { SearchResult } from './store/types';
 import SearchResults from './SearchResults/SearchResults';
 import { inputTemplateData } from './searchInputTemplate';
 import { fireSearchHttpRequest } from './store/actions';
@@ -56,7 +55,6 @@ export const SearchContainer: React.FC<IProps> = ({
 				searchValue={inputData.value}
 				isDisplayed={true}
 			/>
-			{/* <Button handleButtonClick={handleSearchSubmission}>Search</Button> */}
 		</div>
 	);
 };

@@ -1,4 +1,7 @@
+@import '../../../variables.css';
+
 .LayoutStyles {
     width: 100%;
     height: 100%;
+    background-color: var(--background-main-light-theme);
 }

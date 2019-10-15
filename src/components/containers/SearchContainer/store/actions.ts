@@ -5,9 +5,8 @@ import {
 	SEARCH_REQUEST_FAIL,
 	SearchResultActionTypes,
 } from './types';
-import { Action, ActionCreator, Dispatch, AnyAction } from 'redux';
-import { ThunkAction, ThunkDispatch } from 'redux-thunk';
-import axios, { AxiosResponse, AxiosRequestConfig } from 'axios';
+import { Action, ActionCreator } from 'redux';
+import axios from 'axios';
 
 export const searchRequestInit: ActionCreator<
 	Action
