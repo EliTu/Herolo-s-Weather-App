@@ -40,8 +40,15 @@ export const SearchContainer: React.FC<IProps> = ({
 
 		setInputData(() => updatedSearchInput);
 		setAreResultsDisplayed(() => true);
-		httpRequest(inputData.value);
 	};
+
+	// Set a timer for limiting the HTTP requests upon change in key strokes in the input value:
+	useEffect(() => {
+		const keyStrokeTimer: NodeJS.Timeout = setTimeout(() => {
+			httpRequest(inputData.value);
+		}, 500);
+		return () => clearTimeout(keyStrokeTimer);
+	}, [httpRequest, inputData.value]);
 
 	// Set the isDisplayed to false if the value passed in the Input is an empty string
 	useEffect(() => {
