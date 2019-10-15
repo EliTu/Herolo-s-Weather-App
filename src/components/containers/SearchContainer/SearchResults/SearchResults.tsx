@@ -16,6 +16,7 @@ const SearchResults: React.FC<IProps> = ({
 	outsideClickRef,
 }) => {
 	const { SearchResultsStyles } = styles;
+
 	return resultList.length > 0 && searchValue.length >= 2 && isDisplayed ? (
 		<div className={SearchResultsStyles} ref={outsideClickRef}>
 			<ul>
