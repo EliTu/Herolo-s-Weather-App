@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
+import { ThunkDispatch } from 'redux-thunk';
 import Input from '../../stateless/UI/Input/Input';
 import Icon from '../../stateless/UI/Icon/Icon';
 // import { SearchResult } from './store/types';
 import SearchResults from './SearchResults/SearchResults';
 import { inputTemplateData } from './searchInputTemplate';
 import { fireSearchHttpRequest } from './store/actions';
-import { ThunkDispatch } from 'redux-thunk';
+import useClickOutside from '../../../utilities/custom-hooks/useOutsideClick';
 import styles from './SearchContainer.module.css';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
@@ -43,9 +44,17 @@ export const SearchContainer: React.FC<IProps> = ({
 		httpRequest(inputData.value);
 	};
 
+	// Set the isDisplayed to false if the value passed in the Input is an empty string
 	useEffect(() => {
 		if (!inputData.value) setAreResultsDisplayed(() => false);
 	}, [inputData.value]);
+
+	// Set the isDisplayed to false upon clicking outside of the SearchResults component scope
+	const onOutsideClick = () => setAreResultsDisplayed(() => false);
+	const outsideClickRef: React.RefObject<any> = useClickOutside(
+		areResultsDisplayed,
+		onOutsideClick
+	);
 
 	return (
 		<div className={SearchContainerStyles}>
@@ -64,6 +73,7 @@ export const SearchContainer: React.FC<IProps> = ({
 				resultList={searchResultList}
 				searchValue={inputData.value}
 				isDisplayed={areResultsDisplayed}
+				outsideClickRef={outsideClickRef}
 			/>
 		</div>
 	);

@@ -14,11 +14,6 @@ const Input: React.FC<IInputProps> = ({
 
 	let inputElement = null;
 
-	// // Listen to keyboard enter click to submit form:
-	// const enterPressCallback = (event: any, func?: (e: Event) => void) => {
-	// 	if (event.key === 'Enter' && func) func(event);
-	// };
-
 	// Focus the first input field upon component mount
 	const focusRef: React.RefObject<any> = useRef();
 
