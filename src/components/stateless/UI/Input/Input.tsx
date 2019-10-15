@@ -6,11 +6,10 @@ const Input: React.FC<IInputProps> = ({
 	elementType,
 	elementConfig,
 	value,
-	validation,
 	isFocused,
 	handleChange,
 }) => {
-	const { InputStyles, invalidStyle, ValidStyle } = styles;
+	const { InputStyles } = styles;
 
 	let inputElement = null;
 
@@ -21,21 +20,11 @@ const Input: React.FC<IInputProps> = ({
 		if (isFocused) focusRef.current.focus();
 	}, [isFocused]);
 
-	// Set validation styles:
-	let validationStyles: string = '';
-	validationStyles =
-		!validation.valid && validation.hasUserInput
-			? invalidStyle
-			: validation.valid && validation.hasUserInput && value !== ''
-			? ValidStyle
-			: '';
-
 	switch (elementType) {
 		case 'input':
 			inputElement = (
 				<input
 					ref={focusRef}
-					className={validationStyles}
 					{...elementConfig}
 					value={value}
 					onChange={handleChange}

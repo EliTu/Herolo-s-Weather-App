@@ -11,11 +11,5 @@ export const inputTemplateData: IInputProps = {
 		max: 30,
 	},
 	value: '',
-	validation: {
-		required: false,
-		valid: true,
-		hasUserInput: false,
-		errorMessage: 'Input should have at least one character long',
-	},
 	isFocused: false,
 };

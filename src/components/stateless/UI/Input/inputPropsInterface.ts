@@ -10,13 +10,6 @@ export interface IInputProps {
 		max?: number;
 	};
 	value: string | number;
-	validation: {
-		required: boolean;
-		valid: boolean;
-		hasUserInput: boolean;
-		errorMessage: string;
-	};
 	isFocused: boolean;
 	handleChange?: (event: object) => void;
-	handleEnterPress?: (event: object) => void;
 }

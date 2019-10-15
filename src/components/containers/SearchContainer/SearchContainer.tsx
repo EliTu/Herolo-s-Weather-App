@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
 import Input from '../../stateless/UI/Input/Input';
 import Icon from '../../stateless/UI/Icon/Icon';
-// import { SearchResult } from './store/types';
 import SearchResults from './SearchResults/SearchResults';
 import { inputTemplateData } from './searchInputTemplate';
 import { fireSearchHttpRequest } from './store/actions';
@@ -64,7 +63,6 @@ export const SearchContainer: React.FC<IProps> = ({
 					elementType={inputData.elementType}
 					elementConfig={{ ...inputData.elementConfig }}
 					value={inputData.value}
-					validation={{ ...inputData.validation }}
 					isFocused={inputData.isFocused}
 					handleChange={event => handleSearchInputChange(event)}
 				/>
