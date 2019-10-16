@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { fireCurrentWeatherHttpRequest } from '../store/actions';
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import setWeatherIcon from './setWeatherIcon';
-import Icon from '../../../display/UI/Icon/Icon';
+import SelectedWeatherInfo from './SelectedWeatherInfo/SelectedWeatherInfo';
 import FavIcon from '../../../display/UI/Icon/FavIcon/FavIcon';
 import Loader from '../../../display/UI/Loader/Loader';
 import { ResultListTypes } from '../../SearchContainer/SearchContainer';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import setWeatherIcon from './setWeatherIcon';
 import styles from './SelectedWeather.module.css';
 
 interface IProps {
@@ -23,7 +23,7 @@ export const SelectedWeather: React.FC<IProps> = ({
 	isLoading,
 	searchResults,
 }) => {
-	const { SelectedWeatherStyles, WeatherInfo } = styles;
+	const { SelectedWeatherStyles } = styles;
 
 	const [isFavorite, setIsFavorite] = useState(false);
 	const [weatherIconType, setWeatherIconType] = useState();
@@ -51,24 +51,13 @@ export const SelectedWeather: React.FC<IProps> = ({
 				<Loader />
 			) : (
 				<>
-					<div className={WeatherInfo}>
-						{!isLoading && (
-							<Icon iconType={weatherIconType} size={'7x'} />
-						)}
-						<ul>
-							<li>
-								<a href={weatherData.Link}>
-									{!searchResults.LocalizedName
-										? 'Tel-Aviv'
-										: searchResults.LocalizedName}
-								</a>
-							</li>
-							<li>
-								{weatherData.Temperature &&
-									`${weatherData.Temperature.Metric.Value} ${weatherData.Temperature.Metric.Unit}`}
-							</li>
-						</ul>
-					</div>
+					<SelectedWeatherInfo
+						weatherIconType={weatherIconType}
+						isLoading={isLoading}
+						infoLink={weatherData.Link}
+						localName={searchResults.LocalizedName}
+						temperature={weatherData.Temperature}
+					/>
 					<p>{weatherData.WeatherText}</p>
 					<button>
 						<FavIcon isFavorite={isFavorite} />

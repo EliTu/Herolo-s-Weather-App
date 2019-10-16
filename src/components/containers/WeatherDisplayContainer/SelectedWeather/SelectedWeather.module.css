@@ -1,7 +1,7 @@
 @import '../../../../variables.css';
 
 .SelectedWeatherStyles {
-    width: 100%;
+    width: 80%;
     height: 40%;
     margin: 0 auto;
     padding: 0 3rem;
@@ -33,13 +33,4 @@
 .SelectedWeatherStyles li {
     list-style: none;
     font-size: var(--text-size-medium);
-}
-
-.WeatherInfo {
-    display: flex;
-    justify-items: center;
-    justify-content: center;
-    width: 35%;
-    height: 200px;
-    margin: 2rem;
 }

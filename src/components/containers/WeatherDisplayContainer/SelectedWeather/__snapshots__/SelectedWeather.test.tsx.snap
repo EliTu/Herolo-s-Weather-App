@@ -4,25 +4,18 @@ exports[`SelectedWeather Component should render without errors 1`] = `
 <div
   className="SelectedWeatherStyles"
 >
-  <div
-    className="WeatherInfo"
-  >
-    <Icon
-      size="7x"
-    />
-    <ul>
-      <li>
-        <a
-          href="www"
-        >
-          Tel-Aviv
-        </a>
-      </li>
-      <li>
-        20C
-      </li>
-    </ul>
-  </div>
+  <SelectedWeatherInfo
+    infoLink="www"
+    isLoading={false}
+    temperature={
+      Object {
+        "Metric": Object {
+          "Unit": "C",
+          "Value": 20,
+        },
+      }
+    }
+  />
   <p>
     abc
   </p>

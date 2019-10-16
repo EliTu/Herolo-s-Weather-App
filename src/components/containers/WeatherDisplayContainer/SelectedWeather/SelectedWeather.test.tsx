@@ -1,7 +1,9 @@
 import React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
 import { SelectedWeather } from './SelectedWeather';
+import SelectedWeatherInfo from './SelectedWeatherInfo/SelectedWeatherInfo';
 import initialShallowRender from '../../../../utilities/test-utilities/initialShallowRender';
+import { faMoon } from '@fortawesome/free-solid-svg-icons';
 
 describe('SelectedWeather Component', () => {
 	let component: ShallowWrapper;
@@ -25,29 +27,9 @@ describe('SelectedWeather Component', () => {
 	it('should render without errors', () =>
 		initialShallowRender(component, '.SelectedWeatherStyles'));
 
-	it('should render a div element with the data info if isLoading is false', () => {
-		expect(component.children().find('div')).toBeTruthy();
-		expect(component.children().children().length).toBe(4);
-	});
-
-	it('should render an Icon component if isLoading is false', () => {
-		const icon = component
-			.children()
-			.children()
-			.at(0);
-
-		expect(icon.length).toBe(1);
-	});
-
-	it('should render a ul component with 2 li elements', () => {
-		const ul = component
-			.children()
-			.children()
-			.at(1);
-		const li = ul.children();
-
-		expect(ul.length).toBe(1);
-		expect(li.length).toBe(2);
+	it('should render the SelectedWeatherInfo if isLoading is false', () => {
+		expect(component.children().find('SelectedWeatherInfo')).toBeTruthy();
+		expect(component.children().find('SelectedWeatherInfo').length).toBe(1);
 	});
 
 	it('should render a p tag with a text', () => {
