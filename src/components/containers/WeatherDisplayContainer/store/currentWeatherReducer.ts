@@ -23,7 +23,7 @@ const INITIAL_STATE: CurrentWeatherResult = {
 
 const currentWeatherReducer = (
 	state = INITIAL_STATE,
-	action: any
+	action: CurrentWeatherActionTypes
 ): CurrentWeatherResult => {
 	switch (action.type) {
 		case CURRENT_WEATHER_INIT:
@@ -47,16 +47,21 @@ const currentWeatherReducer = (
 				...state,
 				isLoading: false,
 				error: '',
-				localObservationTime: action.localObservationTime,
-				weatherText: action.weatherText,
-				weatherIcon: action.weatherIcon,
-				realFeelTemp: action.realFeelTemp,
-				humidity: action.humidity,
-				isDayTime: action.isDayTime,
-				temperatureMetricValue: action.temperatureMetricValue,
-				temperatureMetricUnit: action.temperatureMetricUnit,
-				temperatureImperialValue: action.temperatureImperialValue,
-				temperatureImperialUnit: action.temperatureImperialUnit,
+				localObservationTime:
+					action.weatherResults.localObservationTime,
+				weatherText: action.weatherResults.weatherText,
+				weatherIcon: action.weatherResults.weatherIcon,
+				realFeelTemp: action.weatherResults.realFeelTemp,
+				humidity: action.weatherResults.humidity,
+				isDayTime: action.weatherResults.isDayTime,
+				temperatureMetricValue:
+					action.weatherResults.temperatureMetricValue,
+				temperatureMetricUnit:
+					action.weatherResults.temperatureMetricUnit,
+				temperatureImperialValue:
+					action.weatherResults.temperatureImperialValue,
+				temperatureImperialUnit:
+					action.weatherResults.temperatureImperialUnit,
 			};
 		case CURRENT_WEATHER_FAIL:
 			return {
