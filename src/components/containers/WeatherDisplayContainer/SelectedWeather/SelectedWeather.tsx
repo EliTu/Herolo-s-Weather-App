@@ -57,9 +57,11 @@ export const SelectedWeather: React.FC<IProps> = ({
 						)}
 						<ul>
 							<li>
-								{!searchResults.LocalizedName
-									? 'Tel-Aviv'
-									: searchResults.LocalizedName}
+								<a href={weatherData.Link}>
+									{!searchResults.LocalizedName
+										? 'Tel-Aviv'
+										: searchResults.LocalizedName}
+								</a>
 							</li>
 							<li>
 								{weatherData.Temperature &&
