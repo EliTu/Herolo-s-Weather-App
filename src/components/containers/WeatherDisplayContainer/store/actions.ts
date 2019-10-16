@@ -1,5 +1,4 @@
 import {
-	CurrentWeatherInitState,
 	CURRENT_WEATHER_INIT,
 	CURRENT_WEATHER_SUCCESS,
 	CURRENT_WEATHER_FAIL,
@@ -17,7 +16,7 @@ export const currentWeatherInitAction: ActionCreator<
 };
 
 export const currentWeatherSuccessAction: ActionCreator<Action> = (
-	results: CurrentWeatherInitState
+	results: {}[]
 ): CurrentWeatherActionTypes => {
 	return {
 		type: CURRENT_WEATHER_SUCCESS,
@@ -38,14 +37,15 @@ export const currentWeatherFailAction: ActionCreator<Action> = (
 export const fireCurrentWeatherHttpRequest = (key: string) => {
 	return async (dispatch: any) => {
 		dispatch(currentWeatherInitAction());
-		try {
-			const result = await setAsyncGetRequest(key, 'currentWeather');
-			console.log(result.data);
+		if (key)
+			try {
+				const result = await setAsyncGetRequest(key, 'currentWeather');
+				const currentWeather = result.data[0];
 
-			dispatch(currentWeatherSuccessAction(result));
-		} catch (error) {
-			dispatch(currentWeatherFailAction(error));
-			console.log(error.message);
-		}
+				dispatch(currentWeatherSuccessAction(currentWeather));
+			} catch (error) {
+				dispatch(currentWeatherFailAction(error));
+				console.log(error.message);
+			}
 	};
 };

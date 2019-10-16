@@ -13,6 +13,7 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import searchReducer from './components/containers/SearchContainer/store/searchReducer';
 import './index.css';
+import currentWeatherReducer from './components/containers/WeatherDisplayContainer/store/currentWeatherReducer';
 
 // Enabling the Redux Dev tools for development mode:
 const composeEnhancers =
@@ -20,6 +21,7 @@ const composeEnhancers =
 
 const rootReducer: Reducer = combineReducers({
 	search: searchReducer,
+	currentWeather: currentWeatherReducer,
 });
 
 const store: Store = createStore(

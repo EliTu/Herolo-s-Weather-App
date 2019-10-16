@@ -29,7 +29,7 @@ const currentWeatherReducer = (
 				...state,
 				isLoading: false,
 				error: '',
-				resultList: [...action.weatherResults],
+				resultList: [action.weatherResults],
 			};
 		case CURRENT_WEATHER_FAIL:
 			return {
