@@ -7,6 +7,7 @@ import {
 } from './types';
 import { Action, ActionCreator } from 'redux';
 import setAsyncGetRequest from '../../../../utilities/urls/urls';
+import { AxiosPromise } from 'axios';
 
 export const searchRequestInit: ActionCreator<
 	Action
@@ -38,14 +39,20 @@ export const searchRequestFail: ActionCreator<Action> = (
 export const fireSearchHttpRequest = (searchInputValue: string) => {
 	return async (dispatch: any) => {
 		dispatch(searchRequestInit());
-		try {
-			const result = await setAsyncGetRequest(searchInputValue, 'search');
-			const dataList: any[] = result.data.slice(0, 5);
+		if (searchInputValue)
+			try {
+				// Fire off an HTTP request only if the searchInputValue is not an empty string
+				let result = await setAsyncGetRequest(
+					searchInputValue,
+					'search'
+				);
 
-			dispatch(searchRequestSuccess(dataList));
-		} catch (error) {
-			console.log(error);
-			dispatch(searchRequestFail(error.message));
-		}
+				console.log(result);
+				const dataList: any[] = result.data.slice(0, 5);
+				dispatch(searchRequestSuccess(dataList));
+			} catch (error) {
+				console.log(error);
+				dispatch(searchRequestFail(error.message));
+			}
 	};
 };

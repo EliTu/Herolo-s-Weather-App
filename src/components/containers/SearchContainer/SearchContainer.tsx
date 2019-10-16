@@ -42,10 +42,10 @@ export const SearchContainer: React.FC<IProps> = ({
 		setAreResultsDisplayed(() => true);
 	};
 
-	// Set a timer for limiting the amount of HTTP requests upon changes in the input value:
+	// Set a timer for limiting the amount of HTTP requests upon changes in the input value & if value is not '':
 	useEffect(() => {
 		const keyStrokeTimer: NodeJS.Timeout = setTimeout(() => {
-			httpRequest(inputData.value);
+			if (inputData.value) httpRequest(inputData.value);
 		}, 500);
 		return () => clearTimeout(keyStrokeTimer);
 	}, [httpRequest, inputData.value]);

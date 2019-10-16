@@ -1,7 +1,10 @@
 import { useRef, useCallback, useEffect } from 'react';
 
 // Hook to detect clicks ourside of a certain node, and run a function in response on that node:
-const useClickOutside = (isDisplayed: boolean, callbackFn: () => void) => {
+const useClickOutside = (
+	isDisplayed: boolean,
+	callbackFn: () => void
+): React.RefObject<any> => {
 	const boxRef: React.RefObject<any> = useRef();
 	const handleOutsideClick = useCallback(
 		event => {
