@@ -6,6 +6,7 @@ import Icon from '../../display/UI/Icon/Icon';
 import SearchResults from './SearchResults/SearchResults';
 import { inputTemplateData } from './searchInputTemplate';
 import { fireSearchHttpRequest } from './store/actions';
+import { closeSearchResultsList } from './store/actions';
 import useClickOutside from '../../../utilities/custom-hooks/useOutsideClick';
 import styles from './SearchContainer.module.css';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
@@ -19,17 +20,20 @@ export type ResultListTypes = {
 
 interface IProps {
 	httpRequest: (val: any) => void;
+	closeResultsList: () => void;
 	searchResultList: ResultListTypes[];
+	isDisplayed: boolean;
 }
 
 export const SearchContainer: React.FC<IProps> = ({
 	httpRequest,
 	searchResultList,
+	closeResultsList,
+	isDisplayed,
 }) => {
 	const { SearchContainerStyles, InputWrapper } = styles;
 
 	const [inputData, setInputData] = useState(inputTemplateData);
-	const [areResultsDisplayed, setAreResultsDisplayed] = useState(false);
 
 	const handleSearchInputChange: (e: any) => void = (event: any) => {
 		const updatedValue: string = event.target.value;
@@ -39,7 +43,6 @@ export const SearchContainer: React.FC<IProps> = ({
 		};
 
 		setInputData(() => updatedSearchInput);
-		setAreResultsDisplayed(() => true);
 	};
 
 	// Set a timer for limiting the amount of HTTP requests upon changes in the input value & if value is not '':
@@ -52,13 +55,13 @@ export const SearchContainer: React.FC<IProps> = ({
 
 	// Set the isDisplayed to false if the value passed in the Input is an empty string
 	useEffect(() => {
-		if (!inputData.value) setAreResultsDisplayed(() => false);
-	}, [inputData.value]);
+		if (!inputData.value) closeSearchResultsList();
+	}, [closeResultsList, inputData.value]);
 
 	// Set the isDisplayed to false upon clicking outside of the SearchResults component scope
-	const onOutsideClick = () => setAreResultsDisplayed(() => false);
+	const onOutsideClick = () => closeSearchResultsList();
 	const outsideClickRef: React.RefObject<any> = useClickOutside(
-		areResultsDisplayed,
+		isDisplayed,
 		onOutsideClick
 	);
 
@@ -77,7 +80,6 @@ export const SearchContainer: React.FC<IProps> = ({
 			<SearchResults
 				resultList={searchResultList}
 				searchValue={inputData.value}
-				isDisplayed={areResultsDisplayed}
 				outsideClickRef={outsideClickRef}
 			/>
 		</div>
@@ -88,12 +90,14 @@ export const SearchContainer: React.FC<IProps> = ({
 const mapStateToProps = (state: any) => {
 	return {
 		searchResultList: state.search.results,
+		isDisplayed: state.search.areResultsDisplayed,
 	};
 };
 
 const mapDispatchToProps = (dispatch: ThunkDispatch<{}, {}, any>) => {
 	return {
 		httpRequest: (val: string) => dispatch(fireSearchHttpRequest(val)),
+		closeResultsList: () => dispatch(closeSearchResultsList()),
 	};
 };
 

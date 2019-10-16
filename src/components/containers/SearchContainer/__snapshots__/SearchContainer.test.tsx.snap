@@ -39,8 +39,7 @@ exports[`SearchContainer Component should render without errors 1`] = `
       value=""
     />
   </div>
-  <SearchResults
-    isDisplayed={false}
+  <Connect(SearchResults)
     outsideClickRef={
       Object {
         "current": undefined,

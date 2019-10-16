@@ -3,6 +3,7 @@ import {
 	SEARCH_REQUEST_INIT,
 	SEARCH_REQUEST_SUCCESS,
 	SEARCH_REQUEST_FAIL,
+	CLOSE_SEARCH_RESULTS,
 	SearchResultActionTypes,
 } from './types';
 import { Action, ActionCreator } from 'redux';
@@ -34,6 +35,13 @@ export const searchRequestFail: ActionCreator<Action> = (
 	};
 };
 
+export const closeSearchResultsList: ActionCreator<
+	Action
+> = (): SearchResultActionTypes => {
+	return {
+		type: CLOSE_SEARCH_RESULTS,
+	};
+};
 // Thunk async action creator:
 export const fireSearchHttpRequest = (searchInputValue: string) => {
 	return async (dispatch: any) => {
