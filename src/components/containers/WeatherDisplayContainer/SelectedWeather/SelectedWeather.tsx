@@ -2,26 +2,31 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { fireCurrentWeatherHttpRequest } from '../store/actions';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import setWeatherIcon from './setWeatherIcon';
+import Icon from '../../../display/UI/Icon/Icon';
 import FavIcon from '../../../display/UI/Icon/FavIcon/FavIcon';
 import Loader from '../../../display/UI/Loader/Loader';
+import { ResultListTypes } from '../../SearchContainer/SearchContainer';
 import styles from './SelectedWeather.module.css';
 
 interface IProps {
 	currentWeatherHttpRequest: (val: string) => void;
 	weatherData: any;
 	isLoading: boolean;
+	searchResults: ResultListTypes;
 }
 
 export const SelectedWeather: React.FC<IProps> = ({
 	currentWeatherHttpRequest,
 	weatherData,
 	isLoading,
+	searchResults,
 }) => {
-	const { SelectedWeatherStyles, testDiv } = styles;
+	const { SelectedWeatherStyles, WeatherInfo } = styles;
 
 	const [isFavorite, setIsFavorite] = useState(false);
-	const [weatherIconImage, setWeatherIconImage] = useState();
+	const [weatherIconType, setWeatherIconType] = useState();
 
 	// On component mount, by default, set and display Tel-Aviv's weather info
 	useEffect(() => {
@@ -29,27 +34,40 @@ export const SelectedWeather: React.FC<IProps> = ({
 	}, [currentWeatherHttpRequest]);
 
 	useEffect(() => {
-		let image;
-		if (weatherData.IsDayTime && weatherData.WeatherText)
-			image = setWeatherIcon(
-				weatherData.IsDayTime,
+		let weatherIcon: IconDefinition;
+		if (!isLoading)
+			weatherIcon = setWeatherIcon(
+				weatherData.isDayTime,
 				weatherData.WeatherText
 			);
-
-		setWeatherIconImage(image);
-	}, [weatherData.IsDayTime, weatherData.WeatherText]);
-
-	console.log(weatherData);
+		setWeatherIconType(() => weatherIcon);
+	}, [isLoading, weatherData.WeatherText, weatherData.isDayTime]);
 
 	return (
 		<div className={SelectedWeatherStyles}>
-			{isLoading && !weatherData.WeatherText ? (
+			{isLoading &&
+			!weatherData.WeatherText &&
+			!weatherData.Temperature ? (
 				<Loader />
 			) : (
 				<>
-					<div className={testDiv}>{weatherIconImage}</div>
+					<div className={WeatherInfo}>
+						{!isLoading && (
+							<Icon iconType={weatherIconType} size={'7x'} />
+						)}
+						<ul>
+							<li>
+								{!searchResults.LocalizedName
+									? 'Tel-Aviv'
+									: searchResults.LocalizedName}
+							</li>
+							<li>
+								{weatherData.Temperature &&
+									`${weatherData.Temperature.Metric.Value}${weatherData.Temperature.Metric.Unit}`}
+							</li>
+						</ul>
+					</div>
 					<p>{weatherData.WeatherText}</p>
-					<span>&#176;</span>
 					<button>
 						<FavIcon isFavorite={isFavorite} />
 					</button>
@@ -59,11 +77,11 @@ export const SelectedWeather: React.FC<IProps> = ({
 	);
 };
 
-// Redux setup:
 const mapStateToProps = (state: any) => {
 	return {
 		weatherData: state.currentWeather.selectedResult,
 		isLoading: state.currentWeather.isLoading,
+		searchResults: state.search.results,
 	};
 };
 
