@@ -23,9 +23,22 @@ const INITIAL_STATE: CurrentWeatherResult = {
 
 const currentWeatherReducer = (
 	state = INITIAL_STATE,
-	action: CurrentWeatherActionTypes
+	{
+		type,
+		error,
+		localObservationTime,
+		weatherText,
+		weatherIcon,
+		realFeelTemp,
+		humidity,
+		isDayTime,
+		temperatureMetricValue,
+		temperatureMetricUnit,
+		temperatureImperialValue,
+		temperatureImperialUnit,
+	}: CurrentWeatherActionTypes
 ): CurrentWeatherResult => {
-	switch (action.type) {
+	switch (type) {
 		case CURRENT_WEATHER_INIT:
 			return {
 				...state,
@@ -33,19 +46,33 @@ const currentWeatherReducer = (
 				error: '',
 				localObservationTime: '',
 				weatherText: '',
-				weatherIcon: 0,
-				realFeelTemp: {},
-				humidity: 0,
-				isDayTime: true,
-				temperatureMetricValue: 0,
+				weatherIcon: null,
+				realFeelTemp: null,
+				humidity: null,
+				isDayTime: null,
+				temperatureMetricValue: null,
 				temperatureMetricUnit: '',
-				temperatureImperialValue: 0,
+				temperatureImperialValue: null,
 				temperatureImperialUnit: '',
 			};
 		case CURRENT_WEATHER_SUCCESS:
-			return { ...state, isLoading: false, error: '' };
+			return {
+				...state,
+				isLoading: false,
+				error: '',
+				localObservationTime: localObservationTime,
+				weatherText: weatherText,
+				weatherIcon: weatherIcon,
+				realFeelTemp: realFeelTemp,
+				humidity: humidity,
+				isDayTime: isDayTime,
+				temperatureMetricValue: temperatureMetricValue,
+				temperatureMetricUnit: temperatureMetricUnit,
+				temperatureImperialValue: temperatureImperialValue,
+				temperatureImperialUnit: temperatureImperialUnit,
+			};
 		case CURRENT_WEATHER_FAIL:
-			return { ...state, isLoading: false, error: action.error };
+			return { ...state, isLoading: false, error: error };
 		default:
 			return state;
 	}

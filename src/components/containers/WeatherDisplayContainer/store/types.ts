@@ -3,15 +3,15 @@ export interface CurrentWeatherResult {
 	error?: string;
 	localObservationTime: string;
 	weatherText: string;
-	weatherIcon: number;
-	realFeelTemp?: {};
-	humidity: number;
-	isDayTime: boolean;
-	temperatureMetricValue: number;
+	weatherIcon: number | null;
+	realFeelTemp?: {} | null;
+	humidity: number | null;
+	isDayTime: boolean | null;
+	temperatureMetricValue: number | null;
 	temperatureMetricUnit: string;
-	temperatureImperialValue?: number;
+	temperatureImperialValue?: number | null;
 	temperatureImperialUnit?: string;
-	isLoading: boolean;
+	isLoading?: boolean;
 }
 
 export const CURRENT_WEATHER_INIT = 'CURRENT_WEATHER_INIT';
@@ -24,7 +24,7 @@ interface currentWeatherInitAction {
 
 interface currentWeatherSuccessAction {
 	type: typeof CURRENT_WEATHER_SUCCESS;
-	weatherResults: any;
+	weatherResults: CurrentWeatherResult;
 }
 
 interface currentWeatherFailAction {
