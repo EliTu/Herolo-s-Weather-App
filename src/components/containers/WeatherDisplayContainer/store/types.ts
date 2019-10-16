@@ -29,42 +29,31 @@ export type CurrentWeatherActionTypes =
 	| currentWeatherFailAction;
 
 // FiveDaysWeather types:
-export interface FiveDaysWeatherResult {
+export interface FiveDaysForecastInitState {
+	resultList: {}[];
 	error?: string;
 	isLoading: boolean;
-	resultList: {
-		effectiveDate?: string;
-		endDate?: string;
-		headLineText: string;
-		dailyForcastsDate: string;
-		webLink: string;
-		mobileLink: string;
-		dailyMinTempValue: string;
-		dailyMaxTempValue: string;
-		dailyMinTempUnitType: number;
-		dailyMaxTempUnitType: number;
-	};
 }
 
-export const FIVE_DAYS_WEATHER_INIT = 'FIVE_DAYS_WEATHER_INIT';
-export const FIVE_DAYS_WEATHER_SUCCESS = 'FIVE_DAYS_WEATHER_SUCCESS';
-export const FIVE_DAYS_WEATHER_FAIL = 'FIVE_DAYS_WEATHER_FAIL';
+export const FIVE_DAYS_FORECAST_INIT = 'FIVE_DAYS_FORECAST_INIT';
+export const FIVE_DAYS_FORECAST_SUCCESS = 'FIVE_DAYS_FORECAST_SUCCESS';
+export const FIVE_DAYS_FORECAST_FAIL = 'FIVE_DAYS_FORECAST_FAIL';
 
-interface fiveDaysWeatherInitAction {
-	type: typeof FIVE_DAYS_WEATHER_INIT;
+interface fiveDaysForecastInitAction {
+	type: typeof FIVE_DAYS_FORECAST_INIT;
 }
 
-interface fiveDaysWeatherSuccessAction {
-	type: typeof FIVE_DAYS_WEATHER_SUCCESS;
-	fiveDaysWeatherResults: any;
+interface fiveDaysForecastSuccessAction {
+	type: typeof FIVE_DAYS_FORECAST_SUCCESS;
+	fiveDaysForecastResults: any;
 }
 
-interface fiveDaysWeatherFailAction {
-	type: typeof FIVE_DAYS_WEATHER_FAIL;
+interface fiveDaysForecastFailAction {
+	type: typeof FIVE_DAYS_FORECAST_FAIL;
 	error: string;
 }
 
-export type FiveDaysWeatherActionTypes =
-	| fiveDaysWeatherInitAction
-	| fiveDaysWeatherSuccessAction
-	| fiveDaysWeatherFailAction;
+export type FiveDaysForecastActionTypes =
+	| fiveDaysForecastInitAction
+	| fiveDaysForecastSuccessAction
+	| fiveDaysForecastFailAction;
