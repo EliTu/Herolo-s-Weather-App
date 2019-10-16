@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Set an async axios GET request based on the requestType:
-const setSearchGetRequest = (inputVal: string, requestType: string) => {
+const setAsyncGetRequest = (inputVal: string, requestType: string) => {
 	// Accuweather API key (Innsecure on this app):
 	const apiKey: string = '0Gub8jwlpiFGj7JYWAu9h9cGby8MnSAz';
 	let url;
@@ -24,4 +24,4 @@ const setSearchGetRequest = (inputVal: string, requestType: string) => {
 	return axios.get(`${url}${params}`);
 };
 
-export default setSearchGetRequest;
+export default setAsyncGetRequest;

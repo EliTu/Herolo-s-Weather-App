@@ -6,7 +6,7 @@ import {
 	CurrentWeatherActionTypes,
 } from './types';
 import { Action, ActionCreator } from 'redux';
-import axios from 'axios';
+import setAsyncGetRequest from '../../../../utilities/urls/urls';
 
 export const currentWeatherInitAction: ActionCreator<
 	Action
@@ -35,13 +35,15 @@ export const currentWeatherFailAction: ActionCreator<Action> = (
 };
 
 // Thunk async action creator:
-const fireCurrentWeatherHttpRequest = (key: string) => {
+export const fireCurrentWeatherHttpRequest = (key: string) => {
 	return async (dispatch: any) => {
-        dispatch(currentWeatherInitAction());
-        try {
-        
-        } catch (error) {
-        
-        }
+		dispatch(currentWeatherInitAction());
+		try {
+			const result = await setAsyncGetRequest(key, 'currentWeather');
+			dispatch(currentWeatherSuccessAction(result));
+		} catch (error) {
+			dispatch(currentWeatherFailAction(error));
+			console.log(error.message);
+		}
 	};
 };

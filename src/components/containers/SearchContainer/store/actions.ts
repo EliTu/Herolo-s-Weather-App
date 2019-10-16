@@ -6,8 +6,7 @@ import {
 	SearchResultActionTypes,
 } from './types';
 import { Action, ActionCreator } from 'redux';
-import setSearchGetRequest from '../../../../utilities/urls/urls';
-import axios from 'axios';
+import setAsyncGetRequest from '../../../../utilities/urls/urls';
 
 export const searchRequestInit: ActionCreator<
 	Action
@@ -40,10 +39,7 @@ export const fireSearchHttpRequest = (searchInputValue: string) => {
 	return async (dispatch: any) => {
 		dispatch(searchRequestInit());
 		try {
-			const result = await setSearchGetRequest(
-				searchInputValue,
-				'search'
-			);
+			const result = await setAsyncGetRequest(searchInputValue, 'search');
 			const dataList: any[] = result.data.slice(0, 5);
 
 			dispatch(searchRequestSuccess(dataList));
