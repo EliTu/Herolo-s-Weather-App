@@ -4,16 +4,19 @@ import { ThunkDispatch } from 'redux-thunk';
 import { fireCurrentWeatherHttpRequest } from '../store/actions';
 import setWeatherIcon from './setWeatherIcon';
 import FavIcon from '../../../display/UI/Icon/FavIcon/FavIcon';
+import Loader from '../../../display/UI/Loader/Loader';
 import styles from './SelectedWeather.module.css';
 
 interface IProps {
 	currentWeatherHttpRequest: (val: string) => void;
 	weatherData: any;
+	isLoading: boolean;
 }
 
 export const SelectedWeather: React.FC<IProps> = ({
 	currentWeatherHttpRequest,
 	weatherData,
+	isLoading,
 }) => {
 	const { SelectedWeatherStyles, testDiv } = styles;
 
@@ -40,12 +43,18 @@ export const SelectedWeather: React.FC<IProps> = ({
 
 	return (
 		<div className={SelectedWeatherStyles}>
-			<div className={testDiv}>{weatherIconImage}</div>
-			<p>{weatherData.WeatherText}</p>
-			<span>&#176;</span>
-			<button>
-				<FavIcon isFavorite={isFavorite} />
-			</button>
+			{isLoading && !weatherData.WeatherText ? (
+				<Loader />
+			) : (
+				<>
+					<div className={testDiv}>{weatherIconImage}</div>
+					<p>{weatherData.WeatherText}</p>
+					<span>&#176;</span>
+					<button>
+						<FavIcon isFavorite={isFavorite} />
+					</button>
+				</>
+			)}
 		</div>
 	);
 };
@@ -54,6 +63,7 @@ export const SelectedWeather: React.FC<IProps> = ({
 const mapStateToProps = (state: any) => {
 	return {
 		weatherData: state.currentWeather.selectedResult,
+		isLoading: state.currentWeather.isLoading,
 	};
 };
 
