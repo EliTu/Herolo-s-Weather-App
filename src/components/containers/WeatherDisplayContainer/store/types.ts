@@ -1,16 +1,7 @@
 // Current weather types:
-export interface CurrentWeatherResult {
+export interface CurrentWeatherInitState {
+	resultList: {}[];
 	error?: string;
-	localObservationTime: string;
-	weatherText: string;
-	weatherIcon: number | null;
-	realFeelTemp?: {} | null;
-	humidity: number | null;
-	isDayTime: boolean | null;
-	temperatureMetricValue: number | null;
-	temperatureMetricUnit: string;
-	temperatureImperialValue?: number | null;
-	temperatureImperialUnit?: string;
 	isLoading?: boolean;
 }
 
@@ -24,7 +15,7 @@ interface currentWeatherInitAction {
 
 interface currentWeatherSuccessAction {
 	type: typeof CURRENT_WEATHER_SUCCESS;
-	weatherResults: any;
+	weatherResults: {}[];
 }
 
 interface currentWeatherFailAction {
@@ -40,16 +31,19 @@ export type CurrentWeatherActionTypes =
 // FiveDaysWeather types:
 export interface FiveDaysWeatherResult {
 	error?: string;
-	effectiveDate?: string;
-	endDate?: string;
-	headLineText: string;
-	dailyForcastsDate: string;
-	webLink: string;
-	mobileLink: string;
-	dailyMinTempValue: string;
-	dailyMaxTempValue: string;
-	dailyMinTempUnitType: number;
-	dailyMaxTempUnitType: number;
+	isLoading: boolean;
+	resultList: {
+		effectiveDate?: string;
+		endDate?: string;
+		headLineText: string;
+		dailyForcastsDate: string;
+		webLink: string;
+		mobileLink: string;
+		dailyMinTempValue: string;
+		dailyMaxTempValue: string;
+		dailyMinTempUnitType: number;
+		dailyMaxTempUnitType: number;
+	};
 }
 
 export const FIVE_DAYS_WEATHER_INIT = 'FIVE_DAYS_WEATHER_INIT';

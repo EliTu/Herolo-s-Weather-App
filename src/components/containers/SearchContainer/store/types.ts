@@ -1,4 +1,4 @@
-export interface SearchResult {
+export interface SearchInitState {
 	results: any;
 	isLoading?: boolean;
 	error?: string;

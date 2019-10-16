@@ -12,16 +12,7 @@ describe('currentWeatherReducer', () => {
 		).toEqual({
 			isLoading: true,
 			error: '',
-			localObservationTime: '',
-			weatherText: '',
-			weatherIcon: null,
-			realFeelTemp: null,
-			humidity: null,
-			isDayTime: null,
-			temperatureMetricValue: null,
-			temperatureMetricUnit: '',
-			temperatureImperialValue: null,
-			temperatureImperialUnit: '',
+			resultList: [],
 		});
 	});
 
@@ -29,30 +20,12 @@ describe('currentWeatherReducer', () => {
 		expect(
 			currentWeatherReducer(undefined, {
 				type: CURRENT_WEATHER_SUCCESS,
-				localObservationTime: 'abc',
-				weatherText: 'abc',
-				weatherIcon: 12,
-				realFeelTemp: {},
-				humidity: 30,
-				isDayTime: false,
-				temperatureMetricValue: 1,
-				temperatureMetricUnit: 'abc',
-				temperatureImperialValue: 2,
-				temperatureImperialUnit: 'abcd',
+				weatherResults: [{}, {}, {}],
 			})
 		).toEqual({
 			isLoading: false,
 			error: '',
-			localObservationTime: 'abc',
-			weatherText: 'abc',
-			weatherIcon: 12,
-			realFeelTemp: {},
-			humidity: 30,
-			isDayTime: false,
-			temperatureMetricValue: 1,
-			temperatureMetricUnit: 'abc',
-			temperatureImperialValue: 2,
-			temperatureImperialUnit: 'abcd',
+			resultList: [{}, {}, {}],
 		});
 	});
 
@@ -65,16 +38,7 @@ describe('currentWeatherReducer', () => {
 		).toEqual({
 			isLoading: false,
 			error: 'abcd',
-			localObservationTime: '',
-			weatherText: '',
-			weatherIcon: null,
-			realFeelTemp: null,
-			humidity: null,
-			isDayTime: null,
-			temperatureMetricValue: null,
-			temperatureMetricUnit: '',
-			temperatureImperialValue: null,
-			temperatureImperialUnit: '',
+			resultList: [],
 		});
 	});
 });

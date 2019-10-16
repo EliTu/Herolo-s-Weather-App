@@ -1,5 +1,5 @@
 import {
-	SearchResult,
+	SearchInitState,
 	SEARCH_REQUEST_INIT,
 	SEARCH_REQUEST_SUCCESS,
 	SEARCH_REQUEST_FAIL,
@@ -17,7 +17,7 @@ export const searchRequestInit: ActionCreator<
 };
 
 export const searchRequestSuccess: ActionCreator<Action> = (
-	searchResults: SearchResult
+	searchResults: SearchInitState
 ): SearchResultActionTypes => {
 	return {
 		type: SEARCH_REQUEST_SUCCESS,
