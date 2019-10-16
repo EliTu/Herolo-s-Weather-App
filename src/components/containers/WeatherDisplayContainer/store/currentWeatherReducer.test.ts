@@ -12,7 +12,7 @@ describe('currentWeatherReducer', () => {
 		).toEqual({
 			isLoading: true,
 			error: '',
-			resultList: [],
+			selectedResult: [],
 		});
 	});
 
@@ -20,12 +20,12 @@ describe('currentWeatherReducer', () => {
 		expect(
 			currentWeatherReducer(undefined, {
 				type: CURRENT_WEATHER_SUCCESS,
-				weatherResults: [{}, {}, {}],
+				weatherResults: [{}],
 			})
 		).toEqual({
 			isLoading: false,
 			error: '',
-			resultList: [{}, {}, {}],
+			selectedResult: [{}],
 		});
 	});
 
@@ -38,7 +38,7 @@ describe('currentWeatherReducer', () => {
 		).toEqual({
 			isLoading: false,
 			error: 'abcd',
-			resultList: [],
+			selectedResult: [],
 		});
 	});
 });

@@ -65,7 +65,7 @@ export const SelectedWeather: React.FC<IProps> = ({
 							</li>
 							<li>
 								{weatherData.Temperature &&
-									`${weatherData.Temperature.Metric.Value}${weatherData.Temperature.Metric.Unit}`}
+									`${weatherData.Temperature.Metric.Value} ${weatherData.Temperature.Metric.Unit}`}
 							</li>
 						</ul>
 					</div>

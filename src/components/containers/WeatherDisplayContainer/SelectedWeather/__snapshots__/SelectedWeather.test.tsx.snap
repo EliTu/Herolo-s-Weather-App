@@ -5,12 +5,26 @@ exports[`SelectedWeather Component should render without errors 1`] = `
   className="SelectedWeatherStyles"
 >
   <div
-    className="testDiv"
+    className="WeatherInfo"
   >
-    Img
+    <Icon
+      size="7x"
+    />
+    <ul>
+      <li>
+        <a
+          href="www"
+        >
+          Tel-Aviv
+        </a>
+      </li>
+      <li>
+        20C
+      </li>
+    </ul>
   </div>
   <p>
-    Current weather forcast
+    abc
   </p>
   <button>
     <FavIcon
