@@ -17,7 +17,7 @@ describe('currentWeatherReducer', () => {
 			weatherIcon: null,
 			realFeelTemp: null,
 			humidity: null,
-			isDayTime: true,
+			isDayTime: null,
 			temperatureMetricValue: null,
 			temperatureMetricUnit: '',
 			temperatureImperialValue: null,
@@ -29,18 +29,16 @@ describe('currentWeatherReducer', () => {
 		expect(
 			currentWeatherReducer(undefined, {
 				type: CURRENT_WEATHER_SUCCESS,
-				weatherResults: {
-					localObservationTime: 'abc',
-					weatherText: 'abc',
-					weatherIcon: 12,
-					realFeelTemp: {},
-					humidity: 30,
-					isDayTime: false,
-					temperatureMetricValue: 1,
-					temperatureMetricUnit: 'abc',
-					temperatureImperialValue: 2,
-					temperatureImperialUnit: 'abcd',
-				},
+				localObservationTime: 'abc',
+				weatherText: 'abc',
+				weatherIcon: 12,
+				realFeelTemp: {},
+				humidity: 30,
+				isDayTime: false,
+				temperatureMetricValue: 1,
+				temperatureMetricUnit: 'abc',
+				temperatureImperialValue: 2,
+				temperatureImperialUnit: 'abcd',
 			})
 		).toEqual({
 			isLoading: false,

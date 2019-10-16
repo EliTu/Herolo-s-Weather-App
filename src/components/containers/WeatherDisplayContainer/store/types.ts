@@ -24,7 +24,7 @@ interface currentWeatherInitAction {
 
 interface currentWeatherSuccessAction {
 	type: typeof CURRENT_WEATHER_SUCCESS;
-	weatherResults: CurrentWeatherResult;
+	weatherResults: any;
 }
 
 interface currentWeatherFailAction {
