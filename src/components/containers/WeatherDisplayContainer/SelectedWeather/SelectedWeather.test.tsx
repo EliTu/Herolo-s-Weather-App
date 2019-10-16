@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
-import SelectedWeather from './SelectedWeather';
+import { SelectedWeather } from './SelectedWeather';
 import initialShallowRender from '../../../../utilities/test-utilities/initialShallowRender';
 
 describe('SelectedWeather Component', () => {

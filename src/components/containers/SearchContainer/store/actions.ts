@@ -7,7 +7,6 @@ import {
 } from './types';
 import { Action, ActionCreator } from 'redux';
 import setAsyncGetRequest from '../../../../utilities/urls/urls';
-import { AxiosPromise } from 'axios';
 
 export const searchRequestInit: ActionCreator<
 	Action

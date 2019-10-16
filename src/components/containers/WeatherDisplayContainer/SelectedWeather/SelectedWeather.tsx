@@ -1,15 +1,23 @@
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import { ThunkDispatch } from 'redux-thunk';
 import { fireCurrentWeatherHttpRequest } from '../store/actions';
 import FavIcon from '../../../display/UI/Icon/FavIcon/FavIcon';
 import styles from './SelectedWeather.module.css';
 
-const SelectedWeather: React.FC = () => {
+interface IProps {
+	currentWeatherHttpRequest: (val: string) => void;
+}
+
+export const SelectedWeather: React.FC<IProps> = ({
+	currentWeatherHttpRequest,
+}) => {
 	const { SelectedWeatherStyles, testDiv } = styles;
 
 	// On component mount, by default, set and display Tel-Aviv's weather info
 	useEffect(() => {
-		fireCurrentWeatherHttpRequest('');
-	}, []);
+		currentWeatherHttpRequest('215854');
+	}, [currentWeatherHttpRequest]);
 
 	const [isFavorite, setIsFavorite] = useState(false);
 
@@ -24,4 +32,19 @@ const SelectedWeather: React.FC = () => {
 	);
 };
 
-export default SelectedWeather;
+// Redux setup:
+const mapStateToProps = (state: any) => {
+	return {};
+};
+
+const mapDispatchToProps = (dispatch: ThunkDispatch<{}, {}, any>) => {
+	return {
+		currentWeatherHttpRequest: (key: string) =>
+			dispatch(fireCurrentWeatherHttpRequest(key)),
+	};
+};
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(SelectedWeather);
