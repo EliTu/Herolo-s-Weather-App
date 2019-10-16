@@ -6,6 +6,7 @@ import {
 	SearchResultActionTypes,
 } from './types';
 import { Action, ActionCreator } from 'redux';
+import setSearchGetRequest from '../../../../utilities/urls/urls';
 import axios from 'axios';
 
 export const searchRequestInit: ActionCreator<
@@ -39,12 +40,10 @@ export const fireSearchHttpRequest = (searchInputValue: string) => {
 	return async (dispatch: any) => {
 		dispatch(searchRequestInit());
 		try {
-			const url: string =
-				'http://dataservice.accuweather.com/locations/v1/cities/autocomplete';
-			const apiKey: string = '0Gub8jwlpiFGj7JYWAu9h9cGby8MnSAz';
-			const params: string = `?apikey=${apiKey}&q=${searchInputValue}&language=en-us HTTP/1.1`;
-
-			const result = await axios.get(`${url}${params}`);
+			const result = await setSearchGetRequest(
+				searchInputValue,
+				'search'
+			);
 			const dataList: any[] = result.data.slice(0, 5);
 
 			dispatch(searchRequestSuccess(dataList));
