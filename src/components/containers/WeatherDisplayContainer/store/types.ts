@@ -1,6 +1,6 @@
 // Current weather types:
 export interface CurrentWeatherInitState {
-	resultList: {}[];
+	selectedResult: {}[];
 	error?: string;
 	isLoading?: boolean;
 }

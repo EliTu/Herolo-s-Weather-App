@@ -40,9 +40,11 @@ export const fireCurrentWeatherHttpRequest = (key: string) => {
 		if (key)
 			try {
 				const result = await setAsyncGetRequest(key, 'currentWeather');
-				const currentWeather = result.data[0];
+				const weatherResult = result.data[0];
 
-				dispatch(currentWeatherSuccessAction(currentWeather));
+				console.log(weatherResult);
+
+				dispatch(currentWeatherSuccessAction(weatherResult));
 			} catch (error) {
 				dispatch(currentWeatherFailAction(error));
 				console.log(error.message);

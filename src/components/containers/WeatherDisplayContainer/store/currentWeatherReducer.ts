@@ -7,7 +7,7 @@ import {
 } from './types';
 
 const INITIAL_STATE: CurrentWeatherInitState = {
-	resultList: [],
+	selectedResult: [],
 	error: '',
 	isLoading: false,
 };
@@ -22,21 +22,21 @@ const currentWeatherReducer = (
 				...state,
 				isLoading: true,
 				error: '',
-				resultList: [],
+				selectedResult: [],
 			};
 		case CURRENT_WEATHER_SUCCESS:
 			return {
 				...state,
 				isLoading: false,
 				error: '',
-				resultList: [action.weatherResults],
+				selectedResult: action.weatherResults,
 			};
 		case CURRENT_WEATHER_FAIL:
 			return {
 				...state,
 				isLoading: false,
 				error: action.error,
-				resultList: [],
+				selectedResult: [],
 			};
 		default:
 			return state;
