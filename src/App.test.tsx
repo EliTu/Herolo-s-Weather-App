@@ -12,6 +12,7 @@ import thunk from 'redux-thunk';
 import searchReducer from './components/containers/SearchContainer/store/searchReducer';
 import App from './App';
 import currentWeatherReducer from './components/containers/WeatherDisplayContainer/store/currentWeatherReducer';
+import fiveDaysForecastReducer from './components/containers/WeatherDisplayContainer/store/fiveDaysForecastReducer';
 
 it('renders without crashing', () => {
 	const div = document.createElement('div');
@@ -19,6 +20,7 @@ it('renders without crashing', () => {
 	const rootReducer: Reducer = combineReducers({
 		search: searchReducer,
 		currentWeather: currentWeatherReducer,
+		fiveDaysForecast: fiveDaysForecastReducer,
 	});
 
 	const store: Store = createStore(rootReducer, applyMiddleware(thunk));

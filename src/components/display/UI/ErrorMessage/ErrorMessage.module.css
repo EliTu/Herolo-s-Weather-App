@@ -1,0 +1,31 @@
+@import '../../../../variables.css';
+
+.ErrorMessageStyles {
+    display: block;
+    width: 50%;
+    padding: 1rem 2rem;
+    color: var(--color-main-black);
+}
+
+.ErrorMessageStyles p:nth-child(1) {
+    font-size: var(--text-size-extra-large);
+    font-weight: 800;
+}
+
+.ErrorMessageStyles p:nth-child(2) {
+    font-size: var(--text-size-large);
+    font-size: 600;
+}
+
+.ErrorMessageStyles p:nth-child(3) {
+    font-size: var(--text-size-medium);
+}
+
+.ErrorMessageStyles p:nth-child(4) {
+    font-size: var(--text-size-medium);
+}
+
+.ErrorMessageStyles span {
+    color: rgba(248, 129, 129, 0.822);
+    font-weight: 700;
+}

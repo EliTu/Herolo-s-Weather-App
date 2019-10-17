@@ -14,6 +14,7 @@ import thunk from 'redux-thunk';
 import searchReducer from './components/containers/SearchContainer/store/searchReducer';
 import './index.css';
 import currentWeatherReducer from './components/containers/WeatherDisplayContainer/store/currentWeatherReducer';
+import fiveDaysForecastReducer from './components/containers/WeatherDisplayContainer/store/fiveDaysForecastReducer';
 
 // Enabling the Redux Dev tools for development mode:
 const composeEnhancers =
@@ -22,6 +23,7 @@ const composeEnhancers =
 const rootReducer: Reducer = combineReducers({
 	search: searchReducer,
 	currentWeather: currentWeatherReducer,
+	fiveDaysForecast: fiveDaysForecastReducer,
 });
 
 const store: Store = createStore(

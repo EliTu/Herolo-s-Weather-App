@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorMessage component should render a currentWeather error message if errorType is currentWeatherError 1`] = `
+<div
+  className="ErrorMessageStyles"
+>
+  <p>
+    Oops...
+  </p>
+  <p>
+    Something went wrong with the request :(
+  </p>
+  <p>
+    The reason seems to be: 
+    <span>
+      internal error
+    </span>
+  </p>
+  <p>
+    Please try again in a short while!
+  </p>
+</div>
+`;
+
+exports[`ErrorMessage component should render a fiveDaysForecast error message if errorType is fiveDaysForecastError 1`] = `
+<div
+  className="ErrorMessageStyles"
+>
+  <p>
+    Oops...
+  </p>
+  <p>
+    Something went wrong with the request :(
+  </p>
+  <p>
+    The reason seems to be: 
+    <span>
+      source error
+    </span>
+  </p>
+  <p>
+    Please try again in a short while!
+  </p>
+</div>
+`;
+
+exports[`ErrorMessage component should render a search error message if errorType is searchError 1`] = `
+<div
+  className="ErrorMessageStyles"
+>
+  <p>
+    Oops...
+  </p>
+  <p>
+    Could not perfrom search!
+  </p>
+  <p>
+    The reason seems to be: 
+    <span>
+      network error
+    </span>
+  </p>
+  <p>
+    Please try again in a short while!
+  </p>
+</div>
+`;
+
+exports[`ErrorMessage component should render without errors 1`] = `
+<div
+  className="ErrorMessageStyles"
+>
+  <p />
+  <p />
+  <p>
+    The reason seems to be: 
+    <span />
+  </p>
+  <p>
+    Please try again in a short while!
+  </p>
+</div>
+`;
