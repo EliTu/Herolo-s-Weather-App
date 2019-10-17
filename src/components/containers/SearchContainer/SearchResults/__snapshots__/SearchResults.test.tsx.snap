@@ -9,21 +9,25 @@ exports[`SearchResults component should render without errors 1`] = `
   <ul>
     <li
       key="1"
+      onClick={[Function]}
     >
       London, LD, UK
     </li>
     <li
       key="1"
+      onClick={[Function]}
     >
       London, LD, UK
     </li>
     <li
       key="1"
+      onClick={[Function]}
     >
       London, LD, UK
     </li>
     <li
       key="1"
+      onClick={[Function]}
     >
       London, LD, UK
     </li>

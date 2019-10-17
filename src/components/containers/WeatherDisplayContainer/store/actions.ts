@@ -90,15 +90,15 @@ export const fireFiveDaysForecastHttpRequest = (key: string) => {
 		dispatch(fiveDaysForecastInitAction());
 		if (key)
 			try {
-				const result = await setAsyncGetRequest(
+				const forecastResult = await setAsyncGetRequest(
 					key,
 					'fiveDaysForecast'
 				);
-				const weatherResult;
+				// const weatherResult;
 
-				console.log(weatherResult);
+				console.log(forecastResult);
 
-				dispatch(fiveDaysForecastSuccessAction(weatherResult));
+				// dispatch(fiveDaysForecastSuccessAction(weatherResult));
 			} catch (error) {
 				dispatch(fiveDaysForecastFailAction(error));
 				console.log(error.message);

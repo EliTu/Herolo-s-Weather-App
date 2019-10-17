@@ -15,7 +15,7 @@ interface IProps {
 	closeResultsList: () => void;
 }
 
-const SearchResults: React.FC<IProps> = ({
+export const SearchResults: React.FC<IProps> = ({
 	resultList,
 	searchValue,
 	isDisplayed,

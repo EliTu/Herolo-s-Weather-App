@@ -1,10 +1,12 @@
 import React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
-import SearchResults from './SearchResults';
+import { SearchResults } from './SearchResults';
 import initialShallowRender from '../../../../utilities/test-utilities/initialShallowRender';
 
 describe('SearchResults component', () => {
 	let component: ShallowWrapper;
+	const clickCallback: () => void = jest.fn();
+
 	beforeEach(
 		() =>
 			(component = shallow(
@@ -37,6 +39,8 @@ describe('SearchResults component', () => {
 					]}
 					searchValue={'Lon'}
 					isDisplayed={false}
+					closeResultsList={clickCallback}
+					currentWeatherHttpRequest={clickCallback}
 				/>
 			))
 	);
@@ -91,5 +95,17 @@ describe('SearchResults component', () => {
 		expect(li.at(1).text()).toBe('London, LD, UK');
 		expect(li.at(2).text()).toBe('London, LD, UK');
 		expect(li.at(3).text()).toBe('London, LD, UK');
+	});
+
+	it('should fire a callback function when a li element is clicked', () => {
+		component.setProps({ isDisplayed: true });
+
+		const li = component
+			.children()
+			.find('li')
+			.at(0);
+
+		li.at(0).simulate('click');
+		expect(clickCallback).toHaveBeenCalled();
 	});
 });
