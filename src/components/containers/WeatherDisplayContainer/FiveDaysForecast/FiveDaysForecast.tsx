@@ -1,41 +1,49 @@
 import React from 'react';
-import Card from '../../../display/UI/Card/Card';
+import { connect } from 'react-redux';
+import ForecastCard from './ForecastCard/ForecastCard';
+import getDayOfTheWeek from './getDayOfTheWeek';
 import styles from './FiveDaysForecast.module.css';
 
-interface IProps {}
+interface IProps {
+	forecastResults: {
+		EpochDate: number;
+		Date: string;
+		Minimum: { Value: number; Unit: string };
+		Maximum: { Value: Number; Unit: string };
+		Day: { IconPhrase: string };
+		Link: string;
+	}[];
+}
 
-export const FiveDaysForecast: React.FC<IProps> = () => {
+export const FiveDaysForecast: React.FC<IProps> = ({ forecastResults }) => {
 	const { FiveDaysForecastStyles } = styles;
 
 	return (
 		<div className={FiveDaysForecastStyles}>
-			<Card
-				mainHeading={'Tomorrow'}
-				secondaryHeading={'30 c'}
-				info={'Hot'}
-			></Card>
-			<Card
-				mainHeading={'Tomorrow'}
-				secondaryHeading={'30 c'}
-				info={'Hot'}
-			></Card>
-			<Card
-				mainHeading={'Tomorrow'}
-				secondaryHeading={'30 c'}
-				info={'Hot'}
-			></Card>
-			<Card
-				mainHeading={'Tomorrow'}
-				secondaryHeading={'30 c'}
-				info={'Hot'}
-			></Card>
-			<Card
-				mainHeading={'Tomorrow'}
-				secondaryHeading={'30 c'}
-				info={'Hot'}
-			></Card>
+			<ul>
+				{forecastResults.map(result => {
+					const day = getDayOfTheWeek(result.EpochDate);
+					return (
+						<ForecastCard
+							mainHeading={day}
+							date={result.Date}
+							maxTempData={result.Maximum}
+							minTempData={result.Minimum}
+							description={result.Day.IconPhrase}
+							link={result.Link}
+						/>
+					);
+				})}
+			</ul>
 		</div>
 	);
 };
 
-export default FiveDaysForecast;
+// Redux setup:
+const mapStateToProps = (state: any) => {
+	return {
+		forecastResults: state.fiveDaysForecast.resultList,
+	};
+};
+
+export default connect(mapStateToProps)(FiveDaysForecast);

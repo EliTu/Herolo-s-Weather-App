@@ -1,14 +1,14 @@
 import React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
-import Card from './Card';
-import initialShallowRender from '../../../../utilities/test-utilities/initialShallowRender';
+import ForecastCard from './ForecastCard';
+import initialShallowRender from '../../../../../utilities/test-utilities/initialShallowRender';
 
 describe('Card component', () => {
 	let component: ShallowWrapper;
 	beforeEach(
 		() =>
 			(component = shallow(
-				<Card
+				<ForecastCard
 					mainHeading={'card-test'}
 					secondaryHeading={'1'}
 					info={'abc'}

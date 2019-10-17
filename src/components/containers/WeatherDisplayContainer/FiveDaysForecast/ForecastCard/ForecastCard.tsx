@@ -3,11 +3,21 @@ import styles from './Card.module.css';
 
 interface IProps {
 	mainHeading: string;
-	secondaryHeading: string;
-	info: string | number;
+	date: string;
+	maxTempData: {};
+	minTempData: {};
+	description: string;
+	link: string;
 }
 
-const Card: React.FC<IProps> = ({ mainHeading, secondaryHeading, info }) => {
+const ForecastCard: React.FC<IProps> = ({
+	mainHeading,
+	date,
+	maxTempData,
+	minTempData,
+	description,
+	link,
+}) => {
 	const { CardStyles } = styles;
 
 	return (
@@ -19,4 +29,4 @@ const Card: React.FC<IProps> = ({ mainHeading, secondaryHeading, info }) => {
 	);
 };
 
-export default Card;
+export default ForecastCard;
