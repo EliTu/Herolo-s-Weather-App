@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
 import { fireCurrentWeatherHttpRequest } from '../../WeatherDisplayContainer/store/actions';
+import { fireFiveDaysForecastHttpRequest } from '../../WeatherDisplayContainer/store/actions';
 import { closeSearchResultsList } from '../store/actions';
 import styles from './SearchResults.module.css';
 import { ResultListTypes } from '../SearchContainer';
@@ -13,6 +14,7 @@ interface IProps {
 	error: string;
 	outsideClickRef?: React.RefObject<any>;
 	currentWeatherHttpRequest: (key: string) => void;
+	fiveDaysForecastHttpRequest: (key: string) => void;
 	closeResultsList: () => void;
 }
 
@@ -23,12 +25,14 @@ export const SearchResults: React.FC<IProps> = ({
 	error,
 	outsideClickRef,
 	currentWeatherHttpRequest,
+	fiveDaysForecastHttpRequest,
 	closeResultsList,
 }) => {
 	const { SearchResultsStyles } = styles;
 
 	const handleResultClick = (key: string) => {
 		currentWeatherHttpRequest(key);
+		fiveDaysForecastHttpRequest(key);
 		closeResultsList();
 	};
 
@@ -61,6 +65,8 @@ const mapDispatchToProps = (dispatch: ThunkDispatch<{}, {}, any>) => {
 	return {
 		currentWeatherHttpRequest: (key: string) =>
 			dispatch(fireCurrentWeatherHttpRequest(key)),
+		fiveDaysForecastHttpRequest: (key: string) =>
+			dispatch(fireFiveDaysForecastHttpRequest(key)),
 		closeResultsList: () => dispatch(closeSearchResultsList()),
 	};
 };

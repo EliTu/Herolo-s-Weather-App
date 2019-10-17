@@ -93,11 +93,10 @@ export const fireFiveDaysForecastHttpRequest = (key: string) => {
 					key,
 					'fiveDaysForecast'
 				);
-				// const weatherResult;
+				const forecastList = forecastResult.data.DailyForecasts;
+				console.log(forecastList);
 
-				console.log(forecastResult);
-
-				// dispatch(fiveDaysForecastSuccessAction(weatherResult));
+				dispatch(fiveDaysForecastSuccessAction(forecastList));
 			} catch (error) {
 				dispatch(fiveDaysForecastFailAction(error.message));
 				console.log(error.message);

@@ -18,7 +18,7 @@
     line-height: 1.6;
     font-weight: 800;
     align-self: center;
-    width: 35%;
+    width: 50%;
 }
 
 .SelectedWeatherStyles button {
@@ -29,9 +29,4 @@
     padding: 0;
     outline: none;
     align-self: start;
-}
-
-.SelectedWeatherStyles li {
-    list-style: none;
-    font-size: var(--text-size-medium);
 }
