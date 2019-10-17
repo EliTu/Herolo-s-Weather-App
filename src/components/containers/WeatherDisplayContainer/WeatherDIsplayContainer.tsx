@@ -2,29 +2,35 @@ import React from 'react';
 import { connect } from 'react-redux';
 import SelectedWeather from './SelectedWeather/SelectedWeather';
 import FiveDaysForecast from './FiveDaysForecast/FiveDaysForecast';
+import ErrorMessage from '../../display/UI/ErrorMessage/ErrorMessage';
 import styles from './WeatherDisplayContainer.module.css';
 
 interface IProps {
+	searchError: string;
 	weatherError: string;
-	FiveDaysForecastError: string;
+	fiveDaysForecastError: string;
 }
 
 export const WeatherDisplayContainer: React.FC<IProps> = ({
+	searchError,
 	weatherError,
-	FiveDaysForecastError,
+	fiveDaysForecastError,
 }) => {
 	const { WeatherDisplayContainerStyles } = styles;
 	return (
-		<section className={WeatherDisplayContainerStyles}>
+		{
+			!searchError && !weatherError && !fiveDaysForecastError ? <section className={WeatherDisplayContainerStyles}>
 			<SelectedWeather />
 			<FiveDaysForecast />
-		</section>
+		</section>: <ErrorMessage/>
+	}
 	);
 };
 
 // Redux setup:
 const mapStateToProps = (state: any) => {
 	return {
+		searchError: state.search.error,
 		weatherError: state.currentWeather.error,
 		FiveDaysForecastError: state.fiveDaysForecast.error,
 	};

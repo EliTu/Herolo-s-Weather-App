@@ -10,7 +10,7 @@ describe('WeatherDisplayContainer', () => {
 			(component = shallow(
 				<WeatherDisplayContainer
 					weatherError={'abc'}
-					FiveDaysForecastError={'defg'}
+					fiveDaysForecastError={'defg'}
 				/>
 			))
 	);
