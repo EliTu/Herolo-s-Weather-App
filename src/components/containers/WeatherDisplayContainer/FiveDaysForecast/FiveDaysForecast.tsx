@@ -21,27 +21,29 @@ export const FiveDaysForecast: React.FC<IProps> = ({ forecastResults }) => {
 	return (
 		<div className={FiveDaysForecastStyles}>
 			<ul>
-				{forecastResults.map(result => {
-					const day = getDayOfTheWeek(result.EpochDate);
+				{forecastResults.map(
+					({ EpochDate, Date, Minimum, Maximum, Day, Link }) => {
+						const day = getDayOfTheWeek(EpochDate);
 
-					const { Value: maxVal, Unit: maxUnit } = result.Minimum;
-					const maxTemp = `${maxVal} ${maxUnit}`;
+						const { Value: maxVal, Unit: maxUnit } = Minimum;
+						const maxTemp = `${maxVal} ${maxUnit}`;
 
-					const { Value: minVal, Unit: minUnit } = result.Maximum;
-					const minTemp = `${minVal} ${minUnit}`;
+						const { Value: minVal, Unit: minUnit } = Maximum;
+						const minTemp = `${minVal} ${minUnit}`;
 
-					const { IconPhrase } = result.Day;
-					return (
-						<ForecastCard
-							mainHeading={day}
-							date={result.Date}
-							maxTempData={maxTemp}
-							minTempData={minTemp}
-							description={IconPhrase}
-							link={result.Link}
-						/>
-					);
-				})}
+						const { IconPhrase } = Day;
+						return (
+							<ForecastCard
+								mainHeading={day}
+								date={Date}
+								maxTempData={maxTemp}
+								minTempData={minTemp}
+								description={IconPhrase}
+								link={Link}
+							/>
+						);
+					}
+				)}
 			</ul>
 		</div>
 	);
