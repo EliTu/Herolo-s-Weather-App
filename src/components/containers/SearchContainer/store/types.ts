@@ -1,7 +1,7 @@
 export interface SearchInitState {
 	results: any;
 	isLoading?: boolean;
-	error?: string;
+	error: string;
 	areResultsDisplayed: boolean;
 }
 

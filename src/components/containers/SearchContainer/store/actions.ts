@@ -54,11 +54,9 @@ export const fireSearchHttpRequest = (searchInputValue: string) => {
 					'search'
 				);
 
-				console.log(result);
 				const dataList: any[] = result.data.slice(0, 5);
 				dispatch(searchRequestSuccess(dataList));
 			} catch (error) {
-				console.log(error);
 				dispatch(searchRequestFail(error.message));
 			}
 	};

@@ -15,7 +15,7 @@ const SelectedWeatherInfo: React.FC<IProps> = ({
 	weatherIconType,
 	isLoading,
 	infoLink,
-	localName,
+	localName = 'Tel-Aviv',
 	temperature,
 }) => {
 	const { selectedWeatherInfoStyles } = styles;
@@ -24,7 +24,7 @@ const SelectedWeatherInfo: React.FC<IProps> = ({
 			{!isLoading && <Icon iconType={weatherIconType} size={'7x'} />}
 			<ul>
 				<li>
-					<a href={infoLink}>{!localName ? 'Tel-Aviv' : localName}</a>
+					<a href={infoLink}>{localName}</a>
 				</li>
 				<li>
 					{temperature &&

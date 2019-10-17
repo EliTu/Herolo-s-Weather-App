@@ -14,62 +14,63 @@ import {
 	IconDefinition,
 } from '@fortawesome/free-solid-svg-icons';
 
-const setWeatherIcon = (isDay: boolean, weatherText: string) => {
+const setWeatherIcon = (isDay: boolean, iconNumber: number) => {
 	let icon: IconDefinition;
 
-	switch (weatherText) {
-		case 'Sunny':
-		case 'Mostly Sunny':
-		case 'Partly Sunny w/ Flurries':
-		case 'Clear':
-		case 'Mostly Clear':
+	switch (iconNumber) {
+		case 1:
+		case 2:
+		case 3:
+		case 33:
+		case 34:
 			icon = isDay ? faSun : faMoon;
 			break;
 
-		case 'Hazy Sunshine':
-		case 'Partly Sunny':
-		case 'Intermittent Clouds':
+		case 5:
+		case 21:
+		case 36:
 			icon = isDay ? faCloudSun : faCloudMoon;
 			break;
 
-		case 'Mostly Cloudy':
-		case 'Mostly Cloudy w/ Flurries':
-		case 'Cloudy':
-		case 'Dreary (Overcast)':
-		case 'Partly Cloudy':
+		case 6:
+		case 20:
+		case 7:
+		case 8:
+		case 35:
 			icon = isDay ? faCloud : faCloudMoon;
 			break;
 
-		case 'Fog':
+		case 11:
 			icon = faSmog;
 			break;
 
-		case 'Rain':
-		case 'Sleet':
-		case 'Freezing Rain':
-		case 'Rain and Snow':
-		case 'Mostly Cloudy w/ Showers':
+		case 18:
+		case 19:
+		case 25:
+		case 26:
+		case 29:
+		case 39:
+		case 40:
 			icon = isDay ? faCloudRain : faCloudMoonRain;
-
 			break;
 
-		case 'Partly Sunny w/ Showers':
-		case 'Partly Sunny w/ T-Storms':
-		case 'Mostly Cloudy w/ T-Storms':
+		case 14:
+		case 17:
+		case 16:
 			icon = faCloudSunRain;
 			break;
 
-		case 'T-Storms':
+		case 15:
 			icon = faCloudShowersHeavy;
 			break;
 
-		case 'Windy':
+		case 32:
 			icon = faWind;
 			break;
 
-		case 'Snow':
-		case 'Ice':
-		case 'Mostly Cloudy w/ Snow':
+		case 22:
+		case 24:
+		case 23:
 			icon = faSnowflake;
 			break;
 

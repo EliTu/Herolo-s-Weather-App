@@ -10,6 +10,7 @@ interface IProps {
 	resultList: ResultListTypes[];
 	searchValue: any;
 	isDisplayed: boolean;
+	error: string;
 	outsideClickRef?: React.RefObject<any>;
 	currentWeatherHttpRequest: (key: string) => void;
 	closeResultsList: () => void;
@@ -19,6 +20,7 @@ export const SearchResults: React.FC<IProps> = ({
 	resultList,
 	searchValue,
 	isDisplayed,
+	error,
 	outsideClickRef,
 	currentWeatherHttpRequest,
 	closeResultsList,
@@ -30,7 +32,10 @@ export const SearchResults: React.FC<IProps> = ({
 		closeResultsList();
 	};
 
-	return resultList.length > 0 && searchValue.length >= 2 && isDisplayed ? (
+	return resultList.length > 0 &&
+		searchValue.length >= 2 &&
+		isDisplayed &&
+		!error ? (
 		<div className={SearchResultsStyles} ref={outsideClickRef}>
 			<ul>
 				{resultList.map(result => (
@@ -48,6 +53,7 @@ export const SearchResults: React.FC<IProps> = ({
 const mapStateToProps = (state: any) => {
 	return {
 		isDisplayed: state.search.areResultsDisplayed,
+		error: state.search.error,
 	};
 };
 

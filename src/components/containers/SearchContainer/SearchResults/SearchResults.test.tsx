@@ -39,6 +39,7 @@ describe('SearchResults component', () => {
 					]}
 					searchValue={'Lon'}
 					isDisplayed={false}
+					error={false}
 					closeResultsList={clickCallback}
 					currentWeatherHttpRequest={clickCallback}
 				/>
@@ -69,6 +70,9 @@ describe('SearchResults component', () => {
 		expect(component).not.toContainMatchingElement('div');
 
 		component.setProps({ searchValue: 'Lond', isDisplayed: false });
+		expect(component).not.toContainMatchingElement('div');
+
+		component.setProps({ error: 'abc' });
 		expect(component).not.toContainMatchingElement('div');
 	});
 

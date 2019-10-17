@@ -34,13 +34,20 @@ export const SelectedWeather: React.FC<IProps> = ({
 
 	useEffect(() => {
 		let weatherIcon: IconDefinition;
-		if (!isLoading)
+		if (!isLoading && weatherData.length > 0)
 			weatherIcon = setWeatherIcon(
 				weatherData.isDayTime,
-				weatherData.WeatherText
+				weatherData.IconNumber
 			);
 		setWeatherIconType(() => weatherIcon);
-	}, [isLoading, weatherData.WeatherText, weatherData.isDayTime]);
+	}, [
+		isLoading,
+		weatherData.Icon,
+		weatherData.IconNumber,
+		weatherData.WeatherText,
+		weatherData.isDayTime,
+		weatherData.length,
+	]);
 
 	return (
 		<div className={SelectedWeatherStyles}>
