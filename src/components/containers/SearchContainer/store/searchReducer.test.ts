@@ -3,6 +3,7 @@ import {
 	SEARCH_REQUEST_INIT,
 	SEARCH_REQUEST_SUCCESS,
 	SEARCH_REQUEST_FAIL,
+	CLOSE_SEARCH_RESULTS,
 } from './types';
 
 describe('searchReducer', () => {
@@ -12,6 +13,7 @@ describe('searchReducer', () => {
 				isLoading: true,
 				error: '',
 				results: [],
+				areResultsDisplayed: false,
 			}
 		);
 	});
@@ -26,6 +28,7 @@ describe('searchReducer', () => {
 			isLoading: false,
 			error: '',
 			results: [{}, {}, {}],
+			areResultsDisplayed: true,
 		});
 	});
 
@@ -39,6 +42,20 @@ describe('searchReducer', () => {
 			isLoading: false,
 			error: 'abc',
 			results: [],
+			areResultsDisplayed: false,
+		});
+	});
+
+	it('should set areResultsDisplayed to false when receiving CLOSE_SEARCH_RESULTS action type', () => {
+		expect(
+			searchReducer(undefined, {
+				type: CLOSE_SEARCH_RESULTS,
+			})
+		).toEqual({
+			results: [],
+			error: '',
+			areResultsDisplayed: false,
+			isLoading: false,
 		});
 	});
 });

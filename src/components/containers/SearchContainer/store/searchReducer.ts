@@ -31,7 +31,7 @@ const searchReducer = (
 			return {
 				...state,
 				results: [...action.results],
-				isLoading: false,
+				isLoading: action.results.length < 0,
 				areResultsDisplayed: action.results.length > 0,
 				error: '',
 			};
