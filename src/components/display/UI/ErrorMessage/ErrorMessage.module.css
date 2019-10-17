@@ -2,18 +2,21 @@
 
 .ErrorMessageStyles {
     display: block;
-    width: 50%;
+    width: 70%;
     padding: 1rem 2rem;
     color: var(--color-main-black);
+    position: absolute;
+    top: 30%;
+    right: 20%;
 }
 
 .ErrorMessageStyles p:nth-child(1) {
-    font-size: var(--text-size-extra-large);
+    font-size: var(--text-size-huge);
     font-weight: 800;
 }
 
 .ErrorMessageStyles p:nth-child(2) {
-    font-size: var(--text-size-large);
+    font-size: var(--text-size-extra-large);
     font-size: 600;
 }
 

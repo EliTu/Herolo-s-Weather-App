@@ -3,35 +3,52 @@ import { connect } from 'react-redux';
 import SelectedWeather from './SelectedWeather/SelectedWeather';
 import FiveDaysForecast from './FiveDaysForecast/FiveDaysForecast';
 import ErrorMessage from '../../display/UI/ErrorMessage/ErrorMessage';
+import Loader from '../../display/UI/Loader/Loader';
 import styles from './WeatherDisplayContainer.module.css';
 
 interface IProps {
-	searchError: string;
-	weatherError: string;
-	fiveDaysForecastError: string;
+	isCurrentWeatherLoading: boolean;
+	weatherError?: string;
+	isFiveDaysForecastLoading: boolean;
+	fiveDaysForecastError?: string;
 }
 
 export const WeatherDisplayContainer: React.FC<IProps> = ({
-	searchError,
+	isCurrentWeatherLoading,
 	weatherError,
+	isFiveDaysForecastLoading,
 	fiveDaysForecastError,
 }) => {
 	const { WeatherDisplayContainerStyles } = styles;
+
+	const errorDetails = weatherError ? weatherError : fiveDaysForecastError;
+
 	return (
-		{
-			!searchError && !weatherError && !fiveDaysForecastError ? <section className={WeatherDisplayContainerStyles}>
-			<SelectedWeather />
-			<FiveDaysForecast />
-		</section>: <ErrorMessage/>
-	}
+		<section className={WeatherDisplayContainerStyles}>
+			{!isCurrentWeatherLoading && !isFiveDaysForecastLoading ? (
+				<>
+					{!weatherError && !fiveDaysForecastError ? (
+						<>
+							<SelectedWeather />
+							<FiveDaysForecast />
+						</>
+					) : (
+						<ErrorMessage errorDetails={errorDetails} />
+					)}
+				</>
+			) : (
+				<Loader />
+			)}
+		</section>
 	);
 };
 
 // Redux setup:
 const mapStateToProps = (state: any) => {
 	return {
-		searchError: state.search.error,
+		isCurrentWeatherLoading: state.currentWeather.isLoading,
 		weatherError: state.currentWeather.error,
+		isFiveDaysForecastLoading: state.fiveDaysForecast.isLoading,
 		FiveDaysForecastError: state.fiveDaysForecast.error,
 	};
 };

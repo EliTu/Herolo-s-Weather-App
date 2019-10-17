@@ -1,37 +1,17 @@
 import React from 'react';
-
 import styles from './ErrorMessage.module.css';
 
 interface IProps {
-    errorDetails: string;
-	errorType: string;
+	errorDetails: string | undefined;
 }
 
-export const ErrorMessage: React.FC<IProps> = ({ errorDetails, errorType }) => {
+export const ErrorMessage: React.FC<IProps> = ({ errorDetails }) => {
 	const { ErrorMessageStyles } = styles;
-
-	let headMessage;
-	let secondaryMessage;
-	switch (errorType) {
-		case 'searchError':
-			headMessage = 'Oops...';
-			secondaryMessage = 'Could not perfrom search!';
-			break;
-		case 'currentWeatherError':
-		case 'fiveDaysForecastError':
-			headMessage = 'Oops...';
-			secondaryMessage = 'Something went wrong with the request :(';
-			break;
-		default:
-			headMessage = '';
-			secondaryMessage = '';
-			break;
-	}
 
 	return (
 		<div className={ErrorMessageStyles}>
-			<p>{headMessage}</p>
-			<p>{secondaryMessage}</p>
+			<p>Oops...</p>
+			<p>Something went wrong with the server request :(</p>
 			<p>
 				The reason seems to be: <span>{errorDetails}</span>
 			</p>

@@ -8,7 +8,7 @@ exports[`ErrorMessage component should render a currentWeather error message if 
     Oops...
   </p>
   <p>
-    Something went wrong with the request :(
+    Something went wrong with the server request :(
   </p>
   <p>
     The reason seems to be: 
@@ -30,7 +30,7 @@ exports[`ErrorMessage component should render a fiveDaysForecast error message i
     Oops...
   </p>
   <p>
-    Something went wrong with the request :(
+    Something went wrong with the server request :(
   </p>
   <p>
     The reason seems to be: 
@@ -52,7 +52,7 @@ exports[`ErrorMessage component should render a search error message if errorTyp
     Oops...
   </p>
   <p>
-    Could not perfrom search!
+    Something went wrong with the server request :(
   </p>
   <p>
     The reason seems to be: 
@@ -70,8 +70,12 @@ exports[`ErrorMessage component should render without errors 1`] = `
 <div
   className="ErrorMessageStyles"
 >
-  <p />
-  <p />
+  <p>
+    Oops...
+  </p>
+  <p>
+    Something went wrong with the server request :(
+  </p>
   <p>
     The reason seems to be: 
     <span />

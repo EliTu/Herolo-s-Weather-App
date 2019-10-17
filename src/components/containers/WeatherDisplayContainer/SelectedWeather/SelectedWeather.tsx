@@ -4,7 +4,6 @@ import { ThunkDispatch } from 'redux-thunk';
 import { fireCurrentWeatherHttpRequest } from '../store/actions';
 import SelectedWeatherInfo from './SelectedWeatherInfo/SelectedWeatherInfo';
 import FavIcon from '../../../display/UI/Icon/FavIcon/FavIcon';
-import Loader from '../../../display/UI/Loader/Loader';
 import { ResultListTypes } from '../../SearchContainer/SearchContainer';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import setWeatherIcon from './setWeatherIcon';
@@ -45,25 +44,17 @@ export const SelectedWeather: React.FC<IProps> = ({
 
 	return (
 		<div className={SelectedWeatherStyles}>
-			{isLoading &&
-			!weatherData.WeatherText &&
-			!weatherData.Temperature ? (
-				<Loader />
-			) : (
-				<>
-					<SelectedWeatherInfo
-						weatherIconType={weatherIconType}
-						isLoading={isLoading}
-						infoLink={weatherData.Link}
-						localName={searchResults.LocalizedName}
-						temperature={weatherData.Temperature}
-					/>
-					<p>{weatherData.WeatherText}</p>
-					<button>
-						<FavIcon isFavorite={isFavorite} />
-					</button>
-				</>
-			)}
+			<SelectedWeatherInfo
+				weatherIconType={weatherIconType}
+				isLoading={isLoading}
+				infoLink={weatherData.Link}
+				localName={searchResults.LocalizedName}
+				temperature={weatherData.Temperature}
+			/>
+			<p>{weatherData.WeatherText}</p>
+			<button>
+				<FavIcon isFavorite={isFavorite} />
+			</button>
 		</div>
 	);
 };

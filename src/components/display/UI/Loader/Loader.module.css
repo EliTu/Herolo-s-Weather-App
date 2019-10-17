@@ -19,6 +19,9 @@
     transform: translateZ(0);
     -webkit-animation-delay: -0.16s;
     animation-delay: -0.16s;
+    position: absolute;
+    top: 30%;
+    left: 50%;
 }
 
 .Loader:before,

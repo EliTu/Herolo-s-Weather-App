@@ -51,7 +51,7 @@ export const fireCurrentWeatherHttpRequest = (key: string) => {
 
 				dispatch(currentWeatherSuccessAction(weatherResult));
 			} catch (error) {
-				dispatch(currentWeatherFailAction(error));
+				dispatch(currentWeatherFailAction(error.message));
 				console.log(error.message);
 			}
 	};
@@ -100,7 +100,7 @@ export const fireFiveDaysForecastHttpRequest = (key: string) => {
 
 				// dispatch(fiveDaysForecastSuccessAction(weatherResult));
 			} catch (error) {
-				dispatch(fiveDaysForecastFailAction(error));
+				dispatch(fiveDaysForecastFailAction(error.message));
 				console.log(error.message);
 			}
 	};
