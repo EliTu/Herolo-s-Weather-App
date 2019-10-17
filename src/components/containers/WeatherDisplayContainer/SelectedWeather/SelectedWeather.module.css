@@ -4,7 +4,7 @@
     width: 80%;
     height: 40%;
     margin: 0 auto;
-    padding: 0 3rem;
+    padding: 0 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,11 +14,11 @@
 .SelectedWeatherStyles p {
     margin: 0 auto;
     text-align: center;
-    font-size: var(--text-size-huge);
+    font-size: var(--text-size-extra-large);
     line-height: 1.6;
     font-weight: 800;
     align-self: center;
-    width: 40%;
+    width: 35%;
 }
 
 .SelectedWeatherStyles button {
@@ -28,6 +28,7 @@
     margin: 2rem;
     padding: 0;
     outline: none;
+    align-self: start;
 }
 
 .SelectedWeatherStyles li {

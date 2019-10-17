@@ -1,8 +1,9 @@
-.SelectedWeatherInfo {
+.SelectedWeatherInfoStyles {
     display: flex;
     justify-items: center;
     justify-content: center;
-    width: 35%;
+    justify-self: center;
+    width: 40%;
     height: 200px;
-    margin: 2rem;
+    margin: 1rem auto;
 }

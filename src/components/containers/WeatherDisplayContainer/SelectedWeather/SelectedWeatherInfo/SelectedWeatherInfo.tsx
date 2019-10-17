@@ -18,19 +18,25 @@ const SelectedWeatherInfo: React.FC<IProps> = ({
 	localName = 'Tel-Aviv',
 	temperature,
 }) => {
-	const { selectedWeatherInfoStyles } = styles;
+	const { SelectedWeatherInfoStyles } = styles;
+
+	console.log(weatherIconType);
 	return (
-		<div className={selectedWeatherInfoStyles}>
-			{!isLoading && <Icon iconType={weatherIconType} size={'7x'} />}
-			<ul>
-				<li>
-					<a href={infoLink}>{localName}</a>
-				</li>
-				<li>
-					{temperature &&
-						`${temperature.Metric.Value} ${temperature.Metric.Unit}`}
-				</li>
-			</ul>
+		<div className={SelectedWeatherInfoStyles}>
+			{!isLoading && (
+				<>
+					<Icon iconType={weatherIconType} size={'7x'} />
+					<ul>
+						<li>
+							<a href={infoLink}>{localName}</a>
+						</li>
+						<li>
+							{temperature &&
+								`${temperature.Metric.Value} ${temperature.Metric.Unit}`}
+						</li>
+					</ul>
+				</>
+			)}
 		</div>
 	);
 };

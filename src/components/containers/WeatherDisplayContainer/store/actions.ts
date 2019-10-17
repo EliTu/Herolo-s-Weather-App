@@ -52,7 +52,6 @@ export const fireCurrentWeatherHttpRequest = (key: string) => {
 				dispatch(currentWeatherSuccessAction(weatherResult));
 			} catch (error) {
 				dispatch(currentWeatherFailAction(error.message));
-				console.log(error.message);
 			}
 	};
 };

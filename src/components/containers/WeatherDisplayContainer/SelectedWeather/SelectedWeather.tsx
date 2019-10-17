@@ -28,26 +28,19 @@ export const SelectedWeather: React.FC<IProps> = ({
 	const [weatherIconType, setWeatherIconType] = useState();
 
 	// On component mount, by default, set and display Tel-Aviv's weather info
-	useEffect(() => {
-		currentWeatherHttpRequest('215854');
-	}, [currentWeatherHttpRequest]);
+	// useEffect(() => {
+	// 	currentWeatherHttpRequest('215854');
+	// }, [currentWeatherHttpRequest]);
 
 	useEffect(() => {
 		let weatherIcon: IconDefinition;
-		if (!isLoading && weatherData.length > 0)
+		if (!isLoading && weatherData.WeatherIcon)
 			weatherIcon = setWeatherIcon(
 				weatherData.isDayTime,
-				weatherData.IconNumber
+				weatherData.WeatherIcon
 			);
 		setWeatherIconType(() => weatherIcon);
-	}, [
-		isLoading,
-		weatherData.Icon,
-		weatherData.IconNumber,
-		weatherData.WeatherText,
-		weatherData.isDayTime,
-		weatherData.length,
-	]);
+	}, [isLoading, weatherData.WeatherIcon, weatherData.isDayTime]);
 
 	return (
 		<div className={SelectedWeatherStyles}>

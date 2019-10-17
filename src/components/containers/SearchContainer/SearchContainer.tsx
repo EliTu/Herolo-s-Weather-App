@@ -55,11 +55,11 @@ export const SearchContainer: React.FC<IProps> = ({
 
 	// Set the isDisplayed to false if the value passed in the Input is an empty string
 	useEffect(() => {
-		if (!inputData.value) closeSearchResultsList();
+	if (!inputData.value) closeResultsList();
 	}, [closeResultsList, inputData.value]);
 
 	// Set the isDisplayed to false upon clicking outside of the SearchResults component scope
-	const onOutsideClick = () => closeSearchResultsList();
+	const onOutsideClick = () => closeResultsList();
 	const outsideClickRef: React.RefObject<any> = useClickOutside(
 		isDisplayed,
 		onOutsideClick
