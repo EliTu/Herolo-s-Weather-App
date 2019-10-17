@@ -23,13 +23,21 @@ export const FiveDaysForecast: React.FC<IProps> = ({ forecastResults }) => {
 			<ul>
 				{forecastResults.map(result => {
 					const day = getDayOfTheWeek(result.EpochDate);
+
+					const { Value: maxVal, Unit: maxUnit } = result.Minimum;
+					const maxTemp = `${maxVal} ${maxUnit}`;
+
+					const { Value: minVal, Unit: minUnit } = result.Maximum;
+					const minTemp = `${minVal} ${minUnit}`;
+
+					const { IconPhrase } = result.Day;
 					return (
 						<ForecastCard
 							mainHeading={day}
 							date={result.Date}
-							maxTempData={result.Maximum}
-							minTempData={result.Minimum}
-							description={result.Day.IconPhrase}
+							maxTempData={maxTemp}
+							minTempData={minTemp}
+							description={IconPhrase}
 							link={result.Link}
 						/>
 					);
