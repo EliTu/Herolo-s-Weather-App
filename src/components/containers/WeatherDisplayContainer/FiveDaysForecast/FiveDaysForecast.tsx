@@ -4,7 +4,7 @@ import styles from './FiveDaysForecast.module.css';
 
 interface IProps {}
 
-const FiveDaysForecast: React.FC<IProps> = () => {
+export const FiveDaysForecast: React.FC<IProps> = () => {
 	const { FiveDaysForecastStyles } = styles;
 
 	return (

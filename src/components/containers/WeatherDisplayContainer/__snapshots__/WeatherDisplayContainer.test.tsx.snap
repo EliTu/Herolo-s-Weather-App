@@ -1,11 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`WeatherDisplayContainer should render without errors 1`] = `
+exports[`WeatherDisplayContainer should display the Loader componenet if isCurrentWeatherLoading is true 1`] = `
+<section
+  className="WeatherDisplayContainerStyles"
+>
+  <Loader />
+</section>
+`;
+
+exports[`WeatherDisplayContainer should display the Loader componenet if isFiveDaysForecastLoading is true 1`] = `
+<section
+  className="WeatherDisplayContainerStyles"
+>
+  <Loader />
+</section>
+`;
+
+exports[`WeatherDisplayContainer should render the ErrorMessage component if fiveDaysForecastError is truthy 1`] = `
+<section
+  className="WeatherDisplayContainerStyles"
+>
+  <ErrorMessage
+    errorDetails="efg"
+  />
+</section>
+`;
+
+exports[`WeatherDisplayContainer should render the ErrorMessage component if weatherError is truthy 1`] = `
 <section
   className="WeatherDisplayContainerStyles"
 >
   <ErrorMessage
     errorDetails="abc"
   />
+</section>
+`;
+
+exports[`WeatherDisplayContainer should render without errors 1`] = `
+<section
+  className="WeatherDisplayContainerStyles"
+>
+  <Connect(SelectedWeather) />
+  <FiveDaysForecast />
 </section>
 `;

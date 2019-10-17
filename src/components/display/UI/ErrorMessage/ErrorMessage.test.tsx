@@ -5,12 +5,7 @@ import ErrorMessage from './ErrorMessage';
 
 describe('ErrorMessage component', () => {
 	let component: ShallowWrapper;
-	beforeEach(
-		() =>
-			(component = shallow(
-				<ErrorMessage errorDetails={''} errorType={''} />
-			))
-	);
+	beforeEach(() => (component = shallow(<ErrorMessage errorDetails={''} />)));
 
 	it('should render without errors', () => {
 		initialShallowRender(component, 'ErrorMessageStyles');
@@ -23,7 +18,6 @@ describe('ErrorMessage component', () => {
 	it('should render a search error message if errorType is searchError', () => {
 		component.setProps({
 			errorDetails: 'network error',
-			errorType: 'searchError',
 		});
 
 		expect(component).toMatchSnapshot();
@@ -38,7 +32,7 @@ describe('ErrorMessage component', () => {
 				.children()
 				.at(1)
 				.text()
-		).toBe('Could not perfrom search!');
+		).toBe('Something went wrong with the server request :(');
 		expect(
 			component
 				.children()
@@ -56,7 +50,6 @@ describe('ErrorMessage component', () => {
 	it('should render a currentWeather error message if errorType is currentWeatherError', () => {
 		component.setProps({
 			errorDetails: 'internal error',
-			errorType: 'currentWeatherError',
 		});
 
 		expect(component).toMatchSnapshot();
@@ -71,7 +64,7 @@ describe('ErrorMessage component', () => {
 				.children()
 				.at(1)
 				.text()
-		).toBe('Something went wrong with the request :(');
+		).toBe('Something went wrong with the server request :(');
 		expect(
 			component
 				.children()
@@ -89,7 +82,6 @@ describe('ErrorMessage component', () => {
 	it('should render a fiveDaysForecast error message if errorType is fiveDaysForecastError', () => {
 		component.setProps({
 			errorDetails: 'source error',
-			errorType: 'fiveDaysForecastError',
 		});
 
 		expect(component).toMatchSnapshot();
@@ -104,7 +96,7 @@ describe('ErrorMessage component', () => {
 				.children()
 				.at(1)
 				.text()
-		).toBe('Something went wrong with the request :(');
+		).toBe('Something went wrong with the server request :(');
 		expect(
 			component
 				.children()
