@@ -1,17 +1,20 @@
 import React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
-import ForecastCard from './ForecastCard';
-import initialShallowRender from '../../../../../utilities/test-utilities/initialShallowRender';
+import Card from './Card';
+import initialShallowRender from '../../../../utilities/test-utilities/initialShallowRender';
 
 describe('Card component', () => {
 	let component: ShallowWrapper;
 	beforeEach(
 		() =>
 			(component = shallow(
-				<ForecastCard
-					mainHeading={'card-test'}
-					secondaryHeading={'1'}
-					info={'abc'}
+				<Card
+					mainHeading={'Thursday'}
+					date={'10-02-2019'}
+					description={'warm'}
+					link={'www'}
+					maxTempData={'20 C'}
+					minTempData={'15 C'}
 				/>
 			))
 	);
@@ -25,18 +28,26 @@ describe('Card component', () => {
 				.children()
 				.find('h3')
 				.text()
-		).toBe('card-test');
+		).toBe('Thursday');
 		expect(
 			component
 				.children()
 				.find('h4')
+				.at(0)
 				.text()
-		).toBe('1');
+		).toBe('10-02-2019');
+		expect(
+			component
+				.children()
+				.find('h4')
+				.at(1)
+				.text()
+		).toBe('20 C - 15 C');
 		expect(
 			component
 				.children()
 				.find('p')
 				.text()
-		).toBe('abc');
+		).toBe('warm');
 	});
 });

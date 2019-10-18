@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card component should render without errors 1`] = `
+<div
+  className="CardStyles"
+>
+  <h3>
+    <a
+      href="www"
+    >
+      Thursday
+    </a>
+  </h3>
+  <h4>
+    10-02-2019
+  </h4>
+  <h4>
+    20 C - 15 C
+  </h4>
+  <p>
+    warm
+  </p>
+</div>
+`;

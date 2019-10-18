@@ -4,47 +4,50 @@ exports[`FiveDaysWeather component should render the component without errors 1`
 <div
   className="FiveDaysForecastStyles"
 >
-  <ul>
-    <ForecastCard
-      date="10-05-19"
-      description="Warm"
-      link="www"
-      mainHeading="Friday"
-      maxTempData="20 C"
-      minTempData="30 C"
-    />
-    <ForecastCard
-      date="10-05-19"
-      description="Warm"
-      link="www"
-      mainHeading="Saturday"
-      maxTempData="20 C"
-      minTempData="30 C"
-    />
-    <ForecastCard
-      date="10-05-19"
-      description="Warm"
-      link="www"
-      mainHeading="Sunday"
-      maxTempData="20 C"
-      minTempData="30 C"
-    />
-    <ForecastCard
-      date="10-05-19"
-      description="Warm"
-      link="www"
-      mainHeading="Monday"
-      maxTempData="20 C"
-      minTempData="30 C"
-    />
-    <ForecastCard
-      date="10-05-19"
-      description="Warm"
-      link="www"
-      mainHeading="Tuesday"
-      maxTempData="20 C"
-      minTempData="30 C"
-    />
-  </ul>
+  <Card
+    date="10-05-19"
+    description="Warm"
+    key="1571371200"
+    link="www"
+    mainHeading="Friday"
+    maxTempData="20 C"
+    minTempData="30 C"
+  />
+  <Card
+    date="10-05-19"
+    description="Warm"
+    key="1571457600"
+    link="www"
+    mainHeading="Saturday"
+    maxTempData="20 C"
+    minTempData="30 C"
+  />
+  <Card
+    date="10-05-19"
+    description="Warm"
+    key="1571544000"
+    link="www"
+    mainHeading="Sunday"
+    maxTempData="20 C"
+    minTempData="30 C"
+  />
+  <Card
+    date="10-05-19"
+    description="Warm"
+    key="1571630400"
+    link="www"
+    mainHeading="Monday"
+    maxTempData="20 C"
+    minTempData="30 C"
+  />
+  <Card
+    date="10-05-19"
+    description="Warm"
+    key="1571716800"
+    link="www"
+    mainHeading="Tuesday"
+    maxTempData="20 C"
+    minTempData="30 C"
+  />
 </div>
 `;

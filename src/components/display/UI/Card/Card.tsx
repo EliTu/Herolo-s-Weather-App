@@ -4,19 +4,19 @@ import styles from './Card.module.css';
 interface IProps {
 	mainHeading: string;
 	date: string;
-	maxTempData: string;
-	minTempData: string;
-	description: string;
 	link: string;
+	description: string;
+	maxTempData?: string;
+	minTempData?: string;
 }
 
-const ForecastCard: React.FC<IProps> = ({
+const Card: React.FC<IProps> = ({
 	mainHeading,
 	date,
-	maxTempData,
-	minTempData,
 	description,
 	link,
+	maxTempData,
+	minTempData,
 }) => {
 	const { CardStyles } = styles;
 
@@ -32,4 +32,4 @@ const ForecastCard: React.FC<IProps> = ({
 	);
 };
 
-export default ForecastCard;
+export default Card;

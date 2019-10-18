@@ -9,10 +9,10 @@ const getDayOfTheWeek = (epochDate: number) => {
 	// 	'Saturday',
 	// ];
 	// let d = new Date(year, --month, day);
-    // return d && days[d.getDay()];
-    
-	var date = new Date(epochDate * 1000);
-	var dayOfWeekV = [
+	// return d && days[d.getDay()];
+
+	const date = new Date(epochDate * 1000);
+	const dayOfWeekV = [
 		'Sunday',
 		'Monday',
 		'Tuesday',
@@ -21,7 +21,7 @@ const getDayOfTheWeek = (epochDate: number) => {
 		'Friday',
 		'Saturday',
 	];
-	var day = dayOfWeekV[date.getDay()];
+	const day = dayOfWeekV[date.getDay()];
 
 	return day;
 };

@@ -2,7 +2,6 @@ import React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
 import { FiveDaysForecast } from './FiveDaysForecast';
 import initialShallowRender from '../../../../utilities/test-utilities/initialShallowRender';
-import ForecastCard from './ForecastCard/ForecastCard';
 
 describe('FiveDaysWeather component', () => {
 	let component: ShallowWrapper;
@@ -60,11 +59,9 @@ describe('FiveDaysWeather component', () => {
 		initialShallowRender(component, 'FiveDaysForecastStyles');
 	});
 
-	it('should render a ul with a list of 5 Card components', () => {
-		const ul = component.find('ul');
-		const card = component.find('ForecastCard');
+	it('should render a list of 5 Card components', () => {
+		const card = component.find('Card');
 
-		expect(ul.length).toBe(1);
 		expect(card).toBeTruthy();
 		expect(card.length).toBe(5);
 	});
