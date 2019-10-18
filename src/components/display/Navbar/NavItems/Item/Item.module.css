@@ -1,11 +1,17 @@
 @import '../../../../../variables.css';
 
 .ItemStyles {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: var(--text-size-medium);
-    margin: 2rem;
+    margin: 0 auto;
     color: var(--color-main-grey-dark);
-    transition: all 2s ease-in;
     border-bottom: var(--border-thick);
+    border-color: rgba(255, 255, 255, 0);
+    height: 100%;
+    width: 50%;
+    transition: all 0.3s ease-in;
 }
 
 .ItemStyles:hover {

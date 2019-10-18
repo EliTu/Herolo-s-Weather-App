@@ -3,4 +3,6 @@
     align-items: flex-end;
     justify-content: flex-end;
     justify-items: flex-end;
+    height: 100%;
+    width: 25%;
 }
