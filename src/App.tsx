@@ -15,13 +15,13 @@ export const App: React.FC = () => {
 					<Navbar />
 					<div className="content-wrapper">
 						<Switch>
+							<Route path="/favorites" />
+							<Route path="/about" />
 							<Route path="/" component={SearchContainer} />
 							<Route
 								path="/"
 								component={WeatherDisplayContainer}
 							/>
-							<Route path="/favorites" />
-							<Route path="/about" />
 						</Switch>
 					</div>
 					<Footer />

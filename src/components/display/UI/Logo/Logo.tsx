@@ -8,9 +8,11 @@ const Logo: React.FC = () => {
 
 	return (
 		<div className={LogoStyles}>
-			<Icon iconType={faRainbow} size={'3x'} />
-			<p>Herolo's</p>
-			<p>Weather app</p>
+			<Icon iconType={faRainbow} size={'4x'} />
+			<ul>
+				<li>Herolo's</li>
+				<li>Weather app</li>
+			</ul>
 		</div>
 	);
 };

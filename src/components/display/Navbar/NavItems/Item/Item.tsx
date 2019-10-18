@@ -8,10 +8,15 @@ interface IProps {
 }
 
 const Item: React.FC<IProps> = ({ children, link }) => {
-	const { ItemStyles } = styles;
+	const { ItemStyles, active } = styles;
 
 	return (
-		<NavLink className={ItemStyles} to={link} exact>
+		<NavLink
+			className={ItemStyles}
+			to={link}
+			activeClassName={active}
+			exact
+		>
 			{children}
 		</NavLink>
 	);

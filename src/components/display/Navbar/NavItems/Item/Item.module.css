@@ -4,4 +4,14 @@
     font-size: var(--text-size-medium);
     margin: 2rem;
     color: var(--color-main-grey-dark);
+    transition: all 2s ease-in;
+    border-bottom: var(--border-thick);
+}
+
+.ItemStyles:hover {
+    background-color: rgba(66, 159, 235, 0.918);
+}
+
+.active {
+    border-bottom-color: var(--color-main-black);
 }

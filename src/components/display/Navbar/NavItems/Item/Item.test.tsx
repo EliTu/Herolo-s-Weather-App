@@ -7,7 +7,7 @@ import initialShallowRender from '../../../../../utilities/test-utilities/initia
 describe('Item component', () => {
 	let component: ShallowWrapper;
 	beforeEach(() => {
-		component = shallow(<Item>Test Item</Item>);
+		component = shallow(<Item link="/s">Test Item</Item>);
 	});
 
 	it('should render without errors', () =>

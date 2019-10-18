@@ -14,11 +14,21 @@
     height: 4.5rem;
 }
 
-.LogoStyles p:nth-child(1) {
-    width: 100%;
-    font-size: var(--text-size-extra-large);
+.LogoStyles ul {
+    padding: 0;
+    margin: 0;
 }
 
-.LogoStyles p:nth-child(2) {
+.LogoStyles li {
+    list-style: none;
+}
+
+.LogoStyles li:nth-child(1) {
+    text-align: center;
+    font-size: var(--text-size-extra-large);
+    height: 2rem;
+}
+
+.LogoStyles li:nth-child(2) {
     font-size: var(--text-size-large);
 }
