@@ -10,7 +10,7 @@ import {
 } from 'redux';
 import thunk from 'redux-thunk';
 import searchReducer from './components/containers/SearchContainer/store/searchReducer';
-import App from './App';
+import { App } from './App';
 import currentWeatherReducer from './components/containers/WeatherDisplayContainer/store/currentWeatherReducer';
 import fiveDaysForecastReducer from './components/containers/WeatherDisplayContainer/store/fiveDaysForecastReducer';
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Layout from './components/containers/Layout/Layout';
 import Navbar from './components/display/Navbar/Navbar';
 import SearchContainer from './components/containers/SearchContainer/SearchContainer';
@@ -6,17 +7,25 @@ import WeatherDisplayContainer from './components/containers/WeatherDisplayConta
 import Footer from './components/display/Footer/Footer';
 import './App.css';
 
-const App: React.FC = () => {
+export const App: React.FC = () => {
 	return (
 		<div className="App">
-			<Layout>
-				<Navbar />
-				<div className="content-wrapper">
-					<SearchContainer />
-					<WeatherDisplayContainer />
-				</div>
-				<Footer />
-			</Layout>
+			<Router>
+				<Layout>
+					<Navbar />
+					<div className="content-wrapper">
+						<Switch>
+							<Route path="/" component={SearchContainer} />
+							<Route
+								path="/"
+								component={WeatherDisplayContainer}
+							/>
+							<Route path="/favorites" />
+						</Switch>
+					</div>
+					<Footer />
+				</Layout>
+			</Router>
 		</div>
 	);
 };
