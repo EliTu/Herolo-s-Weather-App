@@ -101,7 +101,7 @@ export const SelectedWeather: React.FC<IProps> = ({
 
 	return (
 		<div className={SelectedWeatherStyles} id={id}>
-			{!isLoading && weatherData && (
+			{!isLoading && weatherData.key && (
 				<>
 					<SelectedWeatherInfo
 						weatherIconType={weatherIconType}
