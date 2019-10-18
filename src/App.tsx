@@ -2,8 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Layout from './components/containers/Layout/Layout';
 import Navbar from './components/display/Navbar/Navbar';
-import SearchContainer from './components/containers/SearchContainer/SearchContainer';
-import WeatherDisplayContainer from './components/containers/WeatherDisplayContainer/WeatherDIsplayContainer';
+import WeatherContent from './components/containers/WeatherContent/WeatherContent';
 import Footer from './components/display/Footer/Footer';
 import './App.css';
 
@@ -17,11 +16,7 @@ export const App: React.FC = () => {
 						<Switch>
 							<Route path="/favorites" />
 							<Route path="/about" />
-							<Route path="/" component={SearchContainer} />
-							<Route
-								path="/"
-								component={WeatherDisplayContainer}
-							/>
+							<Route path="/" component={WeatherContent} />
 						</Switch>
 					</div>
 					<Footer />

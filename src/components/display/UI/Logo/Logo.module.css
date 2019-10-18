@@ -27,6 +27,7 @@
     text-align: center;
     font-size: var(--text-size-extra-large);
     height: 2rem;
+    font-weight: 800;
 }
 
 .LogoStyles li:nth-child(2) {

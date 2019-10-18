@@ -4,13 +4,19 @@ exports[`NavItems component should render without errors 1`] = `
 <div
   className="NavItemsStyles"
 >
-  <Item>
+  <Item
+    link="/"
+  >
     Home
   </Item>
-  <Item>
+  <Item
+    link="/favorites"
+  >
     Favorites
   </Item>
-  <Item>
+  <Item
+    link="/about"
+  >
     About
   </Item>
 </div>

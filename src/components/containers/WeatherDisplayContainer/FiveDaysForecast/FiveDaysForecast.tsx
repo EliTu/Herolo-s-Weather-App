@@ -40,13 +40,13 @@ export const FiveDaysForecast: React.FC<IProps> = ({ forecastResults }) => {
 						Value: maxVal,
 						Unit: maxUnit,
 					} = Temperature.Minimum;
-					const maxTemp = `${maxVal} ${maxUnit}`;
+					const maxTemp = `${maxVal}${maxUnit}`;
 
 					const {
 						Value: minVal,
 						Unit: minUnit,
 					} = Temperature.Maximum;
-					const minTemp = `${minVal} ${minUnit}`;
+					const minTemp = `${minVal}${minUnit}`;
 
 					// Get the weather text:
 					const { IconPhrase } = Day;

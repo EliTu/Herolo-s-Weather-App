@@ -43,7 +43,7 @@ describe('Card component', () => {
 				.find('h4')
 				.at(0)
 				.text()
-		).toBe('20 C - 15 C');
+		).toBe('20C - 15C');
 		expect(
 			component
 				.children()

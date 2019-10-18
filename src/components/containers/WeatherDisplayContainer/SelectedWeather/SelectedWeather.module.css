@@ -13,6 +13,9 @@
 
 .buttonWrapper {
     width: 30%;
+    display: flex;
+    justify-content: center;
+    align-self: end;
 }
 
 .SelectedWeatherStyles ul {

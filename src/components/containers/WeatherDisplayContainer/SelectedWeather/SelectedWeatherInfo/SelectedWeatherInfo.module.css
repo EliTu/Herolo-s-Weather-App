@@ -11,8 +11,8 @@
 }
 
 .SelectedWeatherInfoStyles ul {
-    margin: auto;
     padding: 0 0.4rem;
+    margin-left: 0.4rem;
 }
 
 .SelectedWeatherInfoStyles li {
@@ -29,18 +29,6 @@
     font-size: var(--text-size-large);
     margin: 0;
 }
-
-/* .SelectedWeatherInfoStyles p:nth-child(1) {
-    font-size: var(--text-size-medium);
-}
-
-.SelectedWeatherInfoStyles p:nth-child(2) {
-    font-size: var(--text-size-medium);
-} */
-
-/* .SelectedWeatherInfoStyles a {
-    font-size: var(--text-size-large);
-} */
 
 .SelectedWeatherInfoStyles li:nth-child(2) a {
     font-size: var(--text-size-large);

@@ -1,9 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Item component should render without errors 1`] = `
-<div
+<NavLink
+  activeClassName="active"
   className="ItemStyles"
+  exact={true}
+  to="/s"
 >
   Test Item
-</div>
+</NavLink>
 `;
