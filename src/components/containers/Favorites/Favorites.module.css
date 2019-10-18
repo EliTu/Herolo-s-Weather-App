@@ -1,3 +1,8 @@
+@import '../../../variables.css';
+
 .FavoritesStyles {
-    
+    width: 80%;
+    height: 100%;
+    border: var(--border-thick);
+    border-color: var(--color-main-black);
 }

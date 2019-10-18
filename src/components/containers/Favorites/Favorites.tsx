@@ -1,11 +1,13 @@
 import React from 'react';
 import styles from './Favorites.module.css';
 
-interface Props {}
+interface IProps {}
 
-const Favorites: React.FC<Props> = () => {
+const Favorites: React.FC<IProps> = () => {
 	const { FavoritesStyles } = styles;
-	return <div className={FavoritesStyles}></div>;
+	return <div className={FavoritesStyles}>
+
+    </div>;
 };
 
 export default Favorites;
