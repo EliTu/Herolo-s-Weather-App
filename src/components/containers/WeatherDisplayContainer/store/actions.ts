@@ -10,6 +10,7 @@ import {
 } from './types';
 import { Action, ActionCreator } from 'redux';
 import setAsyncGetRequest from '../../../../utilities/urls/urls';
+import uniqid from 'uniqid';
 
 // CurrentWeather actions:
 export const currentWeatherInitAction: ActionCreator<
@@ -42,11 +43,14 @@ export const currentWeatherFailAction: ActionCreator<Action> = (
 export const fireCurrentWeatherHttpRequest = (key: string) => {
 	return async (dispatch: any) => {
 		dispatch(currentWeatherInitAction());
+		console.log(key);
 		if (key)
 			try {
 				const result = await setAsyncGetRequest(key, 'currentWeather');
-				const weatherResult = result.data[0];
+				console.log(result);
+				const id = uniqid();
 
+				const weatherResult = { ...result.data[0], id: id };
 				console.log(weatherResult);
 
 				dispatch(currentWeatherSuccessAction(weatherResult));
@@ -87,6 +91,7 @@ export const fiveDaysForecastFailAction: ActionCreator<Action> = (
 export const fireFiveDaysForecastHttpRequest = (key: string) => {
 	return async (dispatch: any) => {
 		dispatch(fiveDaysForecastInitAction());
+		console.log(key);
 		if (key)
 			try {
 				const forecastResult = await setAsyncGetRequest(

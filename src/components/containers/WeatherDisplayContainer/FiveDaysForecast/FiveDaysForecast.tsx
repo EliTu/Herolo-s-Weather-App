@@ -7,9 +7,11 @@ import styles from './FiveDaysForecast.module.css';
 interface IProps {
 	forecastResults: {
 		EpochDate: number;
-		Date: string;
-		Minimum: { Value: number; Unit: string };
-		Maximum: { Value: Number; Unit: string };
+		Date: any;
+		Temperature: {
+			Minimum: { Value: number; Unit: string };
+			Maximum: { Value: Number; Unit: string };
+		};
 		Day: { IconPhrase: string };
 		Link: string;
 	}[];
@@ -21,21 +23,37 @@ export const FiveDaysForecast: React.FC<IProps> = ({ forecastResults }) => {
 	return (
 		<div className={FiveDaysForecastStyles}>
 			{forecastResults.map(
-				({ EpochDate, Date, Minimum, Maximum, Day, Link }) => {
-					const day = getDayOfTheWeek(EpochDate);
+				({ EpochDate, Date, Temperature, Day, Link }, i) => {
+					// Convert EpochDate into a day of the week string:
+					const day = getDayOfTheWeek(EpochDate, i);
 
-					const { Value: maxVal, Unit: maxUnit } = Minimum;
+					const {
+						Value: maxVal,
+						Unit: maxUnit,
+					} = Temperature.Minimum;
 					const maxTemp = `${maxVal} ${maxUnit}`;
 
-					const { Value: minVal, Unit: minUnit } = Maximum;
+					const {
+						Value: minVal,
+						Unit: minUnit,
+					} = Temperature.Maximum;
 					const minTemp = `${minVal} ${minUnit}`;
 
+					// Get the weather text:
 					const { IconPhrase } = Day;
+
+					// Get the DD-MM-YYYY date format:
+					const splitDate: string = Date.split('T')[0];
+					const parsedDate: string = splitDate
+						.split('-')
+						.reverse()
+						.join('/');
+
 					return (
 						<Card
 							key={EpochDate}
 							mainHeading={day}
-							date={Date}
+							date={parsedDate}
 							maxTempData={maxTemp}
 							minTempData={minTemp}
 							description={IconPhrase}
