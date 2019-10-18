@@ -4,30 +4,47 @@ exports[`FiveDaysWeather component should render the component without errors 1`
 <div
   className="FiveDaysForecastStyles"
 >
-  <Card
-    info="Hot"
-    mainHeading="Tomorrow"
-    secondaryHeading="30 c"
-  />
-  <Card
-    info="Hot"
-    mainHeading="Tomorrow"
-    secondaryHeading="30 c"
-  />
-  <Card
-    info="Hot"
-    mainHeading="Tomorrow"
-    secondaryHeading="30 c"
-  />
-  <Card
-    info="Hot"
-    mainHeading="Tomorrow"
-    secondaryHeading="30 c"
-  />
-  <Card
-    info="Hot"
-    mainHeading="Tomorrow"
-    secondaryHeading="30 c"
-  />
+  <ul>
+    <ForecastCard
+      date="10-05-19"
+      description="Warm"
+      link="www"
+      mainHeading="Friday"
+      maxTempData="20 C"
+      minTempData="30 C"
+    />
+    <ForecastCard
+      date="10-05-19"
+      description="Warm"
+      link="www"
+      mainHeading="Saturday"
+      maxTempData="20 C"
+      minTempData="30 C"
+    />
+    <ForecastCard
+      date="10-05-19"
+      description="Warm"
+      link="www"
+      mainHeading="Sunday"
+      maxTempData="20 C"
+      minTempData="30 C"
+    />
+    <ForecastCard
+      date="10-05-19"
+      description="Warm"
+      link="www"
+      mainHeading="Monday"
+      maxTempData="20 C"
+      minTempData="30 C"
+    />
+    <ForecastCard
+      date="10-05-19"
+      description="Warm"
+      link="www"
+      mainHeading="Tuesday"
+      maxTempData="20 C"
+      minTempData="30 C"
+    />
+  </ul>
 </div>
 `;

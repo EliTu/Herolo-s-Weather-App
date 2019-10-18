@@ -2,35 +2,4 @@
 
 exports[`SearchResults component should not be displayed if searchValue length is < 2, isDisplayed is false or there are no elements in the resultList 1`] = `""`;
 
-exports[`SearchResults component should render without errors 1`] = `
-<div
-  className="SearchResultsStyles"
->
-  <ul>
-    <li
-      key="1"
-      onClick={[Function]}
-    >
-      London, LD, UK
-    </li>
-    <li
-      key="1"
-      onClick={[Function]}
-    >
-      London, LD, UK
-    </li>
-    <li
-      key="1"
-      onClick={[Function]}
-    >
-      London, LD, UK
-    </li>
-    <li
-      key="1"
-      onClick={[Function]}
-    >
-      London, LD, UK
-    </li>
-  </ul>
-</div>
-`;
+exports[`SearchResults component should render without errors 1`] = `""`;

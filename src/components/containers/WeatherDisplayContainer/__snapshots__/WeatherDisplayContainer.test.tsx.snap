@@ -41,6 +41,6 @@ exports[`WeatherDisplayContainer should render without errors 1`] = `
   className="WeatherDisplayContainerStyles"
 >
   <Connect(SelectedWeather) />
-  <FiveDaysForecast />
+  <Connect(FiveDaysForecast) />
 </section>
 `;

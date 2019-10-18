@@ -2,7 +2,7 @@
 
 exports[`SelectedWeatherInfo should render without errors 1`] = `
 <div
-  className="selectedWeatherInfoStyles"
+  className="SelectedWeatherInfoStyles"
 >
   <Icon
     iconType={

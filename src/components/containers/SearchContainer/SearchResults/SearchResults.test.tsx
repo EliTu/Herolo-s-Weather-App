@@ -5,7 +5,8 @@ import initialShallowRender from '../../../../utilities/test-utilities/initialSh
 
 describe('SearchResults component', () => {
 	let component: ShallowWrapper;
-	const clickCallback: () => void = jest.fn();
+	const currentWeatherClickCallback: () => void = jest.fn();
+	const fiveDaysForecastClickCallback: () => void = jest.fn();
 
 	beforeEach(
 		() =>
@@ -39,9 +40,10 @@ describe('SearchResults component', () => {
 					]}
 					searchValue={'Lon'}
 					isDisplayed={false}
-					error={false}
-					closeResultsList={clickCallback}
-					currentWeatherHttpRequest={clickCallback}
+					error={'abc'}
+					closeResultsList={currentWeatherClickCallback}
+					currentWeatherHttpRequest={currentWeatherClickCallback}
+					fiveDaysForecastHttpRequest={fiveDaysForecastClickCallback}
 				/>
 			))
 	);
@@ -110,6 +112,6 @@ describe('SearchResults component', () => {
 			.at(0);
 
 		li.at(0).simulate('click');
-		expect(clickCallback).toHaveBeenCalled();
+		expect(currentWeatherClickCallback).toHaveBeenCalled();
 	});
 });
