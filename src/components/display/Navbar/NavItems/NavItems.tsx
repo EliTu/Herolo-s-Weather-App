@@ -7,9 +7,9 @@ const Navitems: React.FC = () => {
 
 	return (
 		<div className={NavItemsStyles}>
-			<Item>Home</Item>
-			<Item>Favorites</Item>
-			<Item>About</Item>
+			<Item link={'/'}>Home</Item>
+			<Item link={'/favorites'}>Favorites</Item>
+			<Item link={'/about'}>About</Item>
 		</div>
 	);
 };

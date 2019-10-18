@@ -1,13 +1,16 @@
 import React from 'react';
+import Icon from '../Icon/Icon';
+import { faRainbow } from '@fortawesome/free-solid-svg-icons';
 import styles from './Logo.module.css';
 
 const Logo: React.FC = () => {
-	const { LogoStyles, testDiv } = styles;
+	const { LogoStyles } = styles;
 
 	return (
 		<div className={LogoStyles}>
-			<div className={testDiv} />
-			<span>Herolo Weather app!</span>
+			<Icon iconType={faRainbow} size={'3x'} />
+			<p>Herolo's</p>
+			<p>Weather app</p>
 		</div>
 	);
 };

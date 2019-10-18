@@ -21,6 +21,7 @@ export const App: React.FC = () => {
 								component={WeatherDisplayContainer}
 							/>
 							<Route path="/favorites" />
+							<Route path="/about" />
 						</Switch>
 					</div>
 					<Footer />

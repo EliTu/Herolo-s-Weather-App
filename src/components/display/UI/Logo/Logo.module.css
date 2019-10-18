@@ -1,3 +1,5 @@
+@import '../../../../variables.css';
+
 .LogoStyles {
     margin: 2rem;
     display: flex;
@@ -6,9 +8,17 @@
     justify-items: center;
 }
 
-.testDiv {
+.LogoStyles div {
     margin-right: 1rem;
     width: 4.5rem;
     height: 4.5rem;
-    border: 1px solid black;
+}
+
+.LogoStyles p:nth-child(1) {
+    width: 100%;
+    font-size: var(--text-size-extra-large);
+}
+
+.LogoStyles p:nth-child(2) {
+    font-size: var(--text-size-large);
 }

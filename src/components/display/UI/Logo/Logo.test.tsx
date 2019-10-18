@@ -12,17 +12,17 @@ describe('Logo component', () => {
 	it('should render without errors', () =>
 		initialShallowRender(component, '.LogoStyles'));
 
-	it('should render one span tag with a text', () => {
-		const span = component.children().find('span');
+	it('should render two p tags with a text', () => {
+		const pTag = component.find('p');
 
-		expect(span.length).toBe(1);
-		expect(span.text()).toBe('Herolo Weather app!');
+		expect(pTag.length).toBe(2);
+		expect(pTag.at(0).text()).toBe("Herolo's");
+		expect(pTag.at(1).text()).toBe('Weather app');
 	});
 
-	it('should render one img tag, containing a logo (currently a div for testing)', () => {
-		const div = component.children().find('div');
+	it('should render one img tag, containing a logo', () => {
+		const logo = component.find('svg');
 
-		expect(div.length).toBe(1);
-		expect(div).toHaveClassName('testDiv');
+		expect(logo.length).toBe(1);
 	});
 });

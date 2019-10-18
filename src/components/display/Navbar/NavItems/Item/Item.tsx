@@ -1,14 +1,20 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import styles from './Item.module.css';
 
 interface IProps {
 	children: string;
+	link: string;
 }
 
-const Item: React.FC<IProps> = ({ children }) => {
+const Item: React.FC<IProps> = ({ children, link }) => {
 	const { ItemStyles } = styles;
 
-	return <div className={ItemStyles}>{children}</div>;
+	return (
+		<NavLink className={ItemStyles} to={link} exact>
+			{children}
+		</NavLink>
+	);
 };
 
 export default Item;
