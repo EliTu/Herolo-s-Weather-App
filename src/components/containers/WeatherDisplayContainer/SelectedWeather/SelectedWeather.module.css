@@ -11,14 +11,27 @@
     justify-items: center;
 }
 
-.SelectedWeatherStyles p {
-    margin: 0 auto;
-    text-align: center;
+.buttonWrapper {
+    width: 30%;
+}
+
+.SelectedWeatherStyles ul {
+    width: 50%;
+    padding: 0;
+}
+
+.SelectedWeatherStyles li {
+    list-style: none;
     font-size: var(--text-size-extra-large);
-    line-height: 1.6;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    text-align: center;
     font-weight: 800;
     align-self: center;
-    width: 50%;
+}
+
+.SelectedWeatherStyles li:nth-child(2) {
+    font-size: var(--text-size-huge);
 }
 
 .SelectedWeatherStyles button {

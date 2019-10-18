@@ -18,7 +18,7 @@ exports[`SelectedWeatherInfo should render without errors 1`] = `
         "prefix": "fas",
       }
     }
-    size="7x"
+    size="9x"
   />
   <ul>
     <li>
@@ -34,13 +34,11 @@ exports[`SelectedWeatherInfo should render without errors 1`] = `
         href="www.info.com"
       >
         Tel-Aviv
+        ,
       </a>
       <p>
         Israel
       </p>
-    </li>
-    <li>
-      20C
     </li>
   </ul>
 </div>

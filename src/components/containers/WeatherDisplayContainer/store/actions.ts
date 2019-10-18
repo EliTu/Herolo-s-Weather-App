@@ -42,7 +42,7 @@ export const currentWeatherFailAction: ActionCreator<Action> = (
 // Thunk async action creator:
 export const fireCurrentWeatherHttpRequest = (
 	key: string,
-	localName: string,
+	cityName: string,
 	countryName: string
 ) => {
 	return async (dispatch: any) => {

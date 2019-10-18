@@ -21,13 +21,22 @@ exports[`SelectedWeather Component should render without errors 1`] = `
       }
     }
   />
-  <p>
-    warm
-  </p>
-  <button>
-    <FavIcon
-      isFavorite={false}
-    />
-  </button>
+  <ul>
+    <li>
+      warm
+    </li>
+    <li>
+      20C
+    </li>
+  </ul>
+  <div
+    className="buttonWrapper"
+  >
+    <button>
+      <FavIcon
+        isFavorite={false}
+      />
+    </button>
+  </div>
 </div>
 `;

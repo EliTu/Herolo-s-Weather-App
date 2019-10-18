@@ -40,7 +40,7 @@ describe('SelectedWeatherInfo', () => {
 		const li = ul.children();
 
 		expect(ul.length).toBe(1);
-		expect(li.length).toBe(3);
+		expect(li.length).toBe(2);
 	});
 
 	it('first li should display the correct date', () => {
@@ -70,19 +70,12 @@ describe('SelectedWeatherInfo', () => {
 				.children()
 				.at(0)
 				.text()
-		).toBe('Tel-Aviv');
+		).toBe('Tel-Aviv,');
 		expect(
 			li
 				.children()
 				.at(1)
 				.text()
 		).toBe('Israel');
-	});
-
-	it('third li should display the temperature value and unit', () => {
-		const li = component.find('li').at(2);
-
-		expect(li.length).toBe(1);
-		expect(li.text()).toBe('20C');
 	});
 });

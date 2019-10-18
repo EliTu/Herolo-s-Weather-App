@@ -30,19 +30,15 @@ const SelectedWeatherInfo: React.FC<IProps> = ({
 		<div className={SelectedWeatherInfoStyles}>
 			{!isLoading && temperature && (
 				<>
-					<Icon iconType={weatherIconType} size={'7x'} />
+					<Icon iconType={weatherIconType} size={'9x'} />
 					<ul>
 						<li>
 							<p>{day}</p>
 							<p>{date}</p>
 						</li>
 						<li>
-							<a href={infoLink}>{cityName}</a>
+							<a href={infoLink}>{cityName},</a>
 							<p>{countryName}</p>
-						</li>
-						<li>
-							{temperature &&
-								`${temperature.Metric.Value}${temperature.Metric.Unit}`}
 						</li>
 					</ul>
 				</>

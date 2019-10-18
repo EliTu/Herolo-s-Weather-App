@@ -43,7 +43,7 @@ export const SelectedWeather: React.FC<IProps> = ({
 	weatherData,
 	isLoading,
 }) => {
-	const { SelectedWeatherStyles } = styles;
+	const { SelectedWeatherStyles, buttonWrapper } = styles;
 
 	const [isFavorite, setIsFavorite] = useState(false);
 	const [weatherIconType, setWeatherIconType] = useState();
@@ -93,10 +93,18 @@ export const SelectedWeather: React.FC<IProps> = ({
 						date={date}
 						day={day}
 					/>
-					<p>{WeatherText}</p>
-					<button>
-						<FavIcon isFavorite={isFavorite} />
-					</button>
+					<ul>
+						<li>{WeatherText}</li>
+						<li>
+							{Temperature &&
+								`${Temperature.Metric.Value}${Temperature.Metric.Unit}`}
+						</li>
+					</ul>
+					<div className={buttonWrapper}>
+						<button>
+							<FavIcon isFavorite={isFavorite} />
+						</button>
+					</div>
 				</>
 			)}
 		</div>

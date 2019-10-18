@@ -39,11 +39,18 @@ describe('SelectedWeather Component', () => {
 		expect(component.children().find('SelectedWeatherInfo').length).toBe(1);
 	});
 
-	it('should render a p tag with a text', () => {
-		const pTag = component.find('p');
+	it('should render a ul tag with 2 li elements', () => {
+		const ul = component.find('ul');
 
-		expect(pTag.length).toBe(1);
-		expect(pTag.text()).toBe('warm');
+		expect(ul.length).toBe(1);
+		expect(ul.children().length).toBe(2);
+	});
+
+	it('should display the weatherText in the 1st li, and the temperatures in the 2nd li', () => {
+		const li = component.find('li');
+
+		expect(li.at(0).text()).toBe('warm');
+		expect(li.at(1).text()).toBe('20C');
 	});
 
 	it('should have a button with a FavIcon component inside', () => {
