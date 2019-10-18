@@ -25,6 +25,8 @@ interface IProps {
 			};
 		};
 		id: string;
+		cityName: string;
+		countryName: string;
 	};
 	isLoading: boolean;
 	searchResults: ResultListTypes;
@@ -51,6 +53,8 @@ export const SelectedWeather: React.FC<IProps> = ({
 		Link,
 		Temperature,
 		id,
+		cityName,
+		countryName,
 	} = weatherData;
 
 	// On component mount, by default, set and display Tel-Aviv's weather info
