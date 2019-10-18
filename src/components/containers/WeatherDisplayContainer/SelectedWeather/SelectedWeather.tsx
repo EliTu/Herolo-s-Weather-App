@@ -4,13 +4,20 @@ import { ThunkDispatch } from 'redux-thunk';
 import { fireCurrentWeatherHttpRequest } from '../store/actions';
 import SelectedWeatherInfo from './SelectedWeatherInfo/SelectedWeatherInfo';
 import FavIcon from '../../../display/UI/Icon/FavIcon/FavIcon';
-import { ResultListTypes } from '../../SearchContainer/SearchContainer';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import setWeatherIcon from './setWeatherIcon';
+import {
+	setCorrectDateFormat,
+	setDayOfTheWeek,
+} from '../../../../utilities/convert-functions/dates';
 import styles from './SelectedWeather.module.css';
 
 interface IProps {
-	currentWeatherHttpRequest: (val: string) => void;
+	currentWeatherHttpRequest: (
+		val: string,
+		cityName: string,
+		countryName: string
+	) => void;
 	weatherData: {
 		LocalObservationDateTime: string;
 		EpochTime: number;
@@ -29,14 +36,12 @@ interface IProps {
 		countryName: string;
 	};
 	isLoading: boolean;
-	searchResults: ResultListTypes;
 }
 
 export const SelectedWeather: React.FC<IProps> = ({
 	currentWeatherHttpRequest,
 	weatherData,
 	isLoading,
-	searchResults,
 }) => {
 	const { SelectedWeatherStyles } = styles;
 
@@ -57,9 +62,14 @@ export const SelectedWeather: React.FC<IProps> = ({
 		countryName,
 	} = weatherData;
 
+	// Set correct date formats:
+
+	const day = !isLoading && EpochTime ? setDayOfTheWeek(EpochTime) : '';
+	const date = !isLoading && localDate ? setCorrectDateFormat(localDate) : '';
+
 	// On component mount, by default, set and display Tel-Aviv's weather info
 	// useEffect(() => {
-	// 	currentWeatherHttpRequest('215854');
+	// 	currentWeatherHttpRequest('215854', 'Tel-Aviv', 'Israel');
 	// }, [currentWeatherHttpRequest]);
 
 	useEffect(() => {
@@ -71,17 +81,24 @@ export const SelectedWeather: React.FC<IProps> = ({
 
 	return (
 		<div className={SelectedWeatherStyles} id={id}>
-			<SelectedWeatherInfo
-				weatherIconType={weatherIconType}
-				isLoading={isLoading}
-				infoLink={Link}
-				localName={searchResults.LocalizedName}
-				temperature={Temperature}
-			/>
-			<p>{WeatherText}</p>
-			<button>
-				<FavIcon isFavorite={isFavorite} />
-			</button>
+			{!isLoading && weatherData && (
+				<>
+					<SelectedWeatherInfo
+						weatherIconType={weatherIconType}
+						isLoading={isLoading}
+						infoLink={Link}
+						cityName={cityName}
+						countryName={countryName}
+						temperature={Temperature}
+						date={date}
+						day={day}
+					/>
+					<p>{WeatherText}</p>
+					<button>
+						<FavIcon isFavorite={isFavorite} />
+					</button>
+				</>
+			)}
 		</div>
 	);
 };
@@ -96,8 +113,12 @@ const mapStateToProps = (state: any) => {
 
 const mapDispatchToProps = (dispatch: ThunkDispatch<{}, {}, any>) => {
 	return {
-		currentWeatherHttpRequest: (key: string) =>
-			dispatch(fireCurrentWeatherHttpRequest(key)),
+		currentWeatherHttpRequest: (
+			key: string,
+			cityName: string,
+			countryName: string
+		) =>
+			dispatch(fireCurrentWeatherHttpRequest(key, cityName, countryName)),
 	};
 };
 

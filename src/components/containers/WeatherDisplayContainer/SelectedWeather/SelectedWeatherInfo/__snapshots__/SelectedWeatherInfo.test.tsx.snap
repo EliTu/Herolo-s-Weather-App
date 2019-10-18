@@ -22,14 +22,25 @@ exports[`SelectedWeatherInfo should render without errors 1`] = `
   />
   <ul>
     <li>
-      <a
-        href="www.something.com"
-      >
-        abc
-      </a>
+      <p>
+        Thursday
+      </p>
+      <p>
+        02/10/2019
+      </p>
     </li>
     <li>
-      20 c
+      <a
+        href="www.info.com"
+      >
+        Tel-Aviv
+      </a>
+      <p>
+        Israel
+      </p>
+    </li>
+    <li>
+      20C
     </li>
   </ul>
 </div>

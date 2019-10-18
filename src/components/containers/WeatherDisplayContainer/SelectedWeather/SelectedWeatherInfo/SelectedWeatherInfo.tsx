@@ -7,7 +7,10 @@ interface IProps {
 	weatherIconType: IconDefinition;
 	isLoading: boolean;
 	infoLink: string;
-	localName: string;
+	cityName: string;
+	countryName: string;
+	day: string;
+	date: string;
 	temperature: { Metric: { Value: number; Unit: string } };
 }
 
@@ -15,8 +18,11 @@ const SelectedWeatherInfo: React.FC<IProps> = ({
 	weatherIconType,
 	isLoading,
 	infoLink,
-	localName,
+	cityName,
+	countryName,
 	temperature,
+	day,
+	date,
 }) => {
 	const { SelectedWeatherInfoStyles } = styles;
 
@@ -27,7 +33,12 @@ const SelectedWeatherInfo: React.FC<IProps> = ({
 					<Icon iconType={weatherIconType} size={'7x'} />
 					<ul>
 						<li>
-							<a href={infoLink}>{localName}</a>
+							<p>{day}</p>
+							<p>{date}</p>
+						</li>
+						<li>
+							<a href={infoLink}>{cityName}</a>
+							<p>{countryName}</p>
 						</li>
 						<li>
 							{temperature &&

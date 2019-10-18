@@ -2,7 +2,6 @@ import React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
 import initialShallowRender from '../../../../../utilities/test-utilities/initialShallowRender';
 import SelectedWeatherInfo from './SelectedWeatherInfo';
-import Icon from '../../../../display/UI/Icon/Icon';
 import { faCloud } from '@fortawesome/free-solid-svg-icons';
 
 describe('SelectedWeatherInfo', () => {
@@ -13,9 +12,12 @@ describe('SelectedWeatherInfo', () => {
 				<SelectedWeatherInfo
 					weatherIconType={faCloud}
 					isLoading={false}
-					infoLink={'www.something.com'}
-					localName={'abc'}
-					temperature={{ Metric: { Value: 20, Unit: 'c' } }}
+					infoLink={'www.info.com'}
+					cityName={'Tel-Aviv'}
+					countryName={'Israel'}
+					temperature={{ Metric: { Value: 20, Unit: 'C' } }}
+					day={'Thursday'}
+					date={'02/10/2019'}
 				/>
 			))
 	);
@@ -38,6 +40,49 @@ describe('SelectedWeatherInfo', () => {
 		const li = ul.children();
 
 		expect(ul.length).toBe(1);
-		expect(li.length).toBe(2);
+		expect(li.length).toBe(3);
+	});
+
+	it('first li should display the correct date', () => {
+		const li = component.find('li').at(0);
+
+		expect(li.children().length).toBe(2);
+		expect(
+			li
+				.children()
+				.at(0)
+				.text()
+		).toBe('Thursday');
+		expect(
+			li
+				.children()
+				.at(1)
+				.text()
+		).toBe('02/10/2019');
+	});
+
+	it('second li should display the correct city & country name', () => {
+		const li = component.find('li').at(1);
+
+		expect(li.children().length).toBe(2);
+		expect(
+			li
+				.children()
+				.at(0)
+				.text()
+		).toBe('Tel-Aviv');
+		expect(
+			li
+				.children()
+				.at(1)
+				.text()
+		).toBe('Israel');
+	});
+
+	it('third li should display the temperature value and unit', () => {
+		const li = component.find('li').at(2);
+
+		expect(li.length).toBe(1);
+		expect(li.text()).toBe('20C');
 	});
 });

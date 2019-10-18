@@ -3,8 +3,13 @@
 exports[`SelectedWeather Component should render without errors 1`] = `
 <div
   className="SelectedWeatherStyles"
+  id="abc123"
 >
   <SelectedWeatherInfo
+    cityName="Tel-Aviv"
+    countryName="Israel"
+    date="18/10/2019"
+    day="Friday"
     infoLink="www"
     isLoading={false}
     temperature={
@@ -17,7 +22,7 @@ exports[`SelectedWeather Component should render without errors 1`] = `
     }
   />
   <p>
-    abc
+    warm
   </p>
   <button>
     <FavIcon

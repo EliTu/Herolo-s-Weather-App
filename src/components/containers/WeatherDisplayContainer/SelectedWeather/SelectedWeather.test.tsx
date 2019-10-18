@@ -1,9 +1,7 @@
 import React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
 import { SelectedWeather } from './SelectedWeather';
-import SelectedWeatherInfo from './SelectedWeatherInfo/SelectedWeatherInfo';
 import initialShallowRender from '../../../../utilities/test-utilities/initialShallowRender';
-import { faMoon } from '@fortawesome/free-solid-svg-icons';
 
 describe('SelectedWeather Component', () => {
 	let component: ShallowWrapper;
@@ -11,15 +9,24 @@ describe('SelectedWeather Component', () => {
 		() =>
 			(component = shallow(
 				<SelectedWeather
-					currentWeatherHttpRequest={() => {}}
+					currentWeatherHttpRequest={(
+						val: string,
+						cityName: string,
+						countryName: string
+					) => {}}
 					weatherData={{
-						WeatherText: 'abc',
-						isDayTime: false,
+						LocalObservationDateTime: '2019-10-18T13:45:00+03:00',
+						EpochTime: 12332022240,
+						WeatherText: 'warm',
+						WeatherIcon: 1,
+						IsDayTime: true,
 						Link: 'www',
 						Temperature: { Metric: { Value: 20, Unit: 'C' } },
+						id: 'abc123',
+						cityName: 'Tel-Aviv',
+						countryName: 'Israel',
 					}}
 					isLoading={false}
-					searchResults={{ localizedName: 'abc' }}
 				/>
 			))
 	);
@@ -36,7 +43,7 @@ describe('SelectedWeather Component', () => {
 		const pTag = component.find('p');
 
 		expect(pTag.length).toBe(1);
-		expect(pTag.text()).toBe('abc');
+		expect(pTag.text()).toBe('warm');
 	});
 
 	it('should have a button with a FavIcon component inside', () => {
