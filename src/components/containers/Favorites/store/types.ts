@@ -13,12 +13,17 @@ export const REMOVE_FROM_FAVORITES = 'REMOVE_FROM_FAVORITES';
 
 interface addToFavoritesAction {
 	type: typeof ADD_TO_FAVORITES;
-	updatedAditions: {}[];
+	updatedAditions: {
+		id: string;
+		key: string;
+		cityName: string;
+		countryName: string;
+	}[];
 }
 
 interface removeFromFavorites {
 	type: typeof REMOVE_FROM_FAVORITES;
-	updatedRemovals: {}[];
+	id: string;
 }
 
 export type favoritesActionTypes = addToFavoritesAction | removeFromFavorites;

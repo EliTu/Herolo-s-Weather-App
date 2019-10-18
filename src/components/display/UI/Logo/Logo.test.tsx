@@ -21,7 +21,7 @@ describe('Logo component', () => {
 	});
 
 	it('should render one img tag, containing a logo', () => {
-		const logo = component.find('div').find('svg');
+		const logo = component.find('Icon');
 
 		expect(logo.length).toBe(1);
 	});

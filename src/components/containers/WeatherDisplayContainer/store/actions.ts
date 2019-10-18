@@ -59,6 +59,7 @@ export const fireCurrentWeatherHttpRequest = (
 					cityName: cityName,
 					countryName: countryName,
 					id: id,
+					key: key,
 				};
 				console.log(weatherResult);
 

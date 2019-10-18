@@ -1,20 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
-import { fireCurrentWeatherHttpRequest } from '../store/actions';
 import SelectedWeatherInfo from './SelectedWeatherInfo/SelectedWeatherInfo';
 import FavIcon from '../../../display/UI/Icon/FavIcon/FavIcon';
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import setWeatherIcon from './setWeatherIcon';
+import { fireCurrentWeatherHttpRequest } from '../store/actions';
+import { addToFavoritesAction } from '../../Favorites/store/actions';
 import {
 	setCorrectDateFormat,
 	setDayOfTheWeek,
 } from '../../../../utilities/convert-functions/dates';
+import setWeatherIcon from './setWeatherIcon';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import styles from './SelectedWeather.module.css';
 
 interface IProps {
 	currentWeatherHttpRequest: (
 		val: string,
+		cityName: string,
+		countryName: string
+	) => void;
+	setNewFavoriteItem: (
+		id: string,
+		key: string,
 		cityName: string,
 		countryName: string
 	) => void;
@@ -34,12 +41,14 @@ interface IProps {
 		id: string;
 		cityName: string;
 		countryName: string;
+		key: string;
 	};
 	isLoading: boolean;
 }
 
 export const SelectedWeather: React.FC<IProps> = ({
 	currentWeatherHttpRequest,
+	setNewFavoriteItem,
 	weatherData,
 	isLoading,
 }) => {
@@ -60,6 +69,7 @@ export const SelectedWeather: React.FC<IProps> = ({
 		id,
 		cityName,
 		countryName,
+		key,
 	} = weatherData;
 
 	// Set correct date formats:
@@ -78,6 +88,16 @@ export const SelectedWeather: React.FC<IProps> = ({
 			weatherIcon = setWeatherIcon(IsDayTime, WeatherIcon);
 		setWeatherIconType(() => weatherIcon);
 	}, [IsDayTime, WeatherIcon, isLoading]);
+
+	const handleFavoriteButtonClick: any = (
+		id: string,
+		key: string,
+		cityName: string,
+		countryName: string
+	) => {
+		setNewFavoriteItem(id, key, cityName, countryName);
+		setIsFavorite(() => !isFavorite);
+	};
 
 	return (
 		<div className={SelectedWeatherStyles} id={id}>
@@ -101,7 +121,16 @@ export const SelectedWeather: React.FC<IProps> = ({
 						</li>
 					</ul>
 					<div className={buttonWrapper}>
-						<button>
+						<button
+							onClick={() =>
+								handleFavoriteButtonClick(
+									id,
+									key,
+									cityName,
+									countryName
+								)
+							}
+						>
 							<FavIcon isFavorite={isFavorite} />
 						</button>
 					</div>
@@ -127,6 +156,13 @@ const mapDispatchToProps = (dispatch: ThunkDispatch<{}, {}, any>) => {
 			countryName: string
 		) =>
 			dispatch(fireCurrentWeatherHttpRequest(key, cityName, countryName)),
+
+		setNewFavoriteItem: (
+			id: string,
+			key: string,
+			cityName: string,
+			countryName: string
+		) => dispatch(addToFavoritesAction(id, key, cityName, countryName)),
 	};
 };
 
