@@ -8,7 +8,7 @@ const initialShallowRender = (
 	expect(comp).toMatchSnapshot();
 	expect(comp.length).toBe(1);
 	expect(comp.length).not.toBe(2);
-	expect(comp).toHaveClassName(`${className}`);
+	if (className) expect(comp).toHaveClassName(`${className}`);
 };
 
 export default initialShallowRender;

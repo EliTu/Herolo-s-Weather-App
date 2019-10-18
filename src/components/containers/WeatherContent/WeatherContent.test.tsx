@@ -5,14 +5,13 @@ import initialShallowRender from '../../../utilities/test-utilities/initialShall
 
 describe('WeatherContent component', () => {
 	let component: ShallowWrapper;
-	beforeEach(() => shallow(<WeatherContent />));
+	beforeEach(() => (component = shallow(<WeatherContent />)));
 
-	it('should render without errors', () => {
+	it('should render without issues', () => {
 		initialShallowRender(component);
 	});
 
 	it('should render the SearchContainer and WeatherDisplayContainer components', () => {
 		expect(component.children().length).toBe(2);
-		expect(component.children());
 	});
 });

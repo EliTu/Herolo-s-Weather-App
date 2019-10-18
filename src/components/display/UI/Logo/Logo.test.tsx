@@ -13,15 +13,15 @@ describe('Logo component', () => {
 		initialShallowRender(component, '.LogoStyles'));
 
 	it('should render two p tags with a text', () => {
-		const pTag = component.find('p');
+		const li = component.find('li');
 
-		expect(pTag.length).toBe(2);
-		expect(pTag.at(0).text()).toBe("Herolo's");
-		expect(pTag.at(1).text()).toBe('Weather app');
+		expect(li.length).toBe(2);
+		expect(li.at(0).text()).toBe("Herolo's");
+		expect(li.at(1).text()).toBe('Weather app');
 	});
 
 	it('should render one img tag, containing a logo', () => {
-		const logo = component.find('svg');
+		const logo = component.find('div').find('svg');
 
 		expect(logo.length).toBe(1);
 	});

@@ -20,8 +20,10 @@ describe('NavItems component', () => {
 
 		expect(container.length).toBe(1);
 		expect(container.children()).toHaveLength(3);
-		expect(container).toContainReact(<Item>Home</Item>);
-		expect(container).toContainReact(<Item>About</Item>);
-		expect(container).toContainReact(<Item>Favorites</Item>);
+		expect(container).toContainReact(<Item link={'/'}>Home</Item>);
+		expect(container).toContainReact(<Item link={'/about'}>About</Item>);
+		expect(container).toContainReact(
+			<Item link={'/favorites'}>Favorites</Item>
+		);
 	});
 });

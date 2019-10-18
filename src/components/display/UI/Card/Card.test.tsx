@@ -13,8 +13,8 @@ describe('Card component', () => {
 					date={'10-02-2019'}
 					description={'warm'}
 					link={'www'}
-					maxTempData={'20 C'}
-					minTempData={'15 C'}
+					maxTempData={'20C'}
+					minTempData={'15C'}
 				/>
 			))
 	);
