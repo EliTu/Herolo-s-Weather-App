@@ -31,7 +31,7 @@ export const SearchResults: React.FC<IProps> = ({
 	const { SearchResultsStyles } = styles;
 
 	const handleResultClick = (key: string) => {
-		// currentWeatherHttpRequest(key);
+		currentWeatherHttpRequest(key);
 		fiveDaysForecastHttpRequest(key);
 		closeResultsList();
 	};

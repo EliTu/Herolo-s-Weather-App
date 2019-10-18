@@ -5,25 +5,25 @@ exports[`FiveDaysWeather component should render the component without errors 1`
   className="FiveDaysForecastStyles"
 >
   <Card
-    date="10-05-19"
+    date="19/05/10"
     description="Warm"
     key="1571371200"
     link="www"
-    mainHeading="Friday"
+    mainHeading="Friday (Today)"
     maxTempData="20 C"
     minTempData="30 C"
   />
   <Card
-    date="10-05-19"
+    date="19/05/10"
     description="Warm"
     key="1571457600"
     link="www"
-    mainHeading="Saturday"
+    mainHeading="Saturday (Tomorrow)"
     maxTempData="20 C"
     minTempData="30 C"
   />
   <Card
-    date="10-05-19"
+    date="19/05/10"
     description="Warm"
     key="1571544000"
     link="www"
@@ -32,7 +32,7 @@ exports[`FiveDaysWeather component should render the component without errors 1`
     minTempData="30 C"
   />
   <Card
-    date="10-05-19"
+    date="19/05/10"
     description="Warm"
     key="1571630400"
     link="www"
@@ -41,7 +41,7 @@ exports[`FiveDaysWeather component should render the component without errors 1`
     minTempData="30 C"
   />
   <Card
-    date="10-05-19"
+    date="19/05/10"
     description="Warm"
     key="1571716800"
     link="www"

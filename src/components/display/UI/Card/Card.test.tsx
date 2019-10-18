@@ -27,20 +27,21 @@ describe('Card component', () => {
 			component
 				.children()
 				.find('h3')
+				.at(0)
 				.text()
 		).toBe('Thursday');
 		expect(
 			component
 				.children()
-				.find('h4')
-				.at(0)
+				.find('h3')
+				.at(1)
 				.text()
 		).toBe('10-02-2019');
 		expect(
 			component
 				.children()
 				.find('h4')
-				.at(1)
+				.at(0)
 				.text()
 		).toBe('20 C - 15 C');
 		expect(
@@ -49,5 +50,12 @@ describe('Card component', () => {
 				.find('p')
 				.text()
 		).toBe('warm');
+	});
+
+	it('should have an h3 tag with an a tag nested inside of it', () => {
+		const h3 = component.find('h3').at(0);
+
+		expect(h3).toContainMatchingElement('a');
+		expect(h3.children().length).toBe(1);
 	});
 });

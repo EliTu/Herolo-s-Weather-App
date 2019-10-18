@@ -20,12 +20,12 @@ const setAsyncGetRequest = (inputVal: string, requestType: string) => {
 
 		case 'currentWeather':
 			url = 'http://dataservice.accuweather.com/currentconditions/v1/';
-			params = `${inputVal}?apikey=${apiKey}&language=en-us HTTP/1.1`;
+			params = `${inputVal}?apikey=${apiKey}&language=en-us&metric=true HTTP/1.1`;
 			break;
 
 		case 'fiveDaysForecast':
 			url = 'http://dataservice.accuweather.com/forecasts/v1/daily/5day/';
-			params = `${inputVal}?apikey=${apiKey}&language=en-us HTTP/1.1`;
+			params = `${inputVal}?apikey=${apiKey}&language=en-us&metric=true HTTP/1.1`;
 			break;
 
 		default:

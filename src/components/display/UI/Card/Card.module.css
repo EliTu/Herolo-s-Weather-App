@@ -3,8 +3,8 @@
 .CardStyles {
     width: 20%;
     height: 15rem;
-    margin: 1.5rem 0.8rem;
-    padding: 1rem 2rem;
+    margin: 1.5rem 0.5rem;
+    padding: 0;
     border: var(--border-thick);
     border-color: var(--color-main-black-opaque);
     display: flex;
@@ -15,7 +15,9 @@
 }
 
 .CardStyles h3 {
-    font-size: var(--text-size-large);
+    font-size: var(--text-size-medium);
+    text-align: center;
+    margin-bottom: 1.5rem;
 }
 
 .CardStyles h4 {
@@ -23,5 +25,8 @@
 }
 
 .CardStyles p {
-    font-size: var(--text-size-medium);
+    font-size: var(--text-size-medium-small);
+    width: 100%;
+    text-align: center;
+    margin-top: 0.4rem;
 }

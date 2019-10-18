@@ -11,9 +11,9 @@ exports[`Card component should render without errors 1`] = `
       Thursday
     </a>
   </h3>
-  <h4>
+  <h3>
     10-02-2019
-  </h4>
+  </h3>
   <h4>
     20 C - 15 C
   </h4>

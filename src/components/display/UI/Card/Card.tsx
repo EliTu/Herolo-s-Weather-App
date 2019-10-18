@@ -25,7 +25,7 @@ const Card: React.FC<IProps> = ({
 			<h3>
 				<a href={link}>{mainHeading}</a>
 			</h3>
-			<h4>{date}</h4>
+			<h3>{date}</h3>
 			<h4>{`${maxTempData} - ${minTempData}`}</h4>
 			<p>{description}</p>
 		</div>
