@@ -21,7 +21,7 @@ describe('SelectedWeatherInfo', () => {
 	);
 
 	it('should render without errors', () => {
-		initialShallowRender(component, 'selectedWeatherInfoStyles');
+		initialShallowRender(component, 'SelectedWeatherInfoStyles');
 	});
 
 	it('should render an Icon component if isLoading is false', () => {

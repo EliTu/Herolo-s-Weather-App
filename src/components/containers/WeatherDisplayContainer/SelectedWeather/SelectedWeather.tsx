@@ -11,7 +11,21 @@ import styles from './SelectedWeather.module.css';
 
 interface IProps {
 	currentWeatherHttpRequest: (val: string) => void;
-	weatherData: any;
+	weatherData: {
+		LocalObservationDateTime: string;
+		EpochTime: number;
+		WeatherText: string;
+		WeatherIcon: number;
+		IsDayTime: boolean;
+		Link: string;
+		Temperature: {
+			Metric: {
+				Value: number;
+				Unit: string;
+			};
+		};
+		id: string;
+	};
 	isLoading: boolean;
 	searchResults: ResultListTypes;
 }
@@ -27,6 +41,18 @@ export const SelectedWeather: React.FC<IProps> = ({
 	const [isFavorite, setIsFavorite] = useState(false);
 	const [weatherIconType, setWeatherIconType] = useState();
 
+	// Destructured weatherData:
+	const {
+		LocalObservationDateTime: localDate,
+		EpochTime,
+		WeatherText,
+		WeatherIcon,
+		IsDayTime,
+		Link,
+		Temperature,
+		id,
+	} = weatherData;
+
 	// On component mount, by default, set and display Tel-Aviv's weather info
 	// useEffect(() => {
 	// 	currentWeatherHttpRequest('215854');
@@ -34,24 +60,21 @@ export const SelectedWeather: React.FC<IProps> = ({
 
 	useEffect(() => {
 		let weatherIcon: IconDefinition;
-		if (!isLoading && weatherData.WeatherIcon)
-			weatherIcon = setWeatherIcon(
-				weatherData.isDayTime,
-				weatherData.WeatherIcon
-			);
+		if (!isLoading && WeatherIcon)
+			weatherIcon = setWeatherIcon(IsDayTime, WeatherIcon);
 		setWeatherIconType(() => weatherIcon);
-	}, [isLoading, weatherData.WeatherIcon, weatherData.isDayTime]);
+	}, [IsDayTime, WeatherIcon, isLoading]);
 
 	return (
-		<div className={SelectedWeatherStyles} id={weatherData.id}>
+		<div className={SelectedWeatherStyles} id={id}>
 			<SelectedWeatherInfo
 				weatherIconType={weatherIconType}
 				isLoading={isLoading}
-				infoLink={weatherData.Link}
+				infoLink={Link}
 				localName={searchResults.LocalizedName}
-				temperature={weatherData.Temperature}
+				temperature={Temperature}
 			/>
-			<p>{weatherData.WeatherText}</p>
+			<p>{WeatherText}</p>
 			<button>
 				<FavIcon isFavorite={isFavorite} />
 			</button>

@@ -40,7 +40,7 @@ describe('SearchResults component', () => {
 					]}
 					searchValue={'Lon'}
 					isDisplayed={false}
-					error={'abc'}
+					error={''}
 					closeResultsList={currentWeatherClickCallback}
 					currentWeatherHttpRequest={currentWeatherClickCallback}
 					fiveDaysForecastHttpRequest={fiveDaysForecastClickCallback}
@@ -113,5 +113,6 @@ describe('SearchResults component', () => {
 
 		li.at(0).simulate('click');
 		expect(currentWeatherClickCallback).toHaveBeenCalled();
+		expect(fiveDaysForecastClickCallback).toHaveBeenCalled();
 	});
 });

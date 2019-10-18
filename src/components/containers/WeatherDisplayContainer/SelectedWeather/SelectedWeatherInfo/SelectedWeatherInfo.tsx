@@ -15,15 +15,14 @@ const SelectedWeatherInfo: React.FC<IProps> = ({
 	weatherIconType,
 	isLoading,
 	infoLink,
-	localName = 'Tel-Aviv',
+	localName,
 	temperature,
 }) => {
 	const { SelectedWeatherInfoStyles } = styles;
 
-	console.log(weatherIconType);
 	return (
 		<div className={SelectedWeatherInfoStyles}>
-			{!isLoading && (
+			{!isLoading && temperature && (
 				<>
 					<Icon iconType={weatherIconType} size={'7x'} />
 					<ul>
@@ -32,7 +31,7 @@ const SelectedWeatherInfo: React.FC<IProps> = ({
 						</li>
 						<li>
 							{temperature &&
-								`${temperature.Metric.Value} ${temperature.Metric.Unit}`}
+								`${temperature.Metric.Value}${temperature.Metric.Unit}`}
 						</li>
 					</ul>
 				</>

@@ -16,7 +16,8 @@ import {
 
 const setWeatherIcon = (isDay: boolean, iconNumber: number) => {
 	let icon: IconDefinition;
-	console.log(iconNumber);
+	console.log(isDay);
+
 	switch (iconNumber) {
 		case 1:
 		case 2:

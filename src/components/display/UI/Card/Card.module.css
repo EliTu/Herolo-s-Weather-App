@@ -17,6 +17,9 @@
 .CardStyles h3 {
     font-size: var(--text-size-medium);
     text-align: center;
+}
+
+.CardStyles h3:nth-child(1) {
     margin-bottom: 1.5rem;
 }
 
