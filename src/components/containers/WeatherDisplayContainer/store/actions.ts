@@ -42,7 +42,8 @@ export const currentWeatherFailAction: ActionCreator<Action> = (
 // Thunk async action creator:
 export const fireCurrentWeatherHttpRequest = (
 	key: string,
-	localName: string
+	localName: string,
+	countryName: string
 ) => {
 	return async (dispatch: any) => {
 		dispatch(currentWeatherInitAction());
@@ -55,7 +56,8 @@ export const fireCurrentWeatherHttpRequest = (
 
 				const weatherResult = {
 					...result.data[0],
-					localName: localName,
+					cityName: cityName,
+					countryName: countryName,
 					id: id,
 				};
 				console.log(weatherResult);

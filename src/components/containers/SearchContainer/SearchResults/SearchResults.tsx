@@ -13,7 +13,11 @@ interface IProps {
 	isDisplayed: boolean;
 	error: string;
 	outsideClickRef?: React.RefObject<any>;
-	currentWeatherHttpRequest: (key: string) => void;
+	currentWeatherHttpRequest: (
+		key: string,
+		cityName: string,
+		countryName: string
+	) => void;
 	fiveDaysForecastHttpRequest: (key: string) => void;
 	closeResultsList: () => void;
 }
@@ -30,8 +34,12 @@ export const SearchResults: React.FC<IProps> = ({
 }) => {
 	const { SearchResultsStyles } = styles;
 
-	const handleResultClick = (key: string) => {
-		currentWeatherHttpRequest(key);
+	const handleResultClick = (
+		key: string,
+		cityName: string,
+		countryName: string
+	) => {
+		currentWeatherHttpRequest(key, cityName, countryName);
 		fiveDaysForecastHttpRequest(key);
 		closeResultsList();
 	};
@@ -42,12 +50,20 @@ export const SearchResults: React.FC<IProps> = ({
 		!error ? (
 		<div className={SearchResultsStyles} ref={outsideClickRef}>
 			<ul>
-				{resultList.map(result => (
-					<li
-						key={result.Key}
-						onClick={key => handleResultClick(result.Key)}
-					>{`${result.LocalizedName}, ${result.AdministrativeArea.ID}, ${result.Country.LocalizedName}`}</li>
-				))}
+				{resultList.map(
+					({ LocalizedName, Key, Country, AdministrativeArea }) => (
+						<li
+							key={Key}
+							onClick={key =>
+								handleResultClick(
+									Key,
+									LocalizedName,
+									Country.LocalizedName
+								)
+							}
+						>{`${LocalizedName}, ${AdministrativeArea.ID}, ${Country.LocalizedName}`}</li>
+					)
+				)}
 			</ul>
 		</div>
 	) : null;
@@ -63,8 +79,12 @@ const mapStateToProps = (state: any) => {
 
 const mapDispatchToProps = (dispatch: ThunkDispatch<{}, {}, any>) => {
 	return {
-		currentWeatherHttpRequest: (key: string) =>
-			dispatch(fireCurrentWeatherHttpRequest(key)),
+		currentWeatherHttpRequest: (
+			key: string,
+			cityName: string,
+			countryName: string
+		) =>
+			dispatch(fireCurrentWeatherHttpRequest(key, cityName, countryName)),
 		fiveDaysForecastHttpRequest: (key: string) =>
 			dispatch(fireFiveDaysForecastHttpRequest(key)),
 		closeResultsList: () => dispatch(closeSearchResultsList()),
