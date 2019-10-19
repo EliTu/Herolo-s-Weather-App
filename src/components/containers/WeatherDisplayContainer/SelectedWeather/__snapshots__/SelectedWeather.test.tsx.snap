@@ -3,7 +3,6 @@
 exports[`SelectedWeather Component should render without errors 1`] = `
 <div
   className="SelectedWeatherStyles"
-  id="abc123"
 >
   <SelectedWeatherInfo
     cityName="Tel-Aviv"
@@ -32,7 +31,9 @@ exports[`SelectedWeather Component should render without errors 1`] = `
   <div
     className="buttonWrapper"
   >
-    <button>
+    <button
+      onClick={[Function]}
+    >
       <FavIcon
         isFavorite={false}
       />

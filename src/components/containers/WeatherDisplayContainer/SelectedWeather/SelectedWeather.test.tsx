@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
 import { SelectedWeather } from './SelectedWeather';
 import initialShallowRender from '../../../../utilities/test-utilities/initialShallowRender';
+import { string } from 'prop-types';
 
 describe('SelectedWeather Component', () => {
 	let component: ShallowWrapper;
+	const onClickAdd = jest.fn();
+	const onClickRemove = jest.fn();
+
 	beforeEach(
 		() =>
 			(component = shallow(
@@ -14,6 +18,9 @@ describe('SelectedWeather Component', () => {
 						cityName: string,
 						countryName: string
 					) => {}}
+					favoritesList={['123', '456']}
+					setNewFavoriteItem={onClickAdd}
+					removeFromFavorites={onClickRemove}
 					weatherData={{
 						LocalObservationDateTime: '2019-10-18T13:45:00+03:00',
 						EpochTime: 12332022240,
@@ -22,9 +29,9 @@ describe('SelectedWeather Component', () => {
 						IsDayTime: true,
 						Link: 'www',
 						Temperature: { Metric: { Value: 20, Unit: 'C' } },
-						id: 'abc123',
 						cityName: 'Tel-Aviv',
 						countryName: 'Israel',
+						key: '123',
 					}}
 					isLoading={false}
 				/>
@@ -59,5 +66,13 @@ describe('SelectedWeather Component', () => {
 
 		expect(button.length).toBe(1);
 		expect(favIcon.length).toBe(1);
+	});
+
+	it('upon a click on the favIcon button, should invoke the setNewFavoriteItem callback function if component is not a favorite', () => {
+		const button = component.find('button');
+
+		button.simulate('click');
+		expect(onClickAdd).toHaveBeenCalled();
+		expect(onClickAdd).toHaveBeenCalledTimes(1);
 	});
 });

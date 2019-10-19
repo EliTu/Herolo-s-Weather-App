@@ -21,7 +21,7 @@ describe('favoritesReducer', () => {
 		expect(
 			favoritesReducer(undefined, {
 				type: ADD_TO_FAVORITES,
-				updatedAditions: ['321'],
+				updatedAditions: ['123', '456', '789', '321'],
 			})
 		).toEqual({
 			favoritesList: ['123', '456', '789', '321'],
