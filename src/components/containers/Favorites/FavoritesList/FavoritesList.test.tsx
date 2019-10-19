@@ -50,4 +50,11 @@ describe('FavoritesList componenet', () => {
 		expect(component.children().find('div')).toExist();
 		expect(component.children().find('div').length).toBe(2);
 	});
+
+	it('should display a message if there are no favorites to display', () => {
+		component.setProps({ favorites: [], favoritesWeatherData: [] });
+
+		expect(component).toMatchSnapshot();
+		expect(component.children.length).toBe(1);
+	});
 });

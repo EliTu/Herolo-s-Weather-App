@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
 import { Favorites } from './Favorites';
+import ErrorMessage from '../../display/UI/ErrorMessage/ErrorMessage';
 import initialShallowRender from '../../../utilities/test-utilities/initialShallowRender';
 
 describe('Favorites component', () => {
@@ -13,16 +14,18 @@ describe('Favorites component', () => {
 		initialShallowRender(component, 'FavoritesStyles');
 	});
 
-	it('should not display the component if isLoading is true or error is truthy', () => {
+	it('should not display the component if isLoading is true', () => {
 		component.setProps({ isLoading: true });
 
 		expect(component).toMatchSnapshot();
-		expect(component.children().length).toBe(0);
-		expect(component.children()).not.toExist();
+		expect(component.find('div').children()).not.toExist();
+	});
 
-		component.setProps({ isLoading: false, error: 'abc' });
+	it('should dispaly the ErrorMessage component if error is truthy', () => {
+		component.setProps({ error: 'abc' });
 		expect(component).toMatchSnapshot();
-		expect(component.children().length).toBe(0);
-		expect(component.children()).not.toExist();
+		expect(component.children()).toContainReact(
+			<ErrorMessage errorDetails={'abc'} />
+		);
 	});
 });

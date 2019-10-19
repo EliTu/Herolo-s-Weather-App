@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import FavoritesList from './FavoritesList/FavoritesList';
+import ErrorMessage from '../../display/UI/ErrorMessage/ErrorMessage';
 import styles from './Favorites.module.css';
 
 interface IProps {
@@ -12,7 +13,11 @@ export const Favorites: React.FC<IProps> = ({ isLoading, error }) => {
 	const { FavoritesStyles } = styles;
 	return (
 		<div className={FavoritesStyles}>
-			{!isLoading && !error && <FavoritesList />}
+			{error ? (
+				<ErrorMessage errorDetails={error} />
+			) : (
+				!isLoading && <FavoritesList />
+			)}
 		</div>
 	);
 };

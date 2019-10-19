@@ -1,12 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Favorites component should not display the component if isLoading is true or error is truthy 1`] = `
+exports[`Favorites component should dispaly the ErrorMessage component if error is truthy 1`] = `
 <div
   className="FavoritesStyles"
-/>
+>
+  <ErrorMessage
+    errorDetails="abc"
+  />
+</div>
 `;
 
-exports[`Favorites component should not display the component if isLoading is true or error is truthy 2`] = `
+exports[`Favorites component should not display the component if isLoading is true 1`] = `
 <div
   className="FavoritesStyles"
 />
