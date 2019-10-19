@@ -3,5 +3,6 @@
 .FavoritesStyles {
     width: 90%;
     height: 600px;
-    margin: 2.5rem auto;
+    margin: 0 auto;
+    margin-top: 2.5rem;
 }

@@ -15,9 +15,9 @@ interface IProps {
 	}[];
 	getFavoritesWeatherData: (
 		key: string,
-		dispatchIdentifier: string,
+		countryName: string,
 		cityName: string,
-		countryName: string
+		dispatchIdentifier: string
 	) => void;
 }
 
@@ -29,15 +29,14 @@ export const FavoritesList: React.FC<IProps> = ({
 	const { FavoritesListStyles, CardWrapper } = styles;
 
 	useEffect(() => {
-		if (favorites.length > 0)
-			favorites.map(({ key, cityName, countryName }) =>
-				getFavoritesWeatherData(
-					key,
-					'favortieWeather',
-					cityName,
-					countryName
-				)
-			);
+		favorites.map(({ key, cityName, countryName }) =>
+			getFavoritesWeatherData(
+				key,
+				cityName,
+				countryName,
+				'favortiesWeather'
+			)
+		);
 	}, [favorites, getFavoritesWeatherData]);
 
 	return (
@@ -45,9 +44,9 @@ export const FavoritesList: React.FC<IProps> = ({
 			<ul className={CardWrapper}>
 				{favoritesWeatherData.map(
 					({
-						key,
 						cityName,
 						countryName,
+						key,
 						WeatherText,
 						Temperature,
 					}) => {
@@ -87,7 +86,7 @@ const mapDispatchToProps = (dispatch: any) => {
 			dispatch(
 				fireCurrentWeatherHttpRequest(
 					key,
-					'favoritesWeatherData',
+					'favoritesWeather',
 					cityName,
 					countryName
 				)

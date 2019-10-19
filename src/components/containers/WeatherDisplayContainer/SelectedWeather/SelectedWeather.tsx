@@ -7,6 +7,7 @@ import { fireCurrentWeatherHttpRequest } from '../store/actions';
 import {
 	addToFavoritesAction,
 	removeFromFavoritesAction,
+	initFavoritesAction,
 } from '../../Favorites/store/actions';
 import {
 	setCorrectDateFormat,
@@ -48,6 +49,7 @@ interface IProps {
 		key: string;
 	};
 	isLoading: boolean;
+	initFavorites: () => void;
 }
 
 export const SelectedWeather: React.FC<IProps> = ({
@@ -57,6 +59,7 @@ export const SelectedWeather: React.FC<IProps> = ({
 	favoritesList,
 	weatherData,
 	isLoading,
+	initFavorites,
 }) => {
 	const { SelectedWeatherStyles, buttonWrapper } = styles;
 
@@ -86,6 +89,9 @@ export const SelectedWeather: React.FC<IProps> = ({
 	// useEffect(() => {
 	// 	currentWeatherHttpRequest('215854', 'Tel-Aviv', 'Israel');
 	// }, [currentWeatherHttpRequest]);
+	useEffect(() => {
+		initFavorites();
+	}, [initFavorites]);
 
 	useEffect(() => {
 		const checkForFavoriteListing = (): any => {
@@ -186,6 +192,7 @@ const mapDispatchToProps = (dispatch: ThunkDispatch<{}, {}, any>) => {
 
 		removeFromFavorites: (key: string) =>
 			dispatch(removeFromFavoritesAction(key)),
+		initFavorites: () => dispatch(initFavoritesAction()),
 	};
 };
 

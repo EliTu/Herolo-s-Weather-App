@@ -46,13 +46,14 @@ export const currentWeatherFailAction: ActionCreator<Action> = (
 export const fireCurrentWeatherHttpRequest = (
 	key: string,
 	dispatchIdentifier: string,
-	cityName?: string,
-	countryName?: string
+	cityName: string,
+	countryName: string
 ) => {
 	return async (dispatch: any) => {
+		console.log(dispatchIdentifier);
 		if (dispatchIdentifier === 'currentWeather')
 			dispatch(currentWeatherInitAction());
-		if (dispatchIdentifier === 'favoriteWeather')
+		if (dispatchIdentifier === 'favoritesWeather')
 			dispatch(favoritesWeatherDataInitAction());
 
 		if (key)
@@ -60,16 +61,16 @@ export const fireCurrentWeatherHttpRequest = (
 				const result = await setAsyncGetRequest(key, 'currentWeather');
 
 				const weatherResult = {
+					...result.data[0],
 					cityName: cityName,
 					countryName: countryName,
 					key: key,
-					...result.data[0],
 				};
 
-				console.log(dispatchIdentifier);
-				dispatchIdentifier === 'currentWeather'
-					? dispatch(currentWeatherSuccessAction(weatherResult))
-					: dispatch(getFavoritesWeatherDataAction(weatherResult));
+				if (dispatchIdentifier === 'currentWeather')
+					dispatch(currentWeatherSuccessAction(weatherResult));
+				if (dispatchIdentifier === 'favoritesWeather')
+					dispatch(getFavoritesWeatherDataAction(weatherResult));
 			} catch (error) {
 				dispatch(currentWeatherFailAction(error.message));
 			}

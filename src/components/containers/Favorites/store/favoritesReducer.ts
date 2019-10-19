@@ -47,11 +47,13 @@ const favoritesReducer = (
 			return {
 				...state,
 				isLoading: true,
-				favoritesList: state.favoritesList,
-				weatherData: state.weatherData,
+				favoritesList: [],
+				weatherData: [],
 			};
 
 		case GET_FAVORITES_WEATHER_DATA:
+			console.log(action.favoritesWeatherData);
+
 			return {
 				...state,
 				isLoading: false,
