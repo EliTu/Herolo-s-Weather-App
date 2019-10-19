@@ -5,7 +5,7 @@ const setAsyncGetRequest = (inputVal: string, requestType: string) => {
 	// Accuweather API key (not secure):
 	// const apiKey: string = '0Gub8jwlpiFGj7JYWAu9h9cGby8MnSAz';
 	// const apiKey: string = 'ZAxbVbnyjicI2eYgKvelofbyjx5JkQH6'; USED 19/10 12:00
-	const apiKey: string = 'kBbh36NwLoBO6kB9z2fPol8HYUxaIXi3';
+	const apiKey: string = 'TBfU5hU1R2T4wecAkcQbvZAZdboLPb1s';
 
 	let url: string;
 	let params: string;

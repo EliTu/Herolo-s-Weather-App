@@ -60,10 +60,10 @@ export const fireCurrentWeatherHttpRequest = (
 				const result = await setAsyncGetRequest(key, 'currentWeather');
 
 				const weatherResult = {
-					...result.data[0],
 					cityName: cityName,
 					countryName: countryName,
 					key: key,
+					...result.data[0],
 				};
 
 				console.log(dispatchIdentifier);

@@ -1,8 +1,22 @@
 .FavoritesListStyles {
     width: 100%;
+}
+
+.FavoritesListStyles ul {
     display: flex;
 }
 
+.FavoritesListStyles li {
+    list-style: none;
+    width: 100%;
+    margin: 0 0.4rem;
+
+}
+
+.FavoritesListStyles div {
+    width: 100%;
+}
+
 .CardWrapper {
-    width: 50%;
+    width: 100%;
 }

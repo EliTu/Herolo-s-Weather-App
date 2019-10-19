@@ -23,7 +23,11 @@ interface IProps {
 		countryName: string,
 		dispatchIdentifier: string
 	) => void;
-	setNewFavoriteItem: (key: string) => void;
+	setNewFavoriteItem: (
+		key: string,
+		cityName: string,
+		countryName: string
+	) => void;
 	removeFromFavorites: (key: string) => void;
 	favoritesList: string[];
 	weatherData: {
@@ -108,7 +112,7 @@ export const SelectedWeather: React.FC<IProps> = ({
 	const handleFavoriteButtonClick = (key: string) => {
 		console.log(`${isFavorite} - ISFAVORITE RESULT`);
 		if (!isFavorite) {
-			setNewFavoriteItem(key);
+			setNewFavoriteItem(key, cityName, countryName);
 			setIsFavorite(() => true);
 		} else {
 			removeFromFavorites(key);
@@ -168,14 +172,17 @@ const mapDispatchToProps = (dispatch: ThunkDispatch<{}, {}, any>) => {
 			dispatch(
 				fireCurrentWeatherHttpRequest(
 					key,
+					'currentWeather',
 					cityName,
-					countryName,
-					'currentWeather'
+					countryName
 				)
 			),
 
-		setNewFavoriteItem: (key: string) =>
-			dispatch(addToFavoritesAction(key)),
+		setNewFavoriteItem: (
+			key: string,
+			cityName: string,
+			countryName: string
+		) => dispatch(addToFavoritesAction(key, cityName, countryName)),
 
 		removeFromFavorites: (key: string) =>
 			dispatch(removeFromFavoritesAction(key)),

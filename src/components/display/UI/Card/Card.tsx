@@ -4,10 +4,9 @@ import styles from './Card.module.css';
 interface IProps {
 	mainHeading: string;
 	date: string;
-	link: string;
+	link?: string;
 	description: string;
-	maxTempData?: string;
-	minTempData?: string;
+	temperatures: string;
 }
 
 const Card: React.FC<IProps> = ({
@@ -15,8 +14,7 @@ const Card: React.FC<IProps> = ({
 	date,
 	description,
 	link,
-	maxTempData,
-	minTempData,
+	temperatures,
 }) => {
 	const { CardStyles } = styles;
 
@@ -26,7 +24,7 @@ const Card: React.FC<IProps> = ({
 				<a href={link}>{mainHeading}</a>
 			</h3>
 			<h3>{date}</h3>
-			<h4>{`${maxTempData} - ${minTempData}`}</h4>
+			<h4>{temperatures}</h4>
 			<p>{description}</p>
 		</div>
 	);

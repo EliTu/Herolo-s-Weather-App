@@ -59,8 +59,7 @@ export const FiveDaysForecast: React.FC<IProps> = ({ forecastResults }) => {
 							key={EpochDate}
 							mainHeading={day}
 							date={date}
-							maxTempData={maxTemp}
-							minTempData={minTemp}
+							temperatures={`${maxTemp} - ${minTemp}`}
 							description={IconPhrase}
 							link={Link}
 						/>

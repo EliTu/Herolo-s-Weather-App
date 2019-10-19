@@ -42,23 +42,30 @@ export const FavoritesList: React.FC<IProps> = ({
 
 	return (
 		<div className={FavoritesListStyles}>
-			{favoritesWeatherData.map(
-				({ key, cityName, countryName, WeatherText, Temperature }) => {
-					const { Metric } = Temperature;
+			<ul className={CardWrapper}>
+				{favoritesWeatherData.map(
+					({
+						key,
+						cityName,
+						countryName,
+						WeatherText,
+						Temperature,
+					}) => {
+						const { Metric } = Temperature;
 
-					return (
-						<div className={CardWrapper}>
-							<Card
-								mainHeading={`${cityName}, ${countryName}`}
-								description={WeatherText}
-								date={`${Metric.Value}${Metric.Unit}`}
-								key={key}
-								link={'www'}
-							/>
-						</div>
-					);
-				}
-			)}
+						return (
+							<li key={key}>
+								<Card
+									mainHeading={`${cityName}, ${countryName}`}
+									description={WeatherText}
+									date={'Current:'}
+									temperatures={`${Metric.Value}${Metric.Unit}`}
+								/>
+							</li>
+						);
+					}
+				)}
+			</ul>
 		</div>
 	);
 };

@@ -31,9 +31,7 @@ const favoritesReducer = (
 			return {
 				...state,
 				isLoading: false,
-				favoritesList: state.favoritesList.concat(
-					action.updatedAditions
-				),
+				favoritesList: action.updatedAditions,
 				weatherData: state.weatherData,
 			};
 
@@ -58,9 +56,10 @@ const favoritesReducer = (
 				...state,
 				isLoading: false,
 				favoritesList: state.favoritesList,
-				weatherData: state.weatherData.concat(
-					action.favoritesWeatherData
-				),
+				weatherData: [
+					...state.weatherData,
+					action.favoritesWeatherData,
+				],
 			};
 
 		default:
