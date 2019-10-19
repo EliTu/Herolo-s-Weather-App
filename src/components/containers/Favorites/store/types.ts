@@ -1,29 +1,28 @@
 // Current weather types:
 export interface favortiesInitState {
-	favoritesList: {
-		id: string;
-		key: string;
-		cityName: string;
-		countryName: string;
-	}[];
+	favoritesList: string[];
 }
 
+export const INIT_FAVORITES = 'INIT_FAVORITES';
 export const ADD_TO_FAVORITES = 'ADD_TO_FAVORITES';
 export const REMOVE_FROM_FAVORITES = 'REMOVE_FROM_FAVORITES';
 
+interface initFavoritesAction {
+	type: typeof INIT_FAVORITES;
+	localStorageList: string[];
+}
+
 interface addToFavoritesAction {
 	type: typeof ADD_TO_FAVORITES;
-	updatedAditions: {
-		id: string;
-		key: string;
-		cityName: string;
-		countryName: string;
-	}[];
+	updatedAditions: string[];
 }
 
 interface removeFromFavorites {
 	type: typeof REMOVE_FROM_FAVORITES;
-	id: string;
+	updatedRemovals: string[];
 }
 
-export type favoritesActionTypes = addToFavoritesAction | removeFromFavorites;
+export type favoritesActionTypes =
+	| initFavoritesAction
+	| addToFavoritesAction
+	| removeFromFavorites;
