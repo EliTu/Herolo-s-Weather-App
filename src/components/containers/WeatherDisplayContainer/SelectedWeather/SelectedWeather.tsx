@@ -4,7 +4,10 @@ import { ThunkDispatch } from 'redux-thunk';
 import SelectedWeatherInfo from './SelectedWeatherInfo/SelectedWeatherInfo';
 import FavIcon from '../../../display/UI/Icon/FavIcon/FavIcon';
 import { fireCurrentWeatherHttpRequest } from '../store/actions';
-import { addToFavoritesAction } from '../../Favorites/store/actions';
+import {
+	addToFavoritesAction,
+	removeFromFavoritesAction,
+} from '../../Favorites/store/actions';
 import {
 	setCorrectDateFormat,
 	setDayOfTheWeek,
@@ -19,12 +22,9 @@ interface IProps {
 		cityName: string,
 		countryName: string
 	) => void;
-	setNewFavoriteItem: (
-		id: string,
-		key: string,
-		cityName: string,
-		countryName: string
-	) => void;
+	setNewFavoriteItem: (key: string) => void;
+	removeFromFavorites: (key: string) => void;
+	favoritesList: string[];
 	weatherData: {
 		LocalObservationDateTime: string;
 		EpochTime: number;
@@ -38,7 +38,6 @@ interface IProps {
 				Unit: string;
 			};
 		};
-		id: string;
 		cityName: string;
 		countryName: string;
 		key: string;
@@ -49,6 +48,8 @@ interface IProps {
 export const SelectedWeather: React.FC<IProps> = ({
 	currentWeatherHttpRequest,
 	setNewFavoriteItem,
+	removeFromFavorites,
+	favoritesList,
 	weatherData,
 	isLoading,
 }) => {
@@ -66,7 +67,6 @@ export const SelectedWeather: React.FC<IProps> = ({
 		IsDayTime,
 		Link,
 		Temperature,
-		id,
 		cityName,
 		countryName,
 		key,
@@ -83,16 +83,15 @@ export const SelectedWeather: React.FC<IProps> = ({
 	// }, [currentWeatherHttpRequest]);
 
 	useEffect(() => {
-		const checkForFavoriteListing: () => boolean = (): boolean => {
-			let favList;
-			if (localStorage.favKeyList)
-				favList = JSON.parse(localStorage.getItem('favKeyList')!) || [];
+		const checkForFavoriteListing = (): boolean | undefined => {
+			let isListed;
+			if (favoritesList) isListed = favoritesList.includes(key);
 
-			const isListed = favList.find((el: string) => el === key);
+			console.log(isListed);
 			return isListed;
 		};
 		if (checkForFavoriteListing()) setIsFavorite(() => true);
-	}, [key]);
+	}, [favoritesList, key]);
 
 	useEffect(() => {
 		let weatherIcon: IconDefinition;
@@ -101,25 +100,18 @@ export const SelectedWeather: React.FC<IProps> = ({
 		setWeatherIconType(() => weatherIcon);
 	}, [IsDayTime, WeatherIcon, isLoading]);
 
-	const handleFavoriteButtonClick: any = (
-		id: string,
-		key: string,
-		cityName: string,
-		countryName: string
-	) => {
+	const handleFavoriteButtonClick = (key: string) => {
 		if (!isFavorite) {
-			const oldFavKeyList =
-				JSON.parse(localStorage.getItem('favKeyList')!) || [];
-			oldFavKeyList.push(key);
-			localStorage.setItem('favKeyList', JSON.stringify(oldFavKeyList));
-
-			setNewFavoriteItem(id, key, cityName, countryName);
+			setNewFavoriteItem(key);
 			setIsFavorite(() => true);
+		} else {
+			removeFromFavorites(key);
+			setIsFavorite(() => false);
 		}
 	};
 
 	return (
-		<div className={SelectedWeatherStyles} id={id}>
+		<div className={SelectedWeatherStyles}>
 			{!isLoading && weatherData.key && (
 				<>
 					<SelectedWeatherInfo
@@ -140,16 +132,7 @@ export const SelectedWeather: React.FC<IProps> = ({
 						</li>
 					</ul>
 					<div className={buttonWrapper}>
-						<button
-							onClick={() =>
-								handleFavoriteButtonClick(
-									id,
-									key,
-									cityName,
-									countryName
-								)
-							}
-						>
+						<button onClick={() => handleFavoriteButtonClick(key)}>
 							<FavIcon isFavorite={isFavorite} />
 						</button>
 					</div>
@@ -164,6 +147,7 @@ const mapStateToProps = (state: any) => {
 		weatherData: state.currentWeather.selectedResult,
 		isLoading: state.currentWeather.isLoading,
 		searchResults: state.search.results,
+		favoritesList: state.favorites.favoritesList,
 	};
 };
 
@@ -176,12 +160,11 @@ const mapDispatchToProps = (dispatch: ThunkDispatch<{}, {}, any>) => {
 		) =>
 			dispatch(fireCurrentWeatherHttpRequest(key, cityName, countryName)),
 
-		setNewFavoriteItem: (
-			id: string,
-			key: string,
-			cityName: string,
-			countryName: string
-		) => dispatch(addToFavoritesAction(id, key, cityName, countryName)),
+		setNewFavoriteItem: (key: string) =>
+			dispatch(addToFavoritesAction(key)),
+
+		removeFromFavorites: (key: string) =>
+			dispatch(removeFromFavoritesAction(key)),
 	};
 };
 

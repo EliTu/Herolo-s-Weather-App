@@ -48,7 +48,7 @@ export const App: React.FC<IProps> = ({ initFavoritesList }) => {
 // Redux setup:
 const mapDispatchToProps = (dispatch: any) => {
 	return {
-		initFavoritesList: dispatch(initFavoritesAction()),
+		initFavoritesList: () => dispatch(initFavoritesAction()),
 	};
 };
 

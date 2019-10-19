@@ -9,11 +9,15 @@ import { Action, ActionCreator } from 'redux';
 export const initFavoritesAction: ActionCreator<
 	Action
 > = (): favoritesActionTypes => {
-	let favList;
-	// Check localStorage for the favKeyList key, if available get the list and parse it back to an array:
-	if (localStorage.favKeyList)
-		favList = JSON.parse(localStorage.getItem('favKeyList')!) || [];
+	// If there isn't any favKeyList in localStorage, then init it:
+	if (!localStorage.favKeyList)
+		localStorage.setItem('favKeyList', JSON.stringify([]));
 
+	// Check localStorage for the favKeyList key, if available get the list and parse it back to an array:
+	let favList;
+	favList = JSON.parse(localStorage.getItem('favKeyList')!) || [];
+
+	if (favList) console.log(favList);
 	return {
 		type: INIT_FAVORITES,
 		localStorageList: favList,
@@ -39,7 +43,7 @@ export const addToFavoritesAction: ActionCreator<Action> = (
 	};
 };
 
-export const removeFromFavorites: ActionCreator<Action> = (
+export const removeFromFavoritesAction: ActionCreator<Action> = (
 	key: string
 ): favoritesActionTypes => {
 	// Fetch the current list and parse it, filter the relevant element, set it again then fetch it:
