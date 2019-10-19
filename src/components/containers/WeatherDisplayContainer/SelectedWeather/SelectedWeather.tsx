@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
 import SelectedWeatherInfo from './SelectedWeatherInfo/SelectedWeatherInfo';
 import FavIcon from '../../../display/UI/Icon/FavIcon/FavIcon';
-import { fireCurrentWeatherHttpRequest } from '../store/actions';
 import {
 	addToFavoritesAction,
 	removeFromFavoritesAction,
@@ -154,7 +153,6 @@ const mapStateToProps = (state: any) => {
 
 const mapDispatchToProps = (dispatch: ThunkDispatch<{}, {}, any>) => {
 	return {
-
 		setNewFavoriteItem: (
 			key: string,
 			cityName: string,

@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import FavoritesList from './FavoritesList/FavoritesList';
-import PaginationControls from './PaginationControls/PaginationControls';
 import styles from './Favorites.module.css';
 
 interface IProps {
@@ -13,12 +12,7 @@ const Favorites: React.FC<IProps> = ({ isLoading, error }) => {
 	const { FavoritesStyles } = styles;
 	return (
 		<div className={FavoritesStyles}>
-			{!isLoading && !error && (
-				<>
-					<FavoritesList />
-					<PaginationControls />
-				</>
-			)}
+			{!isLoading && !error && <FavoritesList />}
 		</div>
 	);
 };
