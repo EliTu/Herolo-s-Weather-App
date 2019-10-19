@@ -1,41 +1,30 @@
 import favoritesReducer from './favoritesReducer';
-import { ADD_TO_FAVORITES, REMOVE_FROM_FAVORITES } from './types';
+import {
+	INIT_FAVORITES,
+	ADD_TO_FAVORITES,
+	REMOVE_FROM_FAVORITES,
+} from './types';
 
 describe('favoritesReducer', () => {
+	it('should return the favoritesList appended to the localStorage when receiving INIT_FAVORITES', () => {
+		expect(
+			favoritesReducer(undefined, {
+				type: INIT_FAVORITES,
+				localStorageList: ['123', '456', '789'],
+			})
+		).toEqual({
+			favoritesList: ['123', '456', '789'],
+		});
+	});
+
 	it('should return a new favorties list containing the added favorite item when receiving ADD_TO_FAVORITES action', () => {
 		expect(
 			favoritesReducer(undefined, {
 				type: ADD_TO_FAVORITES,
-				updatedAditions: [
-					{
-						id: 'ab12',
-						key: '1234',
-						cityName: 'madrid',
-						countryName: 'spain',
-					},
-					{
-						id: 'cd34',
-						key: '12342',
-						cityName: 'berlin',
-						countryName: 'germany',
-					},
-				],
+				updatedAditions: ['321'],
 			})
 		).toEqual({
-			favoritesList: [
-				{
-					id: 'ab12',
-					key: '1234',
-					cityName: 'madrid',
-					countryName: 'spain',
-				},
-				{
-					id: 'cd34',
-					key: '12342',
-					cityName: 'berlin',
-					countryName: 'germany',
-				},
-			],
+			favoritesList: ['123', '456', '789', '321'],
 		});
 	});
 
@@ -43,24 +32,10 @@ describe('favoritesReducer', () => {
 		expect(
 			favoritesReducer(undefined, {
 				type: REMOVE_FROM_FAVORITES,
-				updatedRemovals: [
-					{
-						id: 'ab12',
-						key: '1234',
-						cityName: 'madrid',
-						countryName: 'spain',
-					},
-				],
+				updatedRemovals: ['456', '321'],
 			})
 		).toEqual({
-			favoritesList: [
-				{
-					id: 'ab12',
-					key: '1234',
-					cityName: 'madrid',
-					countryName: 'spain',
-				},
-			],
+			favoritesList: ['456', '321'],
 		});
 	});
 });
