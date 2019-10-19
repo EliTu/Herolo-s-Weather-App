@@ -1,0 +1,76 @@
+@import '../../../../variables.css';
+
+.PaginationControlsStyles {
+    width: 40%;
+    margin: 2rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+
+.PaginationControlsStyles button {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    /* box-shadow: var(--shadow-light); */
+    margin: 0 auto;
+}
+
+.PaginationControlsStyles svg {
+    /* color: var(--coloring-dark); */
+}
+
+.PaginationControlsStyles button:hover {
+    /* background-color: var(--coloring-light); */
+}
+
+.PaginationControlsStyles .pageContainer {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+}
+
+.PaginationControlsStyles .pageContainer button {
+    /* color: var(--coloring-dark); */
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.4rem;
+    margin: auto 0.1rem;
+    list-style: none;
+    /* border: 1px solid var(--coloring-opaque-dark); */
+    border-radius: 4px;
+}
+
+.activePageStyle {
+    /* background-color: var(--glow-light-blue) !important; */
+}
+
+.OrderPaginationPanel button:hover {
+    /* background-color: var(--coloring-light); */
+}
+
+.OrderPaginationPanel button:active {
+    /* background-color: var(--coloring-opaque-dark); */
+}
+
+/* Small screen */
+@media only screen and (max-width: 500px) {
+    .OrderPaginationPanel {
+        width: 90%;
+    }
+
+    .OrderPaginationPanel button {
+        margin: 0 0.3rem;
+    }
+}
+
+/* Extra small screen */
+@media only screen and (max-width: 350px) {
+    .OrderPaginationPanel {
+        margin: 0.7rem auto;
+    }
+}
