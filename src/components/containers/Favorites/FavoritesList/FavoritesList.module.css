@@ -1,0 +1,8 @@
+.FavoritesListStyles {
+    width: 100%;
+    display: flex;
+}
+
+.CardWrapper {
+    width: 50%;
+}

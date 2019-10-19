@@ -2,6 +2,7 @@ import {
 	INIT_FAVORITES,
 	ADD_TO_FAVORITES,
 	REMOVE_FROM_FAVORITES,
+	GET_FAVORITES_WEATHER_DATA,
 	favoritesActionTypes,
 } from './types';
 import { Action, ActionCreator } from 'redux';
@@ -25,13 +26,20 @@ export const initFavoritesAction: ActionCreator<
 };
 
 export const addToFavoritesAction: ActionCreator<Action> = (
-	key: string
+	key: string,
+	cityName: string,
+	countryName: string
 ): favoritesActionTypes => {
 	// Fetch the current list and parse it, push the new key if its not existing already and set it again, then fetch it:
 	const currentFavList =
 		JSON.parse(localStorage.getItem('favKeyList')!) || [];
 
-	if (!currentFavList.includes(key)) currentFavList.push(key);
+	if (!currentFavList.some((el: { key: string }) => el.key === key))
+		currentFavList.push({
+			key: key,
+			cityName: cityName,
+			countryName: countryName,
+		});
 	localStorage.setItem('favKeyList', JSON.stringify(currentFavList));
 
 	const newFavoriteKeyList =
@@ -51,7 +59,7 @@ export const removeFromFavoritesAction: ActionCreator<Action> = (
 		JSON.parse(localStorage.getItem('favKeyList')!) || [];
 
 	const filteredList = currentFavList.filter(
-		(keyString: string) => keyString !== key
+		(favorite: { key: string }) => favorite.key !== key
 	);
 
 	localStorage.setItem('favKeyList', JSON.stringify(filteredList));
@@ -62,5 +70,17 @@ export const removeFromFavoritesAction: ActionCreator<Action> = (
 	return {
 		type: REMOVE_FROM_FAVORITES,
 		updatedRemovals: updatedFavoriteKeyList,
+	};
+};
+
+export const getFavoritesWeatherDataAction: ActionCreator<Action> = (
+	weatherData: {
+		WeatherText: string;
+		Temperature: { Metric: { Value: number; Unit: string } };
+	}[]
+): favoritesActionTypes => {
+	return {
+		type: GET_FAVORITES_WEATHER_DATA,
+		favoritesWeatherData: weatherData,
 	};
 };

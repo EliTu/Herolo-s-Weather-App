@@ -8,6 +8,7 @@ import {
 	FIVE_DAYS_FORECAST_FAIL,
 	FiveDaysForecastActionTypes,
 } from './types';
+import { getFavoritesWeatherDataAction } from '../../Favorites/store/actions';
 import { Action, ActionCreator } from 'redux';
 import setAsyncGetRequest from '../../../../utilities/urls/urls';
 
@@ -41,12 +42,13 @@ export const currentWeatherFailAction: ActionCreator<Action> = (
 // Thunk async action creator:
 export const fireCurrentWeatherHttpRequest = (
 	key: string,
-	cityName: string,
-	countryName: string
+	dispatchIdentifier: string,
+	cityName?: string,
+	countryName?: string
 ) => {
 	return async (dispatch: any) => {
 		dispatch(currentWeatherInitAction());
-		console.log(key);
+
 		if (key)
 			try {
 				const result = await setAsyncGetRequest(key, 'currentWeather');
@@ -58,7 +60,10 @@ export const fireCurrentWeatherHttpRequest = (
 					key: key,
 				};
 
-				dispatch(currentWeatherSuccessAction(weatherResult));
+				console.log(dispatchIdentifier);
+				dispatchIdentifier === 'currentWeather'
+					? dispatch(currentWeatherSuccessAction(weatherResult))
+					: dispatch(getFavoritesWeatherDataAction(weatherResult));
 			} catch (error) {
 				dispatch(currentWeatherFailAction(error.message));
 			}
@@ -96,7 +101,7 @@ export const fiveDaysForecastFailAction: ActionCreator<Action> = (
 export const fireFiveDaysForecastHttpRequest = (key: string) => {
 	return async (dispatch: any) => {
 		dispatch(fiveDaysForecastInitAction());
-		console.log(key);
+
 		if (key)
 			try {
 				const forecastResult = await setAsyncGetRequest(

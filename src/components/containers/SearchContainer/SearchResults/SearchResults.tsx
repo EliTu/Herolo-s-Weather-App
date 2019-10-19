@@ -15,6 +15,7 @@ interface IProps {
 	outsideClickRef?: React.RefObject<any>;
 	currentWeatherHttpRequest: (
 		key: string,
+		dispatchIdentifier: string,
 		cityName: string,
 		countryName: string
 	) => void;
@@ -39,7 +40,7 @@ export const SearchResults: React.FC<IProps> = ({
 		cityName: string,
 		countryName: string
 	) => {
-		currentWeatherHttpRequest(key, cityName, countryName);
+		currentWeatherHttpRequest(key, 'currentWeather', cityName, countryName);
 		fiveDaysForecastHttpRequest(key);
 		closeResultsList();
 	};
@@ -81,10 +82,18 @@ const mapDispatchToProps = (dispatch: ThunkDispatch<{}, {}, any>) => {
 	return {
 		currentWeatherHttpRequest: (
 			key: string,
+			dispatchIdentifier: string,
 			cityName: string,
 			countryName: string
 		) =>
-			dispatch(fireCurrentWeatherHttpRequest(key, cityName, countryName)),
+			dispatch(
+				fireCurrentWeatherHttpRequest(
+					key,
+					'currentWeather',
+					cityName,
+					countryName
+				)
+			),
 		fiveDaysForecastHttpRequest: (key: string) =>
 			dispatch(fireFiveDaysForecastHttpRequest(key)),
 		closeResultsList: () => dispatch(closeSearchResultsList()),

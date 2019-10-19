@@ -20,7 +20,8 @@ interface IProps {
 	currentWeatherHttpRequest: (
 		val: string,
 		cityName: string,
-		countryName: string
+		countryName: string,
+		dispatchIdentifier: string
 	) => void;
 	setNewFavoriteItem: (key: string) => void;
 	removeFromFavorites: (key: string) => void;
@@ -87,7 +88,8 @@ export const SelectedWeather: React.FC<IProps> = ({
 			let isListed;
 			console.log(`${key} - ITEM KEY`);
 			console.log(favoritesList);
-			if (favoritesList) isListed = favoritesList.includes(key);
+			if (favoritesList)
+				isListed = favoritesList.some((el: any) => el.key === key);
 
 			console.log(`${isListed} - ISLISTED RESULT`);
 			return isListed;
@@ -95,6 +97,7 @@ export const SelectedWeather: React.FC<IProps> = ({
 		setIsFavorite(() => checkForFavoriteListing());
 	}, [favoritesList, key, isFavorite]);
 
+	// Set the current weather Icon according to data:
 	useEffect(() => {
 		let weatherIcon: IconDefinition;
 		if (!isLoading && WeatherIcon)
@@ -159,9 +162,17 @@ const mapDispatchToProps = (dispatch: ThunkDispatch<{}, {}, any>) => {
 		currentWeatherHttpRequest: (
 			key: string,
 			cityName: string,
-			countryName: string
+			countryName: string,
+			dispatchIdentifier: string
 		) =>
-			dispatch(fireCurrentWeatherHttpRequest(key, cityName, countryName)),
+			dispatch(
+				fireCurrentWeatherHttpRequest(
+					key,
+					cityName,
+					countryName,
+					'currentWeather'
+				)
+			),
 
 		setNewFavoriteItem: (key: string) =>
 			dispatch(addToFavoritesAction(key)),
