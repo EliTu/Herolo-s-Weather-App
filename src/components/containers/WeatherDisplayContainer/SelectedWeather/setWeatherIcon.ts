@@ -16,7 +16,6 @@ import {
 
 const setWeatherIcon = (isDay: boolean, iconNumber: number) => {
 	let icon: IconDefinition;
-	console.log(isDay);
 
 	switch (iconNumber) {
 		case 1:
@@ -80,7 +79,6 @@ const setWeatherIcon = (isDay: boolean, iconNumber: number) => {
 			icon = isDay ? faCloudSun : faCloudMoon;
 			break;
 	}
-	console.log(icon);
 	return icon;
 };
 

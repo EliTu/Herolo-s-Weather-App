@@ -27,11 +27,11 @@ export const initFavoritesAction: ActionCreator<
 export const addToFavoritesAction: ActionCreator<Action> = (
 	key: string
 ): favoritesActionTypes => {
-	// Fetch the current list and parse it, push the new key and set it again, then fetch it:
+	// Fetch the current list and parse it, push the new key if its not existing already and set it again, then fetch it:
 	const currentFavList =
 		JSON.parse(localStorage.getItem('favKeyList')!) || [];
 
-	currentFavList.push(key);
+	if (!currentFavList.includes(key)) currentFavList.push(key);
 	localStorage.setItem('favKeyList', JSON.stringify(currentFavList));
 
 	const newFavoriteKeyList =

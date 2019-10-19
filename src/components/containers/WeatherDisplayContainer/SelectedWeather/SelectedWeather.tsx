@@ -83,15 +83,17 @@ export const SelectedWeather: React.FC<IProps> = ({
 	// }, [currentWeatherHttpRequest]);
 
 	useEffect(() => {
-		const checkForFavoriteListing = (): boolean | undefined => {
+		const checkForFavoriteListing = (): any => {
 			let isListed;
+			console.log(`${key} - ITEM KEY`);
+			console.log(favoritesList);
 			if (favoritesList) isListed = favoritesList.includes(key);
 
-			console.log(isListed);
+			console.log(`${isListed} - ISLISTED RESULT`);
 			return isListed;
 		};
-		if (checkForFavoriteListing()) setIsFavorite(() => true);
-	}, [favoritesList, key]);
+		setIsFavorite(() => checkForFavoriteListing());
+	}, [favoritesList, key, isFavorite]);
 
 	useEffect(() => {
 		let weatherIcon: IconDefinition;
@@ -101,6 +103,7 @@ export const SelectedWeather: React.FC<IProps> = ({
 	}, [IsDayTime, WeatherIcon, isLoading]);
 
 	const handleFavoriteButtonClick = (key: string) => {
+		console.log(`${isFavorite} - ISFAVORITE RESULT`);
 		if (!isFavorite) {
 			setNewFavoriteItem(key);
 			setIsFavorite(() => true);

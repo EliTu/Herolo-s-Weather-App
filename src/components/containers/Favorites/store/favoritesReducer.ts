@@ -31,9 +31,7 @@ const favoritesReducer = (
 		case REMOVE_FROM_FAVORITES:
 			return {
 				...state,
-				favoritesList: state.favoritesList.concat(
-					action.updatedRemovals
-				),
+				favoritesList: action.updatedRemovals,
 			};
 
 		default:
