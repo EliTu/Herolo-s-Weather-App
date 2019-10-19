@@ -1,8 +1,11 @@
+import { FavoritesList } from './../FavoritesList/FavoritesList';
 import favoritesReducer from './favoritesReducer';
 import {
 	INIT_FAVORITES,
 	ADD_TO_FAVORITES,
 	REMOVE_FROM_FAVORITES,
+	FAVORITE_WEATHER_DATA_INIT,
+	GET_FAVORITES_WEATHER_DATA,
 } from './types';
 
 describe('favoritesReducer', () => {
@@ -10,10 +13,16 @@ describe('favoritesReducer', () => {
 		expect(
 			favoritesReducer(undefined, {
 				type: INIT_FAVORITES,
-				localStorageList: ['123', '456', '789'],
+				localStorageList: [
+					{ key: '123', cityName: 'abc', countryName: 'cbd' },
+				],
 			})
 		).toEqual({
-			favoritesList: ['123', '456', '789'],
+			favoritesList: [
+				{ key: '123', cityName: 'abc', countryName: 'cbd' },
+			],
+			isLoading: false,
+			weatherData: [],
 		});
 	});
 
@@ -21,10 +30,15 @@ describe('favoritesReducer', () => {
 		expect(
 			favoritesReducer(undefined, {
 				type: ADD_TO_FAVORITES,
-				updatedAditions: ['123', '456', '789', '321'],
+				updatedAditions: [
+					{ key: '321', cityName: 'berlin', countryName: 'germany' },
+				],
 			})
 		).toEqual({
-			favoritesList: ['123', '456', '789', '321'],
+			favoritesList: [
+				{ key: '123', cityName: 'abc', countryName: 'cbd' },
+				{ key: '321', cityName: 'berlin', countryName: 'germany' },
+			],
 		});
 	});
 
@@ -32,10 +46,52 @@ describe('favoritesReducer', () => {
 		expect(
 			favoritesReducer(undefined, {
 				type: REMOVE_FROM_FAVORITES,
-				updatedRemovals: ['456', '321'],
+				updatedRemovals: [
+					{ key: '321', cityName: 'berlin', countryName: 'germany' },
+				],
 			})
 		).toEqual({
-			favoritesList: ['456', '321'],
+			favoritesList: [
+				{ key: '321', cityName: 'berlin', countryName: 'germany' },
+			],
+		});
+	});
+
+	it('should set isLoading to true and nullify the favoritesList and weatherData states when receiving FAVORITE_WEATHER_DATA_INIT action', () => {
+		expect(
+			favoritesReducer(undefined, {
+				type: FAVORITE_WEATHER_DATA_INIT,
+			})
+		).toEqual({
+			isLoading: true,
+			FavoritesList: [],
+			weatherData: [],
+		});
+	});
+
+	it('should set new weatherData state when receiving GET_FAVORITES_WEATHER_DATA action', () => {
+		expect(
+			favoritesReducer(undefined, {
+				type: GET_FAVORITES_WEATHER_DATA,
+				favoritesWeatherData: {
+					key: '123',
+					cityName: 'hamburg',
+					countryName: 'germany',
+					WeatherText: 'sunny',
+					Temperature: { Metric: { Value: 20, Unit: 'c' } },
+				},
+			})
+		).toEqual({
+			isLoading: false,
+			favoritesList: [],
+			weatherData: [
+				{
+					key: '123',
+					cityName: 'hamburg',
+					countryName: 'germany',
+					WeatherText: 'sunny',
+					Temperature: { Metric: { Value: 20, Unit: 'c' } },}
+			],
 		});
 	});
 });

@@ -1,7 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Favorites component should render without errors 1`] = `
-<div
-  className="FavoritesStyles"
-/>
-`;
+exports[`Favorites component should render without errors 1`] = `undefined`;

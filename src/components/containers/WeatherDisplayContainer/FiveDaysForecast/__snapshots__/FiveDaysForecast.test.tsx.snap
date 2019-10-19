@@ -10,8 +10,7 @@ exports[`FiveDaysWeather component should render the component without errors 1`
     key="1571371200"
     link="www"
     mainHeading="Friday (Today)"
-    maxTempData="20C"
-    minTempData="30C"
+    temperatures="20C - 30C"
   />
   <Card
     date="19/05/10"
@@ -19,8 +18,7 @@ exports[`FiveDaysWeather component should render the component without errors 1`
     key="1571457600"
     link="www"
     mainHeading="Saturday (Tomorrow)"
-    maxTempData="20C"
-    minTempData="30C"
+    temperatures="20C - 30C"
   />
   <Card
     date="19/05/10"
@@ -28,8 +26,7 @@ exports[`FiveDaysWeather component should render the component without errors 1`
     key="1571544000"
     link="www"
     mainHeading="Sunday"
-    maxTempData="20C"
-    minTempData="30C"
+    temperatures="20C - 30C"
   />
   <Card
     date="19/05/10"
@@ -37,8 +34,7 @@ exports[`FiveDaysWeather component should render the component without errors 1`
     key="1571630400"
     link="www"
     mainHeading="Monday"
-    maxTempData="20C"
-    minTempData="30C"
+    temperatures="20C - 30C"
   />
   <Card
     date="19/05/10"
@@ -46,8 +42,7 @@ exports[`FiveDaysWeather component should render the component without errors 1`
     key="1571716800"
     link="www"
     mainHeading="Tuesday"
-    maxTempData="20C"
-    minTempData="30C"
+    temperatures="20C - 30C"
   />
 </div>
 `;
