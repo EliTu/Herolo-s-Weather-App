@@ -8,7 +8,10 @@ import {
 	FIVE_DAYS_FORECAST_FAIL,
 	FiveDaysForecastActionTypes,
 } from './types';
-import { getFavoritesWeatherDataAction } from '../../Favorites/store/actions';
+import {
+	favoritesWeatherDataInitAction,
+	getFavoritesWeatherDataAction,
+} from '../../Favorites/store/actions';
 import { Action, ActionCreator } from 'redux';
 import setAsyncGetRequest from '../../../../utilities/urls/urls';
 
@@ -48,6 +51,7 @@ export const fireCurrentWeatherHttpRequest = (
 ) => {
 	return async (dispatch: any) => {
 		dispatch(currentWeatherInitAction());
+		dispatch(favoritesWeatherDataInitAction());
 
 		if (key)
 			try {

@@ -2,6 +2,7 @@ import {
 	INIT_FAVORITES,
 	ADD_TO_FAVORITES,
 	REMOVE_FROM_FAVORITES,
+	FAVORITE_WEATHER_DATA_INIT,
 	GET_FAVORITES_WEATHER_DATA,
 	favoritesActionTypes,
 } from './types';
@@ -73,12 +74,21 @@ export const removeFromFavoritesAction: ActionCreator<Action> = (
 	};
 };
 
-export const getFavoritesWeatherDataAction: ActionCreator<Action> = (
-	weatherData: {
-		WeatherText: string;
-		Temperature: { Metric: { Value: number; Unit: string } };
-	}[]
-): favoritesActionTypes => {
+export const favoritesWeatherDataInitAction: ActionCreator<Action> = () => {
+	return {
+		type: FAVORITE_WEATHER_DATA_INIT,
+	};
+};
+
+export const getFavoritesWeatherDataAction: ActionCreator<
+	Action
+> = (weatherData: {
+	key: string;
+	cityName: string;
+	countryName: string;
+	WeatherText: string;
+	Temperature: { Metric: { Value: number; Unit: string } };
+}): favoritesActionTypes => {
 	return {
 		type: GET_FAVORITES_WEATHER_DATA,
 		favoritesWeatherData: weatherData,
