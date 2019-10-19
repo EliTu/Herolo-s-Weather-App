@@ -6,6 +6,13 @@ import styles from './FavoritesList.module.css';
 
 interface IProps {
 	favorites: { key: string; cityName: string; countryName: string }[];
+	favoritesWeatherData: {
+		key: string;
+		cityName: string;
+		countryName: string;
+		WeatherText: string;
+		Temperature: { Metric: { Value: number; Unit: string } };
+	}[];
 	getFavoritesWeatherData: (
 		key: string,
 		dispatchIdentifier: string,
@@ -16,36 +23,42 @@ interface IProps {
 
 export const FavoritesList: React.FC<IProps> = ({
 	favorites,
+	favoritesWeatherData,
 	getFavoritesWeatherData,
 }) => {
 	const { FavoritesListStyles, CardWrapper } = styles;
 
 	useEffect(() => {
-		favorites.map(({ key, cityName, countryName }) =>
-			getFavoritesWeatherData(
-				key,
-				'favortieWeather',
-				cityName,
-				countryName
-			)
-		);
+		if (favorites.length > 0)
+			favorites.map(({ key, cityName, countryName }) =>
+				getFavoritesWeatherData(
+					key,
+					'favortieWeather',
+					cityName,
+					countryName
+				)
+			);
 	}, [favorites, getFavoritesWeatherData]);
 
 	return (
 		<div className={FavoritesListStyles}>
-			{/* {favorites.map(({ key, cityName, countryName }) => {
-				return (
-					<div className={CardWrapper}>
-						<Card
-							mainHeading={cityName}
-							description={countryName}
-							date={'10.10.20'}
-							key={key}
-							link={'www'}
-						/>
-					</div>
-				);
-			})} */}
+			{favoritesWeatherData.map(
+				({ key, cityName, countryName, WeatherText, Temperature }) => {
+					const { Metric } = Temperature;
+
+					return (
+						<div className={CardWrapper}>
+							<Card
+								mainHeading={`${cityName}, ${countryName}`}
+								description={WeatherText}
+								date={`${Metric.Value}${Metric.Unit}`}
+								key={key}
+								link={'www'}
+							/>
+						</div>
+					);
+				}
+			)}
 		</div>
 	);
 };
@@ -53,6 +66,7 @@ export const FavoritesList: React.FC<IProps> = ({
 const mapStateToProps = (state: any) => {
 	return {
 		favorites: state.favorites.favoritesList,
+		favoritesWeatherData: state.favorites.weatherData,
 	};
 };
 

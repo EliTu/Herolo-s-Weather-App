@@ -3,9 +3,9 @@ import axios from 'axios';
 // Set an async axios GET request based on the requestType:
 const setAsyncGetRequest = (inputVal: string, requestType: string) => {
 	// Accuweather API key (not secure):
-	// const apiKey: string = '0Gub8jwlpiFGj7JYWAu9h9cGby8MnSAz'; USED 19/10 10:15
+	// const apiKey: string = '0Gub8jwlpiFGj7JYWAu9h9cGby8MnSAz';
 	// const apiKey: string = 'ZAxbVbnyjicI2eYgKvelofbyjx5JkQH6'; USED 19/10 12:00
-	const apiKey: string = 'bQFmIaGAuAGNf2crw9dvL8B2vaECPkAP';
+	const apiKey: string = 'kBbh36NwLoBO6kB9z2fPol8HYUxaIXi3';
 
 	let url: string;
 	let params: string;

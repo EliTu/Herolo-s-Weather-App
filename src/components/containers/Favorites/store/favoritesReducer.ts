@@ -24,7 +24,7 @@ const favoritesReducer = (
 				...state,
 				isLoading: false,
 				favoritesList: action.localStorageList,
-				weatherData: state.weatherData,
+				weatherData: [],
 			};
 
 		case ADD_TO_FAVORITES:

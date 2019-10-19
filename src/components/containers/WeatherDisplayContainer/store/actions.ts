@@ -50,8 +50,10 @@ export const fireCurrentWeatherHttpRequest = (
 	countryName?: string
 ) => {
 	return async (dispatch: any) => {
-		dispatch(currentWeatherInitAction());
-		dispatch(favoritesWeatherDataInitAction());
+		if (dispatchIdentifier === 'currentWeather')
+			dispatch(currentWeatherInitAction());
+		if (dispatchIdentifier === 'favoriteWeather')
+			dispatch(favoritesWeatherDataInitAction());
 
 		if (key)
 			try {
