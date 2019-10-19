@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import Card from '../../../display/UI/Card/Card';
 import { fireCurrentWeatherHttpRequest } from '../../WeatherDisplayContainer/store/actions';
+import { fireFiveDaysForecastHttpRequest } from '../../WeatherDisplayContainer/store/actions';
 import styles from './FavoritesList.module.css';
 
 interface IProps {
@@ -19,15 +21,27 @@ interface IProps {
 		cityName: string,
 		dispatchIdentifier: string
 	) => void;
+	history: any;
+	getClickedItemWeatherCurrentData: (
+		key: string,
+		countryName: string,
+		cityName: string,
+		dispatchIdentifier: string
+	) => void;
+	getClickedItemFiveDaysForecast: (key: string) => void;
 }
 
 export const FavoritesList: React.FC<IProps> = ({
 	favorites,
 	favoritesWeatherData,
 	getFavoritesWeatherData,
+	history,
+	getClickedItemWeatherCurrentData,
+	getClickedItemFiveDaysForecast,
 }) => {
 	const { FavoritesListStyles, CardWrapper } = styles;
 
+	console.log(history);
 	useEffect(() => {
 		favorites.map(({ key, cityName, countryName }) =>
 			getFavoritesWeatherData(
@@ -39,32 +53,49 @@ export const FavoritesList: React.FC<IProps> = ({
 		);
 	}, [favorites, getFavoritesWeatherData]);
 
+	const handleFavoriteCardClick = (
+		key: string,
+		cityName: string,
+		countryName: string
+	) => {
+		getClickedItemWeatherCurrentData(
+			key,
+			cityName,
+			countryName,
+			'currentWeather'
+		);
+		getClickedItemFiveDaysForecast(key);
+		history.push('/');
+	};
+
 	return (
 		<div className={FavoritesListStyles}>
-			<ul className={CardWrapper}>
-				{favoritesWeatherData.map(
-					({
-						cityName,
-						countryName,
-						key,
-						WeatherText,
-						Temperature,
-					}) => {
-						const { Metric } = Temperature;
+			{favoritesWeatherData.map(
+				({ cityName, countryName, key, WeatherText, Temperature }) => {
+					const { Metric } = Temperature;
 
-						return (
-							<li key={key}>
-								<Card
-									mainHeading={`${cityName}, ${countryName}`}
-									description={WeatherText}
-									date={'Current:'}
-									temperatures={`${Metric.Value}${Metric.Unit}`}
-								/>
-							</li>
-						);
-					}
-				)}
-			</ul>
+					return (
+						<div
+							className={CardWrapper}
+							key={key}
+							onClick={() =>
+								handleFavoriteCardClick(
+									key,
+									cityName,
+									countryName
+								)
+							}
+						>
+							<Card
+								mainHeading={`${cityName}, ${countryName}`}
+								description={WeatherText}
+								date={'Current:'}
+								temperatures={`${Metric.Value}${Metric.Unit}`}
+							/>
+						</div>
+					);
+				}
+			)}
 		</div>
 	);
 };
@@ -91,10 +122,27 @@ const mapDispatchToProps = (dispatch: any) => {
 					countryName
 				)
 			),
+		getClickedItemWeatherCurrentData: (
+			key: string,
+			cityName: string,
+			countryName: string
+		) =>
+			dispatch(
+				fireCurrentWeatherHttpRequest(
+					key,
+					'currentWeather',
+					cityName,
+					countryName
+				)
+			),
+		getClickedItemFiveDaysForecast: (key: string) =>
+			dispatch(fireFiveDaysForecastHttpRequest(key)),
 	};
 };
 
-export default connect(
-	mapStateToProps,
-	mapDispatchToProps
-)(FavoritesList);
+export default withRouter(
+	connect(
+		mapStateToProps,
+		mapDispatchToProps
+	)(FavoritesList)
+);
