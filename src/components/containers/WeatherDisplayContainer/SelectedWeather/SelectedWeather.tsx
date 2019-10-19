@@ -18,12 +18,6 @@ import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import styles from './SelectedWeather.module.css';
 
 interface IProps {
-	currentWeatherHttpRequest: (
-		val: string,
-		cityName: string,
-		countryName: string,
-		dispatchIdentifier: string
-	) => void;
 	setNewFavoriteItem: (
 		key: string,
 		cityName: string,
@@ -53,7 +47,6 @@ interface IProps {
 }
 
 export const SelectedWeather: React.FC<IProps> = ({
-	currentWeatherHttpRequest,
 	setNewFavoriteItem,
 	removeFromFavorites,
 	favoritesList,
@@ -85,10 +78,6 @@ export const SelectedWeather: React.FC<IProps> = ({
 	const day = !isLoading && EpochTime ? setDayOfTheWeek(EpochTime) : '';
 	const date = !isLoading && localDate ? setCorrectDateFormat(localDate) : '';
 
-	// On component mount, by default, set and display Tel-Aviv's weather info
-	// useEffect(() => {
-	// 	currentWeatherHttpRequest('215854', 'Tel-Aviv', 'Israel');
-	// }, [currentWeatherHttpRequest]);
 	useEffect(() => {
 		initFavorites();
 	}, [initFavorites]);
@@ -96,12 +85,9 @@ export const SelectedWeather: React.FC<IProps> = ({
 	useEffect(() => {
 		const checkForFavoriteListing = (): any => {
 			let isListed;
-			console.log(`${key} - ITEM KEY`);
-			console.log(favoritesList);
 			if (favoritesList)
 				isListed = favoritesList.some((el: any) => el.key === key);
 
-			console.log(`${isListed} - ISLISTED RESULT`);
 			return isListed;
 		};
 		setIsFavorite(() => checkForFavoriteListing());
@@ -116,7 +102,6 @@ export const SelectedWeather: React.FC<IProps> = ({
 	}, [IsDayTime, WeatherIcon, isLoading]);
 
 	const handleFavoriteButtonClick = (key: string) => {
-		console.log(`${isFavorite} - ISFAVORITE RESULT`);
 		if (!isFavorite) {
 			setNewFavoriteItem(key, cityName, countryName);
 			setIsFavorite(() => true);
@@ -169,20 +154,6 @@ const mapStateToProps = (state: any) => {
 
 const mapDispatchToProps = (dispatch: ThunkDispatch<{}, {}, any>) => {
 	return {
-		currentWeatherHttpRequest: (
-			key: string,
-			cityName: string,
-			countryName: string,
-			dispatchIdentifier: string
-		) =>
-			dispatch(
-				fireCurrentWeatherHttpRequest(
-					key,
-					'currentWeather',
-					cityName,
-					countryName
-				)
-			),
 
 		setNewFavoriteItem: (
 			key: string,

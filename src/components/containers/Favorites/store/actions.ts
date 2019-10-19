@@ -18,8 +18,7 @@ export const initFavoritesAction: ActionCreator<
 	// Check localStorage for the favKeyList key, if available get the list and parse it back to an array:
 	let favList;
 	favList = JSON.parse(localStorage.getItem('favKeyList')!) || [];
-
-	if (favList) console.log(favList);
+	
 	return {
 		type: INIT_FAVORITES,
 		localStorageList: favList,

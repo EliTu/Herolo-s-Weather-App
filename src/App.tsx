@@ -7,6 +7,8 @@ import WeatherContent from './components/containers/WeatherContent/WeatherConten
 import Footer from './components/display/Footer/Footer';
 import './App.css';
 import LazyLoader from './utilities/hoc/LazyLoader';
+import { fireCurrentWeatherHttpRequest } from './components/containers/WeatherDisplayContainer/store/actions';
+import { fireFiveDaysForecastHttpRequest } from './components/containers/WeatherDisplayContainer/store/actions';
 import { initFavoritesAction } from './components/containers/Favorites/store/actions';
 
 // Lazy loading imports:
@@ -16,12 +18,30 @@ const Favorites = lazy(() =>
 
 interface IProps {
 	initFavoritesList: () => void;
+	setDefaultWeatherData: (
+		val: string,
+		cityName: string,
+		countryName: string,
+		dispatchIdentifier: string
+	) => void;
+	setDefaultFiveDaysForecast: (key: string) => void;
 }
 
-export const App: React.FC<IProps> = ({ initFavoritesList }) => {
+export const App: React.FC<IProps> = ({
+	initFavoritesList,
+	setDefaultWeatherData,
+	setDefaultFiveDaysForecast,
+}) => {
+	// On component mount, get the localStorage favorite list:
 	useEffect(() => {
 		initFavoritesList();
 	}, [initFavoritesList]);
+
+	// On component mount, by default, set and display Tel-Aviv's weather info
+	useEffect(() => {
+		setDefaultWeatherData('215854', 'Tel-Aviv', 'currentWeather', 'Israel');
+		setDefaultFiveDaysForecast('215854');
+	}, [setDefaultFiveDaysForecast, setDefaultWeatherData]);
 
 	return (
 		<div className="App">
@@ -49,6 +69,21 @@ export const App: React.FC<IProps> = ({ initFavoritesList }) => {
 const mapDispatchToProps = (dispatch: any) => {
 	return {
 		initFavoritesList: () => dispatch(initFavoritesAction()),
+		setDefaultWeatherData: (
+			key: string,
+			cityName: string,
+			countryName: string
+		) =>
+			dispatch(
+				fireCurrentWeatherHttpRequest(
+					key,
+					'currentWeather',
+					cityName,
+					countryName
+				)
+			),
+		setDefaultFiveDaysForecast: (key: string) =>
+			dispatch(fireFiveDaysForecastHttpRequest(key)),
 	};
 };
 
