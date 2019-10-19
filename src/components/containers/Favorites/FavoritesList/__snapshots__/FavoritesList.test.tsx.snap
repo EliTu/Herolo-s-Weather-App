@@ -1,3 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`FavoritesList componenet should render without errors 1`] = `undefined`;
+exports[`FavoritesList componenet should render without errors 1`] = `
+<div
+  className="FavoritesListStyles"
+>
+  <div
+    className="CardWrapper"
+    key="123"
+    onClick={[Function]}
+  >
+    <Card
+      date="Current:"
+      description="warm"
+      mainHeading="munich, germany"
+      temperatures="23c"
+    />
+  </div>
+  <div
+    className="CardWrapper"
+    key="456"
+    onClick={[Function]}
+  >
+    <Card
+      date="Current:"
+      description="warm"
+      mainHeading="germering, germany"
+      temperatures="24c"
+    />
+  </div>
+</div>
+`;

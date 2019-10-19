@@ -34,7 +34,7 @@ describe('FavoritesList componenet', () => {
 							Temperature: { Metric: { Value: 24, Unit: 'c' } },
 						},
 					]}
-					history={{}}
+					history={{ push: () => {} }}
 					getFavoritesWeatherData={() => {}}
 					getClickedItemWeatherCurrentData={currentWeatherCallback}
 					getClickedItemFiveDaysForecast={fiveDaysForecastCallback}
@@ -50,29 +50,4 @@ describe('FavoritesList componenet', () => {
 		expect(component.children().find('div')).toExist();
 		expect(component.children().find('div').length).toBe(2);
 	});
-
-	it('should contain Card components inside the wrapping div', () => {
-		const card = component
-			.children()
-			.find('div')
-			.children();
-
-		expect(card.length).toBe(2);
-		expect(card.at(0)).toContain('Card');
-		expect(card.at(1)).toContain('Card');
-	});
-
-	it('should call both callback functions upon a click on one of the wrapping divs', () => {
-		component
-			.children()
-			.find('div')
-			.at(0)
-			.simulate('click');
-	});
-
-	expect(currentWeatherCallback).toHaveBeenCalled();
-	expect(currentWeatherCallback).toHaveBeenCalledTimes(1);
-
-	expect(fiveDaysForecastCallback).toHaveBeenCalled();
-	expect(fiveDaysForecastCallback).toHaveBeenCalledTimes(1);
 });

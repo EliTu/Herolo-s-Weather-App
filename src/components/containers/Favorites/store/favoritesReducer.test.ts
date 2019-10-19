@@ -30,14 +30,17 @@ describe('favoritesReducer', () => {
 			favoritesReducer(undefined, {
 				type: ADD_TO_FAVORITES,
 				updatedAditions: [
+					{ cityName: 'abc', countryName: 'cbd', key: '123' },
 					{ key: '321', cityName: 'berlin', countryName: 'germany' },
 				],
 			})
 		).toEqual({
 			favoritesList: [
-				{ key: '123', cityName: 'abc', countryName: 'cbd' },
-				{ key: '321', cityName: 'berlin', countryName: 'germany' },
+				{ cityName: 'abc', countryName: 'cbd', key: '123' },
+				{ cityName: 'berlin', countryName: 'germany', key: '321' },
 			],
+			isLoading: false,
+			weatherData: [],
 		});
 	});
 
@@ -53,6 +56,8 @@ describe('favoritesReducer', () => {
 			favoritesList: [
 				{ key: '321', cityName: 'berlin', countryName: 'germany' },
 			],
+			isLoading: false,
+			weatherData: [],
 		});
 	});
 
@@ -63,7 +68,7 @@ describe('favoritesReducer', () => {
 			})
 		).toEqual({
 			isLoading: true,
-			FavoritesList: [],
+			favoritesList: [],
 			weatherData: [],
 		});
 	});

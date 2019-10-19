@@ -13,8 +13,7 @@ describe('Card component', () => {
 					date={'10-02-2019'}
 					description={'warm'}
 					link={'www'}
-					maxTempData={'20C'}
-					minTempData={'15C'}
+					temperatures={'20C - 25C'}
 				/>
 			))
 	);
@@ -43,7 +42,7 @@ describe('Card component', () => {
 				.find('h4')
 				.at(0)
 				.text()
-		).toBe('20C - 15C');
+		).toBe('20C - 25C');
 		expect(
 			component
 				.children()

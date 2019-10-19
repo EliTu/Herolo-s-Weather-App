@@ -29,7 +29,11 @@ it('renders without crashing', () => {
 
 	ReactDOM.render(
 		<Provider store={store}>
-			<App initFavoritesList={() => []} />
+			<App
+				initFavoritesList={() => []}
+				setDefaultWeatherData={() => {}}
+				setDefaultFiveDaysForecast={() => {}}
+			/>
 		</Provider>,
 		div
 	);

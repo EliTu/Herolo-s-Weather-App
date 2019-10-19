@@ -15,11 +15,14 @@ describe('Favorites component', () => {
 
 	it('should not display the component if isLoading is true or error is truthy', () => {
 		component.setProps({ isLoading: true });
-		expect(component.length).toBe(0);
-		expect(component).not.toExist();
+
+		expect(component).toMatchSnapshot();
+		expect(component.children().length).toBe(0);
+		expect(component.children()).not.toExist();
 
 		component.setProps({ isLoading: false, error: 'abc' });
-		expect(component.length).toBe(0);
-		expect(component).not.toExist();
+		expect(component).toMatchSnapshot();
+		expect(component.children().length).toBe(0);
+		expect(component.children()).not.toExist();
 	});
 });
