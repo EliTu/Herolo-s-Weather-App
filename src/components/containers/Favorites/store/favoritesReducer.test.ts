@@ -1,4 +1,3 @@
-import { FavoritesList } from './../FavoritesList/FavoritesList';
 import favoritesReducer from './favoritesReducer';
 import {
 	INIT_FAVORITES,
@@ -90,7 +89,8 @@ describe('favoritesReducer', () => {
 					cityName: 'hamburg',
 					countryName: 'germany',
 					WeatherText: 'sunny',
-					Temperature: { Metric: { Value: 20, Unit: 'c' } },}
+					Temperature: { Metric: { Value: 20, Unit: 'c' } },
+				},
 			],
 		});
 	});

@@ -8,7 +8,7 @@ interface IProps {
 	error: string;
 }
 
-const Favorites: React.FC<IProps> = ({ isLoading, error }) => {
+export const Favorites: React.FC<IProps> = ({ isLoading, error }) => {
 	const { FavoritesStyles } = styles;
 	return (
 		<div className={FavoritesStyles}>
