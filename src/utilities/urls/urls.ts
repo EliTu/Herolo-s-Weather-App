@@ -3,14 +3,13 @@ import axios from 'axios';
 // Set an async axios GET request based on the requestType:
 const setAsyncGetRequest = (inputVal: string, requestType: string) => {
 	// Accuweather API key (not secure):
-	const apiKey: string = '0Gub8jwlpiFGj7JYWAu9h9cGby8MnSAz';
-	// const apiKey: string = 'ZAxbVbnyjicI2eYgKvelofbyjx5JkQH6'; USED 17/10 19:30
+	// const apiKey: string = '0Gub8jwlpiFGj7JYWAu9h9cGby8MnSAz'; USED 19/10 10:15
+	const apiKey: string = 'ZAxbVbnyjicI2eYgKvelofbyjx5JkQH6';
 	// const apiKey: string = 'bQFmIaGAuAGNf2crw9dvL8B2vaECPkAP'; USED 18/19 12:10
 
 	let url: string;
 	let params: string;
 
-	console.log(requestType);
 	switch (requestType) {
 		case 'search':
 			url =
@@ -33,7 +32,6 @@ const setAsyncGetRequest = (inputVal: string, requestType: string) => {
 			params = '';
 	}
 
-	console.log(url, params);
 	return axios.get(`${url}${params}`);
 };
 

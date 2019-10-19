@@ -83,6 +83,18 @@ export const SelectedWeather: React.FC<IProps> = ({
 	// }, [currentWeatherHttpRequest]);
 
 	useEffect(() => {
+		const checkForFavoriteListing: () => boolean = (): boolean => {
+			let favList;
+			if (localStorage.favKeyList)
+				favList = JSON.parse(localStorage.getItem('favKeyList')!) || [];
+
+			const isListed = favList.find((el: string) => el === key);
+			return isListed;
+		};
+		if (checkForFavoriteListing()) setIsFavorite(() => true);
+	}, [key]);
+
+	useEffect(() => {
 		let weatherIcon: IconDefinition;
 		if (!isLoading && WeatherIcon)
 			weatherIcon = setWeatherIcon(IsDayTime, WeatherIcon);
@@ -95,8 +107,15 @@ export const SelectedWeather: React.FC<IProps> = ({
 		cityName: string,
 		countryName: string
 	) => {
-		setNewFavoriteItem(id, key, cityName, countryName);
-		setIsFavorite(() => !isFavorite);
+		if (!isFavorite) {
+			const oldFavKeyList =
+				JSON.parse(localStorage.getItem('favKeyList')!) || [];
+			oldFavKeyList.push(key);
+			localStorage.setItem('favKeyList', JSON.stringify(oldFavKeyList));
+
+			setNewFavoriteItem(id, key, cityName, countryName);
+			setIsFavorite(() => true);
+		}
 	};
 
 	return (
