@@ -1,5 +1,6 @@
 import {
 	favortiesInitState,
+	INIT_FAVORITES,
 	ADD_TO_FAVORITES,
 	REMOVE_FROM_FAVORITES,
 	favoritesActionTypes,
@@ -14,6 +15,12 @@ const favoritesReducer = (
 	action: favoritesActionTypes
 ): favortiesInitState => {
 	switch (action.type) {
+		case INIT_FAVORITES:
+			return {
+				...state,
+				favoritesList: action.localStorageList,
+			};
+
 		case ADD_TO_FAVORITES:
 			return {
 				...state,
@@ -24,8 +31,8 @@ const favoritesReducer = (
 		case REMOVE_FROM_FAVORITES:
 			return {
 				...state,
-				favoritesList: state.favoritesList.filter(
-					fav => fav.id !== action.id
+				favoritesList: state.favoritesList.concat(
+					action.updatedRemovals
 				),
 			};
 
