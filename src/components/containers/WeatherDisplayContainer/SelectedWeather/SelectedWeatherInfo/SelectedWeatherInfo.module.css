@@ -43,3 +43,31 @@
 .SelectedWeatherInfoStyles .countryStyle {
     font-size: var(--text-size-medium);
 }
+
+/* Medium screens */
+@media only screen and (max-width: 750px) {
+    .SelectedWeatherInfoStyles {
+        width: 70%;
+    }
+
+    .SelectedWeatherInfoStyles .dateStyle {
+        font-size: var(--text-size-medium);
+    }
+
+    .SelectedWeatherInfoStyles .cityStyle {
+        margin-top: 1rem;
+        font-size: var(--text-size-medium);
+    }
+}
+
+/* small screens */
+@media only screen and (max-width: 550px) {
+    .SelectedWeatherInfoStyles {
+        width: 80%;
+        order: 2;
+    }
+
+    .SelectedWeatherInfoStyles ul {
+        width: 60%;
+    }
+}

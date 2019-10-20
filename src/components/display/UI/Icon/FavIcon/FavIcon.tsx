@@ -14,7 +14,7 @@ const FavIcon: React.FC<IProps> = ({ isFavorite }) => {
 	const hallowHeartColor = !isFavorite ? '#282828c0' : '#282828c0';
 
 	return (
-		<span className="fa-layers fa-fw">
+		<span className={['fa-layers fa-fw', FavIconStyles].join(' ')}>
 			<Icon iconType={innerHeart} size={'3x'} color={innerHeartColor} />
 			<Icon iconType={hallowHeart} size={'3x'} color={hallowHeartColor} />
 		</span>
