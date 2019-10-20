@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, memo } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Card from '../../../display/UI/Card/Card';
@@ -134,5 +134,5 @@ export default withRouter(
 	connect(
 		mapStateToProps,
 		mapDispatchToProps
-	)(FavoritesList)
+	)(memo(FavoritesList))
 );

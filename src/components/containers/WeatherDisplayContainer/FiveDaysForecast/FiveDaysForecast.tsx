@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { connect } from 'react-redux';
 import Card from '../../../display/UI/Card/Card';
 import {
@@ -74,4 +74,4 @@ const mapStateToProps = (state: any) => {
 	};
 };
 
-export default connect(mapStateToProps)(FiveDaysForecast);
+export default connect(mapStateToProps)(memo(FiveDaysForecast));

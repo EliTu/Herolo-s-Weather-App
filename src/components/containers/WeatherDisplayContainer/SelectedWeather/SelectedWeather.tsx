@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import { connect } from 'react-redux';
 import { ThunkDispatch } from 'redux-thunk';
 import SelectedWeatherInfo from './SelectedWeatherInfo/SelectedWeatherInfo';
@@ -168,4 +168,4 @@ const mapDispatchToProps = (dispatch: ThunkDispatch<{}, {}, any>) => {
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(SelectedWeather);
+)(memo(SelectedWeather));
