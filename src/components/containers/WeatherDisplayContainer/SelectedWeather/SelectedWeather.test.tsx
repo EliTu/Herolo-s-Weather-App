@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { shallow, ShallowWrapper } from 'enzyme';
 import { SelectedWeather } from './SelectedWeather';
 import initialShallowRender from '../../../../utilities/test-utilities/initialShallowRender';
-import { string } from 'prop-types';
 
 describe('SelectedWeather Component', () => {
 	let component: ShallowWrapper;
@@ -13,11 +12,7 @@ describe('SelectedWeather Component', () => {
 		() =>
 			(component = shallow(
 				<SelectedWeather
-					currentWeatherHttpRequest={(
-						val: string,
-						cityName: string,
-						countryName: string
-					) => {}}
+					initFavorites={() => {}}
 					favoritesList={['123', '456']}
 					setNewFavoriteItem={onClickAdd}
 					removeFromFavorites={onClickRemove}

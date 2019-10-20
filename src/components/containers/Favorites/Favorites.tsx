@@ -19,7 +19,7 @@ export const Favorites: React.FC<IProps> = ({
 }) => {
 	const { FavoritesStyles, noFavoritesMessage } = styles;
 	return (
-		<div className={FavoritesStyles}>
+		<section className={FavoritesStyles}>
 			{!isLoading &&
 			favorites.length === 0 &&
 			weatherData.length === 0 ? (
@@ -35,7 +35,7 @@ export const Favorites: React.FC<IProps> = ({
 			) : (
 				!isLoading && <FavoritesList />
 			)}
-		</div>
+		</section>
 	);
 };
 // Redux setup:

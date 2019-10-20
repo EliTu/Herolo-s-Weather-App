@@ -15,7 +15,7 @@ export const FavoritesList: React.FC<IProps> = ({
 	getClickedItemWeatherCurrentData,
 	getClickedItemFiveDaysForecast,
 }) => {
-	const { FavoritesListStyles, CardWrapper, noFavoritesMessage } = styles;
+	const { FavoritesListStyles, CardWrapper } = styles;
 
 	useEffect(() => {
 		favorites.map(({ key, cityName, countryName }) =>

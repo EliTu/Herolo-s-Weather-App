@@ -1,18 +1,7 @@
 import React from 'react';
 import Icon from '../../../../display/UI/Icon/Icon';
 import styles from './SelectedWeatherInfo.module.css';
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-
-interface IProps {
-	weatherIconType: IconDefinition;
-	isLoading: boolean;
-	infoLink: string;
-	cityName: string;
-	countryName: string;
-	day: string;
-	date: string;
-	temperature: { Metric: { Value: number; Unit: string } };
-}
+import { IProps } from './propsInterface';
 
 const SelectedWeatherInfo: React.FC<IProps> = ({
 	weatherIconType,

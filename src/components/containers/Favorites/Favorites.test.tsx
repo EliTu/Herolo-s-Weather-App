@@ -7,7 +7,15 @@ import initialShallowRender from '../../../utilities/test-utilities/initialShall
 describe('Favorites component', () => {
 	let component: ShallowWrapper;
 	beforeEach(
-		() => (component = shallow(<Favorites isLoading={false} error={''} />))
+		() =>
+			(component = shallow(
+				<Favorites
+					isLoading={false}
+					error={''}
+					weatherData={[{}, {}]}
+					favorites={[{}, {}]}
+				/>
+			))
 	);
 
 	it('should render without errors', () => {
@@ -19,6 +27,15 @@ describe('Favorites component', () => {
 
 		expect(component).toMatchSnapshot();
 		expect(component.find('div').children()).not.toExist();
+	});
+
+	it('should display a message if there are no favorite items or weatherData available', () => {
+		component.setProps({ weatherData: [{}], favorites: [{}] });
+
+		expect(component).toMatchSnapshot();
+		expect(component.text()).toBe(
+			'There seems to be no favorite items available to display! Please search for your favorite destinations and press on the ❤ button to add to your favorites list.'
+		);
 	});
 
 	it('should dispaly the ErrorMessage component if error is truthy', () => {
