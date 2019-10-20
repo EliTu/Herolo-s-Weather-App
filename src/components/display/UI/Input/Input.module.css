@@ -19,9 +19,3 @@ textarea {
     transition: all 0.5s;
     outline: none;
 }
-
-.validationStyles {}
-
-.invalidStyle {}
-
-.errorMessageStyle {}

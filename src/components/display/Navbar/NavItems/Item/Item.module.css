@@ -7,21 +7,24 @@
     font-size: var(--text-size-medium);
     margin: 0 auto;
     color: var(--color-main-grey-dark);
-    border-bottom: 5px solid;
     border-color: rgba(255, 255, 255, 0);
     height: 100%;
     width: 50%;
-    transition: all 0.3s ease-in;
-}
-
-.ItemStyles a {
     text-decoration: none;
+    text-align: center;
+    align-self: auto;
+    transition: all 0.3s ease-in;
+
 }
 
 .ItemStyles:hover {
-    background-color: rgba(82, 159, 223, 0.623);
+    background-color: var(--color-hover-purple);
+    color: var(--color-main-black-opaque);
+    text-decoration: none;
 }
 
 .active {
-    border-bottom-color: var(--color-main-black);
+    border-bottom: 7px solid;
+    color: var(--color-main-black);
+    border-bottom-color: var(--color-main-herolo-purple);
 }

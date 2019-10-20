@@ -11,6 +11,7 @@
     border-color: var(--color-main-black);
     padding: 1rem;
     margin: 0 auto;
+    box-shadow: var(--shadow-dark-bottom);
 }
 
 .FooterStyles p {
@@ -19,4 +20,34 @@
 
 .FooterStyles a {
     text-decoration: none;
+}
+
+.FooterStyles a:nth-child(1),
+.FooterStylesa:nth-child(1):active {
+    color: var(--color-main-herolo-purple);
+    font-weight: 800;
+}
+
+.FooterStyles a:nth-child(1):hover {
+    color: rgba(198, 94, 240, 0.842);
+}
+
+.FooterStyles a:nth-child(2),
+.FooterStylesa:nth-child(2):active {
+    color: rgba(55, 84, 248, 0.897);
+    font-weight: 800;
+}
+
+.FooterStyles a:nth-child(2):hover {
+    color: rgba(88, 110, 231, 0.76);
+}
+
+.FooterStyles a:nth-child(3),
+.FooterStyles a:nth-child(3):active {
+    color: var(--color-main-black);
+    font-weight: 800;
+}
+
+.FooterStyles a:nth-child(3):hover {
+    color: var(--color-main-black-opaque)
 }

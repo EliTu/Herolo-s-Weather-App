@@ -7,4 +7,5 @@
     border-color: var(--color-main-black);
     display: flex;
     justify-content: space-between;
+    box-shadow: var(--shadow-dark-lift);
 }

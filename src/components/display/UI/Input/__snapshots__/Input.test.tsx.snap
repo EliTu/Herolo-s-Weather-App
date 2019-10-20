@@ -11,78 +11,6 @@ exports[`Input component Component (not testing the input fields) should render 
     data-test="input-test"
     label="abc"
     onChange={[Function]}
-    options={
-      Array [
-        Object {
-          "displayValue": "Some Value",
-          "key": "1",
-          "value": "some value",
-        },
-        Object {
-          "displayValue": "Another Value",
-          "key": "2",
-          "value": "another value",
-        },
-      ]
-    }
-    placeholder="abc"
-    type="text"
-    value="abc"
-  />
-</div>
-`;
-
-exports[`Input component Type: input="select" test should render without errors 1`] = `
-<div
-  className="InputStyles"
->
-  <label>
-    abc
-  </label>
-  <select
-    data-test="select-test"
-    onChange={[Function]}
-    value="abc"
-  >
-    <option
-      key="some value"
-      value="some value"
-    >
-      Some Value
-    </option>
-    <option
-      key="another value"
-      value="another value"
-    >
-      Another Value
-    </option>
-  </select>
-</div>
-`;
-
-exports[`Input component Type: input="text" test should not render if elementType is not input  1`] = `
-<div
-  className="InputStyles"
->
-  <label>
-    abc
-  </label>
-  <input
-    label="abc"
-    options={
-      Array [
-        Object {
-          "displayValue": "Some Value",
-          "key": "1",
-          "value": "some value",
-        },
-        Object {
-          "displayValue": "Another Value",
-          "key": "2",
-          "value": "another value",
-        },
-      ]
-    }
     placeholder="abc"
     type="text"
     value="abc"
@@ -101,54 +29,8 @@ exports[`Input component Type: input="text" test should render the component wit
     data-test="input-test"
     label="abc"
     onChange={[Function]}
-    options={
-      Array [
-        Object {
-          "displayValue": "Some Value",
-          "key": "1",
-          "value": "some value",
-        },
-        Object {
-          "displayValue": "Another Value",
-          "key": "2",
-          "value": "another value",
-        },
-      ]
-    }
     placeholder="abc"
-    type="text"
-    value="abc"
-  />
-</div>
-`;
-
-exports[`Input component Type: input="textarea" test should render without errors 1`] = `
-<div
-  className="InputStyles"
->
-  <label>
-    abc
-  </label>
-  <textarea
-    data-test="textarea-test"
-    label="abc"
-    onChange={[Function]}
-    options={
-      Array [
-        Object {
-          "displayValue": "Some Value",
-          "key": "1",
-          "value": "some value",
-        },
-        Object {
-          "displayValue": "Another Value",
-          "key": "2",
-          "value": "another value",
-        },
-      ]
-    }
-    placeholder="abc"
-    type=""
+    type="input"
     value="abc"
   />
 </div>

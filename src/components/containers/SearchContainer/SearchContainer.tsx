@@ -70,7 +70,6 @@ export const SearchContainer: React.FC<IProps> = ({
 			<div className={InputWrapper}>
 				<Icon iconType={faSearch} size={'2x'} />
 				<Input
-					elementType={inputData.elementType}
 					elementConfig={{ ...inputData.elementConfig }}
 					value={inputData.value}
 					isFocused={inputData.isFocused}

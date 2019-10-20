@@ -4,9 +4,6 @@ exports[`Layout component should render without errors 1`] = `
 <div
   className="LayoutStyles"
 >
-  <Backdrop
-    isDisplayed={true}
-  />
   <main />
 </div>
 `;

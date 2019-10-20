@@ -1,11 +1,13 @@
 :root {
     /* Theme specs */
     --background-main-light-theme: rgba(247, 247, 247, 0.863);
-    --background-main-dark-theme: rgba(44, 42, 42, 0.76);
     /* coloring */
     --color-main-black: rgba(39, 36, 36, 0.774);
     --color-main-black-opaque: rgba(31, 28, 28, 0.507);
-    --color-main-grey-dark: #495057;
+    --color-main-white: rgba(196, 188, 188, 0.658);
+    --color-main-grey-dark: #56585acb;
+    --color-main-herolo-purple: #7744a2;
+    --color-hover-purple: #d0a8f144;
     /* Typography */
     --text-size-small: 0.7rem;
     --text-size-medium-small: 0.9rem;
@@ -13,8 +15,9 @@
     --text-size-large: 1.5rem;
     --text-size-extra-large: 1.8rem;
     --text-size-huge: 3rem;
-    /* sizes */
     /* Shadows */
+    --shadow-dark-lift: rgba(0, 0, 0, 0.377) 0px 3px 2px;
+    --shadow-dark-bottom: rgba(0, 0, 0, 0.247) 5px 0px 2px;
     /* Borders */
     --border-thick: 2px solid;
     --border-thin: 1px solid;

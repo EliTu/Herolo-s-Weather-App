@@ -8,48 +8,26 @@ import initialShallowRender from '../../../../utilities/test-utilities/initialSh
 const onChange: () => void = jest.fn();
 
 const setComponentProps = (
-	elementType: string,
 	configType: string = 'text',
 	value: string = 'abc',
-	isValid: boolean = false,
-	hasInput: boolean = true,
-	options: object[]
+	hasInput: boolean = true
 ) => {
 	const props: IInputProps = {
-		elementType: `${elementType}`,
 		elementConfig: {
 			type: `${configType}`,
 			placeholder: 'abc',
 			label: 'abc',
-			options: [
-				{
-					value: 'some value',
-					displayValue: 'Some Value',
-					key: '1',
-				},
-				{
-					value: 'another value',
-					displayValue: 'Another Value',
-					key: '2',
-				},
-			],
 		},
 		value: `${value}`,
-		focused: true,
+		isFocused: true,
 		handleChange: () => {},
-		handleEnterPress: () => {},
-		data: 'abc',
 	};
 	return props;
 };
 
-const setComponent = (
-	props: IInputProps,
-	changeFn = () => {},
-	enterFn = () => {}
-) => {
+const setComponent = (props: IInputProps, changeFn = () => {}) => {
 	const component: ShallowWrapper = shallow(
-		<Input {...props} handleChange={changeFn} handleEnterPress={enterFn} />
+		<Input {...props} handleChange={changeFn} />
 	);
 	return component;
 };
@@ -57,7 +35,7 @@ const setComponent = (
 describe('Input component', () => {
 	describe('Component (not testing the input fields)', () => {
 		it('should render an Input component withot errors', () => {
-			let props = setComponentProps('input', 'text', 'abc', true);
+			let props = setComponentProps('text', 'abc', true);
 			let component = setComponent(props);
 			initialShallowRender(component, '.InputStyles');
 		});
@@ -73,17 +51,8 @@ describe('Input component', () => {
 			expect(input.length).toBe(1);
 		});
 
-		it('should not render if elementType is not input ', () => {
-			props = setComponentProps('password');
-			component = setComponent(props);
-			input = findByTestAttr(component, 'input-test');
-
-			expect(component).toMatchSnapshot();
-			expect(input.length).toBe(0);
-		});
-
 		it('should call the onChange event callback function on user input', () => {
-			props = setComponentProps('input', null, '');
+			props = setComponentProps('input', 'abc', true);
 			component = setComponent(props, onChange);
 			input = findByTestAttr(component, 'input-test');
 
@@ -91,34 +60,6 @@ describe('Input component', () => {
 				target: { value: 'abc' },
 			});
 
-			expect(onChange).toHaveBeenCalled();
-		});
-	});
-
-	describe('Type: input="textarea" test', () => {
-		let props = setComponentProps('textarea', '');
-		let component = setComponent(props);
-		let textarea = findByTestAttr(component, 'textarea-test');
-		it('should render without errors', () => {
-			expect(component).toMatchSnapshot();
-			expect(textarea.length).toBe(1);
-			expect(textarea.length).not.toBe(2);
-		});
-	});
-
-	describe('Type: input="select" test', () => {
-		let props = setComponentProps('select');
-		let component = setComponent(props);
-		let select = findByTestAttr(component, 'select-test');
-
-		it('should render without errors', () => {
-			expect(component).toMatchSnapshot();
-			expect(select.length).toBe(1);
-			expect(select.find('option').length).toBe(2);
-		});
-
-		it('should call the onChange event callback function on user change option', () => {
-			select.simulate('change', { target: { value: 'efg' } });
 			expect(onChange).toHaveBeenCalled();
 		});
 	});
