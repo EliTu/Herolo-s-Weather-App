@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/EliTu/Eliad-Tuksher-10-10-2019/issues"
   },
-  "homepage": "https://github.com/EliTu/Eliad-Tuksher-10-10-2019#readme",
+  "homepage": "https://weather-app-6737c.firebaseapp.com",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-brands-svg-icons": "^5.11.2",
@@ -44,7 +44,7 @@
     "react-bootstrap": "^1.0.0-beta.14",
     "react-dom": "^16.10.2",
     "react-redux": "^7.1.1",
-    "react-router-dom": "^5.1.2",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "^3.2.0",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
