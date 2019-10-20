@@ -6,6 +6,14 @@
     margin: 1.5rem auto;
 }
 
+.noFavoritesMessage {
+    width: 80%;
+    font-size: var(--text-size-large);
+    margin: 1.5rem auto;
+}
+
+
+/* Medium screen */
 @media only screen and (max-width: 800px) {
     .FavoritesStyles {
         width: 95%;

@@ -15,7 +15,7 @@ export const FavoritesList: React.FC<IProps> = ({
 	getClickedItemWeatherCurrentData,
 	getClickedItemFiveDaysForecast,
 }) => {
-	const { FavoritesListStyles, CardWrapper } = styles;
+	const { FavoritesListStyles, CardWrapper, noFavoritesMessage } = styles;
 
 	useEffect(() => {
 		favorites.map(({ key, cityName, countryName }) =>
@@ -45,45 +45,30 @@ export const FavoritesList: React.FC<IProps> = ({
 
 	return (
 		<div className={FavoritesListStyles}>
-			{favoritesWeatherData.length > 0 ? (
-				favoritesWeatherData.map(
-					({
-						cityName,
-						countryName,
-						key,
-						WeatherText,
-						Temperature,
-					}) => {
-						const { Metric } = Temperature;
+			{favoritesWeatherData.map(
+				({ cityName, countryName, key, WeatherText, Temperature }) => {
+					const { Metric } = Temperature;
 
-						return (
-							<div
-								className={CardWrapper}
-								key={key}
-								onClick={() =>
-									handleFavoriteCardClick(
-										key,
-										cityName,
-										countryName
-									)
-								}
-							>
-								<Card
-									mainHeading={`${cityName}, ${countryName}`}
-									description={WeatherText}
-									temperatures={`${Metric.Value}`}
-								/>
-							</div>
-						);
-					}
-				)
-			) : (
-				<p>
-					There seems to be no favorite items! Please search for your
-					favorite destination and press on the
-					<span role="img"> ❤ </span>
-					button to add to your favorites
-				</p>
+					return (
+						<div
+							className={CardWrapper}
+							key={key}
+							onClick={() =>
+								handleFavoriteCardClick(
+									key,
+									cityName,
+									countryName
+								)
+							}
+						>
+							<Card
+								mainHeading={`${cityName}, ${countryName}`}
+								description={WeatherText}
+								temperatures={`${Metric.Value}`}
+							/>
+						</div>
+					);
+				}
 			)}
 		</div>
 	);
