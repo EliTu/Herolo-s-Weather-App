@@ -38,12 +38,12 @@ export const FiveDaysForecast: React.FC<IProps> = ({ forecastResults }) => {
 							: day;
 
 					const { Value: maxVal } = Temperature.Minimum;
-					const maxCelsiusVal = fahrenheitToCelsius(maxVal);
-					const maxTemp = `${maxCelsiusVal}C`;
+					const maxCelsiusVal: number = fahrenheitToCelsius(maxVal);
+					const maxTemp: number = maxCelsiusVal;
 
 					const { Value: minVal } = Temperature.Maximum;
-					const minCelsiusVal = fahrenheitToCelsius(minVal);
-					const minTemp = `${minCelsiusVal}C`;
+					const minCelsiusVal: number = fahrenheitToCelsius(minVal);
+					const minTemp: number = minCelsiusVal;
 
 					// Get the weather text:
 					const { IconPhrase } = Day;
@@ -56,7 +56,8 @@ export const FiveDaysForecast: React.FC<IProps> = ({ forecastResults }) => {
 							key={EpochDate}
 							mainHeading={day}
 							date={date}
-							temperatures={`${maxTemp} - ${minTemp}`}
+							maxValue={maxTemp}
+							minValue={minTemp}
 							description={IconPhrase}
 							link={Link}
 						/>

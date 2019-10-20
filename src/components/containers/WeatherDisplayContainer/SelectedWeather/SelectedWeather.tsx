@@ -99,8 +99,9 @@ export const SelectedWeather: React.FC<IProps> = ({
 					<ul>
 						<li>{WeatherText}</li>
 						<li>
-							{Temperature &&
-								`${Temperature.Metric.Value}${Temperature.Metric.Unit}`}
+							{Temperature && `${Temperature.Metric.Value}`}
+							<span>&#176;</span>
+							{`${Temperature.Metric.Unit}`}
 						</li>
 					</ul>
 					<div className={buttonWrapper}>

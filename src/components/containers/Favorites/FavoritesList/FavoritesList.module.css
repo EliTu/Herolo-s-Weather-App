@@ -19,27 +19,9 @@
 
 .CardWrapper:hover {
     transform: scale(1.1);
-    box-shadow: var(--shadow-light-spread);
 }
 
 .CardWrapper div {
     width: 90%;
     margin: 0.8rem auto;
-}
-
-.removeButtonStyle {
-    z-index: 2;
-    position: absolute;
-    top: 10%;
-    right: 10%;
-    border: block;
-    background-color: rgba(206, 202, 202, 0.932);
-    width: 10%;
-    height: 2rem;
-    border-radius: 50%;
-    display: block;
-    font-size: 1.45rem;
-    font-weight: 800;
-    color: rgba(233, 229, 229, 0.932);
-
 }

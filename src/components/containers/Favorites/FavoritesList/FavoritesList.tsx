@@ -1,4 +1,4 @@
-import React, { useState, useEffect, memo } from 'react';
+import React, { useEffect, memo } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Card from '../../../display/UI/Card/Card';
@@ -15,18 +15,7 @@ export const FavoritesList: React.FC<IProps> = ({
 	getClickedItemWeatherCurrentData,
 	getClickedItemFiveDaysForecast,
 }) => {
-	const {
-		FavoritesListStyles,
-		CardWrapper,
-		removeButtonStyle,
-		showRemove,
-	} = styles;
-
-	const [isButtonShown, setIsButtonShown] = useState(false);
-
-	let buttonStyles = !isButtonShown
-		? removeButtonStyle
-		: [removeButtonStyle, showRemove].join(' ');
+	const { FavoritesListStyles, CardWrapper } = styles;
 
 	useEffect(() => {
 		favorites.map(({ key, cityName, countryName }) =>
@@ -71,8 +60,6 @@ export const FavoritesList: React.FC<IProps> = ({
 							<div
 								className={CardWrapper}
 								key={key}
-								onMouseOver={() => setIsButtonShown(true)}
-								onMouseOut={() => setIsButtonShown(false)}
 								onClick={() =>
 									handleFavoriteCardClick(
 										key,
@@ -81,12 +68,10 @@ export const FavoritesList: React.FC<IProps> = ({
 									)
 								}
 							>
-								<button className={buttonStyles}>-</button>
 								<Card
 									mainHeading={`${cityName}, ${countryName}`}
 									description={WeatherText}
-									date={'Current:'}
-									temperatures={`${Metric.Value}${Metric.Unit}`}
+									temperatures={`${Metric.Value}`}
 								/>
 							</div>
 						);
