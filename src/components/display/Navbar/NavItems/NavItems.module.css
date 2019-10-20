@@ -6,3 +6,24 @@
     height: 100%;
     width: 25%;
 }
+
+/* Large screens */
+@media only screen and (max-width: 1150px) {
+    .NavItemsStyles {
+        width: 35%;
+    }
+}
+
+/* Medium screens */
+@media only screen and (max-width: 700px) {
+    .NavItemsStyles {
+        width: 55%;
+    }
+}
+
+/* Small screens */
+@media only screen and (max-width: 500px) {
+    .NavItemsStyles {
+        width: 80%;
+    }
+}

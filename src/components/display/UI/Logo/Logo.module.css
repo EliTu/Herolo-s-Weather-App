@@ -54,7 +54,12 @@
 
 /* Small screens */
 @media only screen and (max-width: 600px) {
+    .LogoStyles {
+        margin: 0.5rem;
+    }
+
     .LogoStyles ul {
         display: none;
     }
+
 }

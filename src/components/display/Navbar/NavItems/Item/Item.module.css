@@ -29,3 +29,24 @@
     border-bottom-color: var(--color-main-herolo-purple);
     font-size: 1.3rem;
 }
+
+/* Medium screens */
+@media only screen and (max-width: 900px) {
+    .ItemStyles {
+        font-size: var(--text-size-medium-small);
+    }
+}
+
+/* Small screens */
+@media only screen and (max-width: 500px) {
+    .ItemStyles {
+        width: 40%;
+    }
+}
+
+/* Extra small screens */
+@media only screen and (max-width: 350px) {
+    .ItemStyles {
+        width: 50%;
+    }
+}
