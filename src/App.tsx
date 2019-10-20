@@ -15,6 +15,7 @@ import { initFavoritesAction } from './components/containers/Favorites/store/act
 const Favorites = lazy(() =>
 	import('./components/containers/Favorites/Favorites')
 );
+const About = lazy(() => import('./components/display/About/About'));
 
 interface IProps {
 	initFavoritesList: () => void;
@@ -54,7 +55,10 @@ export const App: React.FC<IProps> = ({
 								path="/favorites"
 								component={LazyLoader(Favorites)}
 							/>
-							<Route path="/about" />
+							<Route
+								path="/about"
+								componenet={LazyLoader(About)}
+							/>
 							<Route path="/" component={WeatherContent} />
 						</Switch>
 					</div>

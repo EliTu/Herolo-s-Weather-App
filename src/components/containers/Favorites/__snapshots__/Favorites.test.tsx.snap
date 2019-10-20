@@ -1,25 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Favorites component should dispaly the ErrorMessage component if error is truthy 1`] = `
-<div
+<section
   className="FavoritesStyles"
 >
   <ErrorMessage
     errorDetails="abc"
   />
-</div>
+</section>
 `;
 
 exports[`Favorites component should not display the component if isLoading is true 1`] = `
-<div
+<section
   className="FavoritesStyles"
 />
 `;
 
 exports[`Favorites component should render without errors 1`] = `
-<div
+<section
   className="FavoritesStyles"
 >
   <withRouter(Connect(Component)) />
-</div>
+</section>
 `;

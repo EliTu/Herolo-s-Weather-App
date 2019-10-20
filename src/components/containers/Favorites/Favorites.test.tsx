@@ -29,15 +29,6 @@ describe('Favorites component', () => {
 		expect(component.find('div').children()).not.toExist();
 	});
 
-	it('should display a message if there are no favorite items or weatherData available', () => {
-		component.setProps({ weatherData: [{}], favorites: [{}] });
-
-		expect(component).toMatchSnapshot();
-		expect(component.text()).toBe(
-			'There seems to be no favorite items available to display! Please search for your favorite destinations and press on the ❤ button to add to your favorites list.'
-		);
-	});
-
 	it('should dispaly the ErrorMessage component if error is truthy', () => {
 		component.setProps({ error: 'abc' });
 		expect(component).toMatchSnapshot();

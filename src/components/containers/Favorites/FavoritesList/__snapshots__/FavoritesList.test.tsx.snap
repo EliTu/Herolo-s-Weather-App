@@ -3,17 +3,7 @@
 exports[`FavoritesList componenet should display a message if there are no favorites to display 1`] = `
 <div
   className="FavoritesListStyles"
->
-  <p>
-    There seems to be no favorite items! Please search for your favorite destination and press on the
-    <span
-      role="img"
-    >
-       ❤ 
-    </span>
-    button to add to your favorites
-  </p>
-</div>
+/>
 `;
 
 exports[`FavoritesList componenet should render without errors 1`] = `
