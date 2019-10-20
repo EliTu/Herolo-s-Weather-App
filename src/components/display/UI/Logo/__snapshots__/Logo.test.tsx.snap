@@ -5,6 +5,7 @@ exports[`Logo component should render without errors 1`] = `
   className="LogoStyles"
 >
   <Icon
+    color="#7744a2"
     iconType={
       Object {
         "icon": Array [
@@ -21,7 +22,9 @@ exports[`Logo component should render without errors 1`] = `
     size="4x"
   />
   <ul>
-    <li>
+    <li
+      className="brandColor"
+    >
       Herolo's
     </li>
     <li>

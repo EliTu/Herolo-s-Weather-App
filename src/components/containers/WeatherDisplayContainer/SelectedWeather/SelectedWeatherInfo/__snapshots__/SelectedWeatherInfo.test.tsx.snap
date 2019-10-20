@@ -22,21 +22,28 @@ exports[`SelectedWeatherInfo should render without errors 1`] = `
   />
   <ul>
     <li>
-      <p>
+      <p
+        className="dayStyle"
+      >
         Thursday
       </p>
-      <p>
+      <p
+        className="dateStyle"
+      >
         02/10/2019
       </p>
     </li>
     <li>
       <a
+        className="cityStyle"
         href="www.info.com"
       >
         Tel-Aviv
         ,
       </a>
-      <p>
+      <p
+        className="countryStyle"
+      >
         Israel
       </p>
     </li>

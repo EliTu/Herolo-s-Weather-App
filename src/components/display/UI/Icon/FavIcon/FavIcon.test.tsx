@@ -33,7 +33,7 @@ describe('FavIcon component', () => {
 		hallowHeart = component.children().at(1);
 
 		expect(component).toMatchSnapshot();
-		expect(innerHeart.prop('color')).toBe('red');
-		expect(hallowHeart.prop('color')).toBe('black');
+		expect(innerHeart.prop('color')).toBe('#cc61f7db');
+		expect(hallowHeart.prop('color')).toBe('#282828c0');
 	});
 });

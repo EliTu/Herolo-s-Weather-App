@@ -57,7 +57,7 @@ describe('SelectedWeather Component', () => {
 		const li = component.find('li');
 
 		expect(li.at(0).text()).toBe('warm');
-		expect(li.at(1).text()).toBe('20C');
+		expect(li.at(1).text()).toBe('20°C');
 	});
 
 	it('should have a button with a FavIcon component inside', () => {

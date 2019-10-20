@@ -27,13 +27,10 @@ exports[`SearchContainer Component should render without errors 1`] = `
       elementConfig={
         Object {
           "label": "",
-          "max": 30,
-          "min": 1,
           "placeholder": "Please start entering a city name, e.g: London, New-York, Berlin etc...",
           "type": "search",
         }
       }
-      elementType="input"
       handleChange={[Function]}
       isFocused={false}
       value=""

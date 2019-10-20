@@ -20,6 +20,6 @@ exports[`Favorites component should render without errors 1`] = `
 <div
   className="FavoritesStyles"
 >
-  <withRouter(Connect(FavoritesList)) />
+  <withRouter(Connect(Component)) />
 </div>
 `;

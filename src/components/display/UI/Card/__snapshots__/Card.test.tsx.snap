@@ -4,20 +4,47 @@ exports[`Card component should render without errors 1`] = `
 <div
   className="CardStyles"
 >
-  <h3>
+  <h3
+    className="headingStyle"
+  >
     <a
       href="www"
     >
       Thursday
     </a>
   </h3>
-  <h3>
+  <h3
+    className="dateStyle"
+  >
     10-02-2019
   </h3>
-  <h4>
-    20C - 25C
+  <h4
+    className="temperatureStyle"
+  >
+    20C
+    <span>
+      °
+    </span>
+    C
   </h4>
-  <p>
+  <h4
+    className="temperatureStyle"
+  >
+    25
+    <span>
+      °
+    </span>
+    C
+     - 
+    20
+    <span>
+      °
+    </span>
+    C
+  </h4>
+  <p
+    className="descriptionStyle"
+  >
     warm
   </p>
 </div>

@@ -26,10 +26,9 @@ exports[`FavoritesList componenet should render without errors 1`] = `
     onClick={[Function]}
   >
     <Card
-      date="Current:"
       description="warm"
       mainHeading="munich, germany"
-      temperatures="23c"
+      temperatures="23"
     />
   </div>
   <div
@@ -38,10 +37,9 @@ exports[`FavoritesList componenet should render without errors 1`] = `
     onClick={[Function]}
   >
     <Card
-      date="Current:"
       description="warm"
       mainHeading="germering, germany"
-      temperatures="24c"
+      temperatures="24"
     />
   </div>
 </div>

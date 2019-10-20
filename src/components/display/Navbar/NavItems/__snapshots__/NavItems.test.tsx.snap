@@ -12,7 +12,7 @@ exports[`NavItems component should render without errors 1`] = `
   <Item
     link="/favorites"
   >
-    Favorites
+    My Favorites
   </Item>
   <Item
     link="/about"

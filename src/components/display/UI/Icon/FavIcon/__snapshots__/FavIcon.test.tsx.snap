@@ -2,7 +2,7 @@
 
 exports[`FavIcon component should render without issues 1`] = `
 <span
-  className="fa-layers fa-fw"
+  className="fa-layers fa-fw FavIconStyles"
 >
   <Icon
     color="transparent"
@@ -43,10 +43,10 @@ exports[`FavIcon component should render without issues 1`] = `
 
 exports[`FavIcon component should set different colors if the isFavorite prop changes 1`] = `
 <span
-  className="fa-layers fa-fw"
+  className="fa-layers fa-fw FavIconStyles"
 >
   <Icon
-    color="red"
+    color="#cc61f7db"
     iconType={
       Object {
         "icon": Array [
@@ -63,7 +63,7 @@ exports[`FavIcon component should set different colors if the isFavorite prop ch
     size="3x"
   />
   <Icon
-    color="black"
+    color="#282828c0"
     iconType={
       Object {
         "icon": Array [

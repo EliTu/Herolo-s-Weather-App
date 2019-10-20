@@ -25,7 +25,7 @@ exports[`Footer component should render without issues 1`] = `
       React
     </a>
      
-    with ❤️, by
+    with ❤️ by
      
     <a
       href="https://github.com/EliTu"

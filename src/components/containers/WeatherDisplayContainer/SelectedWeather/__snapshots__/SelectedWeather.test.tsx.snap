@@ -25,7 +25,11 @@ exports[`SelectedWeather Component should render without errors 1`] = `
       warm
     </li>
     <li>
-      20C
+      20
+      <span>
+        °
+      </span>
+      C
     </li>
   </ul>
   <div
