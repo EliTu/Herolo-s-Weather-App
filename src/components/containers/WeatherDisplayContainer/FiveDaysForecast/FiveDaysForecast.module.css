@@ -7,3 +7,25 @@
     align-content: center;
     align-items: center;
 }
+
+
+/* Medium screens */
+@media only screen and (max-width: 600px) {
+
+    .FiveDaysForecastStyles {
+        flex-direction: column;
+        justify-content: none;
+        align-content: none;
+        align-items: none;
+        height: 55%;
+    }
+}
+
+/* extra Small screens */
+@media only screen and (max-width: 350px) {
+
+    .SearchResultsStyles li {
+        font-size: var(--text-size-medium);
+        height: 30px;
+    }
+}

@@ -35,3 +35,77 @@
     text-align: center;
     margin-top: 0.4rem;
 }
+
+/* Medium screens */
+@media only screen and (max-width: 850px) {
+
+    .CardStyles {
+        margin: 1.5rem 0.2rem;
+    }
+
+    .CardStyles h3 {
+        font-size: var(--text-size-medium-small);
+    }
+
+    .CardStyles .temperatureStyle {
+        font-size: var(--text-size-medium);
+    }
+
+}
+
+/* Small screens */
+@media only screen and (max-width: 600px) {
+
+    .CardStyles {
+        flex-direction: row;
+        width: 100%;
+        margin: 0.2rem 0;
+        padding: 0 0.2rem;
+        height: 10rem;
+    }
+
+    .CardStyles {
+        font-size: 0.7rem;
+    }
+
+    .CardStyles .descriptionStyle {
+        font-size: var(--text-size-medium-small);
+        width: 35%;
+    }
+
+    .CardStyles .temperatureStyle {
+        margin: 0 auto;
+        font-weight: 800;
+    }
+
+    .CardStyles .dateStyle {
+        font-size: 0.7rem;
+        margin: 0 auto;
+    }
+}
+
+/* extra small screens */
+@media only screen and (max-width: 490px) {
+
+    .CardStyles {
+        font-size: 0.7rem;
+    }
+
+    .CardStyles .descriptionStyle {
+        font-size: var(--text-size-small);
+        width: 25%;
+    }
+
+    .CardStyles .temperatureStyle {
+        font-size: var(--text-size-small);
+    }
+
+    .CardStyles .dateStyle {
+        font-size: 0.7rem;
+    }
+
+    .CardStyles h3 {
+        font-size: 0.7rem;
+        width: 30%;
+    }
+}

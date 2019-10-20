@@ -59,6 +59,7 @@
 @media only screen and (max-width: 750px) {
     .SelectedWeatherStyles {
         width: 100%;
+        height: 290px;
     }
 
     .SelectedWeatherStyles div svg:nth-child(1) {
