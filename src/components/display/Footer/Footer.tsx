@@ -23,7 +23,7 @@ const Footer: React.FC = () => {
 				>
 					React
 				</a>{' '}
-				with ❤️, by{' '}
+				with ❤️ by{' '}
 				<a
 					href="https://github.com/EliTu"
 					target="_blank"

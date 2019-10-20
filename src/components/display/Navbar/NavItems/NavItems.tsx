@@ -8,7 +8,7 @@ const Navitems: React.FC = () => {
 	return (
 		<div className={NavItemsStyles}>
 			<Item link={'/'}>Home</Item>
-			<Item link={'/favorites'}>Favorites</Item>
+			<Item link={'/favorites'}>My Favorites</Item>
 			<Item link={'/about'}>About</Item>
 		</div>
 	);

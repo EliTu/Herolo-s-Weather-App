@@ -23,7 +23,7 @@ describe('NavItems component', () => {
 		expect(container).toContainReact(<Item link={'/'}>Home</Item>);
 		expect(container).toContainReact(<Item link={'/about'}>About</Item>);
 		expect(container).toContainReact(
-			<Item link={'/favorites'}>Favorites</Item>
+			<Item link={'/favorites'}>My Favorites</Item>
 		);
 	});
 });
