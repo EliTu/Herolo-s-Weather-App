@@ -32,3 +32,28 @@
 .SearchResultsStyles li:hover {
     background-color: var(--color-hover-purple);
 }
+
+/* Medium screens */
+@media only screen and (max-width: 1150px) {
+    .SearchResultsStyles {
+        width: 100%;
+    }
+}
+
+/* Medium screens */
+@media only screen and (max-width: 700px) {
+
+    .SearchResultsStyles li {
+        font-size: var(--text-size-large);
+        height: 40px;
+    }
+}
+
+/* extra Small screens */
+@media only screen and (max-width: 350px) {
+
+    .SearchResultsStyles li {
+        font-size: var(--text-size-medium);
+        height: 30px;
+    }
+}
