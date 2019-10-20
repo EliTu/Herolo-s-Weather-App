@@ -1,3 +1,4 @@
 .content-wrapper {
-  min-height: calc(100vh - 144px);
+  min-height: calc(100vh - 127px);
+  overflow: auto;
 }

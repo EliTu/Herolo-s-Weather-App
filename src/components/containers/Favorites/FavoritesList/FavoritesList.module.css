@@ -1,14 +1,45 @@
+@import '../../../../variables.css';
+
 .FavoritesListStyles {
     width: 100%;
-    display: flex;
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-column-gap: 0.7rem;
+    /* grid-column: auto; */
+
 }
 
 .CardWrapper {
     width: 100%;
     cursor: pointer;
-    margin: 0 0.4rem;
+    margin: 0.8 auto;
+    transition: all 0.15s ease-in-out;
+    position: relative;
+}
+
+.CardWrapper:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-light-spread);
 }
 
 .CardWrapper div {
-    width: 100%;
+    width: 90%;
+    margin: 0.8rem auto;
+}
+
+.removeButtonStyle {
+    z-index: 2;
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    border: block;
+    background-color: rgba(206, 202, 202, 0.932);
+    width: 10%;
+    height: 2rem;
+    border-radius: 50%;
+    display: block;
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: rgba(233, 229, 229, 0.932);
+
 }
