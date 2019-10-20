@@ -52,8 +52,6 @@ const favoritesReducer = (
 			};
 
 		case GET_FAVORITES_WEATHER_DATA:
-			console.log(action.favoritesWeatherData);
-
 			return {
 				...state,
 				isLoading: false,

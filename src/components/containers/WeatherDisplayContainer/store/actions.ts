@@ -50,7 +50,6 @@ export const fireCurrentWeatherHttpRequest = (
 	countryName: string
 ) => {
 	return async (dispatch: any) => {
-		console.log(dispatchIdentifier);
 		if (dispatchIdentifier === 'currentWeather')
 			dispatch(currentWeatherInitAction());
 		if (dispatchIdentifier === 'favoritesWeather')
@@ -116,12 +115,10 @@ export const fireFiveDaysForecastHttpRequest = (key: string) => {
 					'fiveDaysForecast'
 				);
 				const forecastList = forecastResult.data.DailyForecasts;
-				console.log(forecastList);
 
 				dispatch(fiveDaysForecastSuccessAction(forecastList));
 			} catch (error) {
 				dispatch(fiveDaysForecastFailAction(error.message));
-				console.log(error.message);
 			}
 	};
 };
