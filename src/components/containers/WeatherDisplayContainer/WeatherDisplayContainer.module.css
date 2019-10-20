@@ -10,3 +10,13 @@
     position: relative;
     box-shadow: 2px 4px 9px 2px #bababa;
 }
+
+.WeatherDisplayContainerStyles a {
+    color: #6c72e8db;
+    text-decoration: none;
+    font-weight: 800;
+}
+
+.WeatherDisplayContainerStyles a:hover {
+    color: #cc61f7db;
+}

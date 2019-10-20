@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './FavIcon.module.css';
 import Icon from '../Icon';
 import { faHeart as innerHeart } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as hallowHeart } from '@fortawesome/free-regular-svg-icons';
@@ -8,6 +9,7 @@ interface IProps {
 }
 
 const FavIcon: React.FC<IProps> = ({ isFavorite }) => {
+	const { FavIconStyles } = styles;
 	const innerHeartColor = !isFavorite ? 'transparent' : 'red';
 	const hallowHeartColor = !isFavorite ? '#282828c0' : 'black';
 

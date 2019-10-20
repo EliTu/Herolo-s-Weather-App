@@ -22,7 +22,7 @@
 
 .CardStyles .dateStyle {
     margin-bottom: 1.5rem;
-    font-size: var(--text-size-medium);
+    font-size: var(--text-size-medium-small);
 }
 
 .CardStyles .temperatureStyle {
