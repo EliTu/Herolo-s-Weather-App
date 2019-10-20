@@ -6,8 +6,7 @@
     font-family: inherit;
 }
 
-.InputStyles input,
-textarea {
+.InputStyles input {
     background-color: rgba(241, 238, 238, 0);
     color: var(--color-main-dark);
     font-size: 1.2rem;
@@ -18,4 +17,11 @@ textarea {
     display: inline-block;
     transition: all 0.5s;
     outline: none;
+}
+
+/* Medium screens */
+@media only screen and (max-width: 770px) {
+    .InputStyles input::placeholder {
+        font-size: var(--text-size-medium-small);
+    }
 }

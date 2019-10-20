@@ -39,3 +39,36 @@
 	margin-left: 0.4rem;
 	margin-right: 0.4rem;
 }
+
+/* Medium screens */
+@media only screen and (max-width: 1150px) {
+	.SearchContainerStyles {
+		width: 70%;
+	}
+
+	.InputWrapper {
+		width: 100%;
+	}
+}
+
+/* Medium screens */
+@media only screen and (max-width: 900px) {
+	.SearchContainerStyles {
+		width: 80%;
+	}
+
+	.InputWrapper {
+		width: 100%;
+	}
+}
+
+/* Small screens */
+@media only screen and (max-width: 500px) {
+	.SearchContainerStyles {
+		width: 90%;
+	}
+
+	.InputWrapper {
+		width: 100%;
+	}
+}

@@ -20,3 +20,25 @@
 .WeatherDisplayContainerStyles a:hover {
     color: #cc61f7db;
 }
+
+
+/* Large screens */
+@media only screen and (max-width: 1150px) {
+    .WeatherDisplayContainerStyles {
+        width: 80%;
+    }
+}
+
+/* Medium screens */
+@media only screen and (max-width: 900px) {
+    .WeatherDisplayContainerStyles {
+        width: 90%;
+    }
+}
+
+/* Small screens */
+@media only screen and (max-width: 500px) {
+    .WeatherDisplayContainerStyles {
+        width: 95%;
+    }
+}
