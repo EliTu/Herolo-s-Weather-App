@@ -51,3 +51,12 @@
 .FooterStyles a:nth-child(3):hover {
     color: var(--color-main-black-opaque)
 }
+
+
+/* Small screens */
+@media only screen and (max-width: 500px) {
+    .FooterStyles {
+        font-size: var(--text-size-small);
+        word-wrap: wrap;
+    }
+}
