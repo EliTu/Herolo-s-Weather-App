@@ -39,3 +39,22 @@
 .brandColor {
     color: var(--color-main-herolo-purple);
 }
+
+/* medium Screens */
+@media only screen and (max-width: 880px) {
+    .LogoStyles li:nth-child(1) {
+        font-size: var(--text-size-large);
+    }
+
+    .LogoStyles li:nth-child(2) {
+        font-size: var(--text-size-medium);
+
+    }
+}
+
+/* Small screens */
+@media only screen and (max-width: 600px) {
+    .LogoStyles ul {
+        display: none;
+    }
+}
