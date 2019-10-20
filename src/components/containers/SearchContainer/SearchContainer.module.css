@@ -9,6 +9,7 @@
 	justify-items: center;
 	align-content: center;
 	position: relative;
+	transition: all 0.5s ease;
 }
 
 .SearchContainerStyles input {
@@ -23,9 +24,18 @@
 	width: 90%;
 	border: var(--border-thick);
 	border-color: var(--color-main-black);
+	box-shadow: 1px 1px 4px 0px rgba(172, 169, 169, 0.623);
+}
+
+.InputWrapper:hover {
+	box-shadow: var(--shadow-light-spread);
+}
+
+.InputWrapper:active {
+	box-shadow: 2px 2px 5px 5px rgba(30, 117, 189, 0.418);
 }
 
 .InputWrapper svg {
-	margin-left: 0.3rem;
+	margin-left: 0.4rem;
 	margin-right: 0.4rem;
 }

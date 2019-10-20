@@ -18,22 +18,28 @@
 .SelectedWeatherInfoStyles li {
     margin: 0 auto;
     list-style: none;
+    height: 35px;
 }
 
 /* Selecting the Icon component div */
 .SelectedWeatherInfoStyles div:nth-child(1) {
     margin: 0 auto;
+    height: 40px;
 }
 
-.SelectedWeatherInfoStyles li:nth-child(1) p {
+.SelectedWeatherInfoStyles .dateStyle {
+    font-size: var(--text-size-large);
+}
+
+.SelectedWeatherInfoStyles .dayStyle {
     font-size: var(--text-size-large);
     margin: 0;
 }
 
-.SelectedWeatherInfoStyles li:nth-child(2) a {
+.SelectedWeatherInfoStyles .cityStyle {
     font-size: var(--text-size-large);
 }
 
-.SelectedWeatherInfoStyles li:nth-child(2) p {
+.SelectedWeatherInfoStyles .countryStyle {
     font-size: var(--text-size-medium);
 }

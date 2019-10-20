@@ -6,12 +6,13 @@
     margin: 1.5rem 0.5rem;
     padding: 0;
     border: var(--border-thick);
-    border-color: var(--color-main-black-opaque);
+    border-color: #c5c3c3a1;
     display: flex;
     flex-flow: column;
     align-content: center;
     justify-content: center;
     align-items: center;
+    box-shadow: 1px 1px 8px 0px #e5dddd;
 }
 
 .CardStyles h3 {
@@ -19,15 +20,16 @@
     text-align: center;
 }
 
-.CardStyles h3:nth-child(1) {
+.CardStyles .dateStyle {
     margin-bottom: 1.5rem;
-}
-
-.CardStyles h4 {
     font-size: var(--text-size-medium);
 }
 
-.CardStyles p {
+.CardStyles .temperatureStyle {
+    font-size: var(--text-size-medium);
+}
+
+.CardStyles .descriptionStyle {
     font-size: var(--text-size-medium-small);
     width: 100%;
     text-align: center;

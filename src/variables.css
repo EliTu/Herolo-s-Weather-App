@@ -18,6 +18,7 @@
     /* Shadows */
     --shadow-dark-lift: rgba(0, 0, 0, 0.377) 0px 3px 2px;
     --shadow-dark-bottom: rgba(0, 0, 0, 0.247) 5px 0px 2px;
+    --shadow-light-spread: 2px 2px 5px 5px rgba(137, 154, 168, 0.411);
     /* Borders */
     --border-thick: 2px solid;
     --border-thin: 1px solid;

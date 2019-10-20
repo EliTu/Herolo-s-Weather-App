@@ -11,7 +11,7 @@
     border-color: var(--color-main-black);
     padding: 1rem;
     margin: 0 auto;
-    box-shadow: var(--shadow-dark-bottom);
+    box-shadow: -1px -3px 7px 0px rgba(209, 209, 209, 0.719);
 }
 
 .FooterStyles p {

@@ -24,7 +24,13 @@ const SelectedWeatherInfo: React.FC<IProps> = ({
 	day,
 	date,
 }) => {
-	const { SelectedWeatherInfoStyles } = styles;
+	const {
+		SelectedWeatherInfoStyles,
+		dayStyle,
+		dateStyle,
+		cityStyle,
+		countryStyle,
+	} = styles;
 
 	return (
 		<div className={SelectedWeatherInfoStyles}>
@@ -33,12 +39,14 @@ const SelectedWeatherInfo: React.FC<IProps> = ({
 					<Icon iconType={weatherIconType} size={'9x'} />
 					<ul>
 						<li>
-							<p>{day}</p>
-							<p>{date}</p>
+							<p className={dayStyle}>{day}</p>
+							<p className={dateStyle}>{date}</p>
 						</li>
 						<li>
-							<a href={infoLink}>{cityName},</a>
-							<p>{countryName}</p>
+							<a href={infoLink} className={cityStyle}>
+								{cityName},
+							</a>
+							<p className={countryStyle}>{countryName}</p>
 						</li>
 					</ul>
 				</>

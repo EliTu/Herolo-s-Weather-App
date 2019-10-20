@@ -39,7 +39,7 @@ export const App: React.FC<IProps> = ({
 
 	// On component mount, by default, set and display Tel-Aviv's weather info
 	useEffect(() => {
-		setDefaultWeatherData('215854', 'Tel-Aviv', 'currentWeather', 'Israel');
+		setDefaultWeatherData('215854', 'Tel-Aviv', 'Israel', 'currentWeather');
 		setDefaultFiveDaysForecast('215854');
 	}, [setDefaultFiveDaysForecast, setDefaultWeatherData]);
 

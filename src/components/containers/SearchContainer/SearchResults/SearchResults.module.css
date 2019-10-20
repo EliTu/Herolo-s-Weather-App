@@ -8,25 +8,27 @@
     border-color: var(--color-main-black-opaque);
     background-color: var(--background-main-light-theme);
     position: absolute;
-    top: 50px;
+    top: 48px;
+    box-shadow: 0px 6px 8px 0px rgba(199, 198, 198, 0.644);
+    transition: all 1s ease-in;
 }
 
 .SearchResultsStyles ul {
     width: 97%;
     padding: 0.3rem;
-    margin: 0 0.3rem auto;
+    margin: 0 0.3rem;
 }
 
 .SearchResultsStyles li {
     list-style: none;
     width: 100%;
-    font-size: var(--text-size-large);
+    height: 55px;
+    font-size: var(--text-size-extra-large);
     cursor: pointer;
     padding: 0;
-    margin: 0.3rem;
     background: none;
 }
 
 .SearchResultsStyles li:hover {
-    background-color: rgba(156, 148, 148, 0.479);
+    background-color: var(--color-hover-purple);
 }

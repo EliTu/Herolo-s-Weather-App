@@ -16,16 +16,22 @@ const Card: React.FC<IProps> = ({
 	link,
 	temperatures,
 }) => {
-	const { CardStyles } = styles;
+	const {
+		CardStyles,
+		headingStyle,
+		dateStyle,
+		temperatureStyle,
+		descriptionStyle,
+	} = styles;
 
 	return (
 		<div className={CardStyles}>
-			<h3>
+			<h3 className={headingStyle}>
 				<a href={link}>{mainHeading}</a>
 			</h3>
-			<h3>{date}</h3>
-			<h4>{temperatures}</h4>
-			<p>{description}</p>
+			<h3 className={dateStyle}>{date}</h3>
+			<h4 className={temperatureStyle}>{temperatures}</h4>
+			<p className={descriptionStyle}>{description}</p>
 		</div>
 	);
 };
