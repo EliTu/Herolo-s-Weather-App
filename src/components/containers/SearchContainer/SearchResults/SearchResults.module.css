@@ -44,7 +44,7 @@
 @media only screen and (max-width: 700px) {
 
     .SearchResultsStyles li {
-        font-size: var(--text-size-large);
+        font-size: var(--text-size-medium);
         height: 40px;
     }
 }

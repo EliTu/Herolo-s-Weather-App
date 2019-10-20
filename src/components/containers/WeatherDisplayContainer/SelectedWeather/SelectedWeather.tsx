@@ -16,7 +16,7 @@ import setWeatherIcon from './setWeatherIcon';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import styles from './SelectedWeather.module.css';
 import { IProps } from './propsInterface';
-import { Fade } from 'react-bootstrap';
+
 
 export const SelectedWeather: React.FC<IProps> = ({
 	setNewFavoriteItem,
@@ -97,7 +97,7 @@ export const SelectedWeather: React.FC<IProps> = ({
 						date={date}
 						day={day}
 					/>
-					<Fade in={!isLoading} appear timeout={10000}>
+					
 						<ul>
 							<li>{WeatherText}</li>
 							<li>
@@ -106,7 +106,7 @@ export const SelectedWeather: React.FC<IProps> = ({
 								{`${Temperature.Metric.Unit}`}
 							</li>
 						</ul>
-					</Fade>
+					
 					<div className={buttonWrapper}>
 						<button onClick={() => handleFavoriteButtonClick(key)}>
 							<FavIcon isFavorite={isFavorite} />

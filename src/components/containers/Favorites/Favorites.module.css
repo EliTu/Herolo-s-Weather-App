@@ -5,3 +5,9 @@
     height: 600px;
     margin: 1.5rem auto;
 }
+
+@media only screen and (max-width: 800px) {
+    .FavoritesStyles {
+        width: 95%;
+    }
+}

@@ -5,8 +5,6 @@
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
     grid-column-gap: 0.7rem;
-    /* grid-column: auto; */
-
 }
 
 .CardWrapper {
@@ -24,4 +22,31 @@
 .CardWrapper div {
     width: 90%;
     margin: 0.8rem auto;
+}
+
+/* Medium screens */
+@media only screen and (max-width: 860px) {
+    .FavoritesListStyles {
+        grid-column-gap: 0;
+    }
+}
+
+/* Small screen */
+@media only screen and (max-width: 600px) {
+    .FavoritesListStyles {
+
+        grid-template-columns: 50% 50%;
+    }
+
+    .CardWrapper div {
+        flex-direction: column;
+    }
+
+    .CardWrapper div>h4 {
+        font-size: var(--text-size-large);
+    }
+
+    .CardWrapper p {
+        width: 50%;
+    }
 }

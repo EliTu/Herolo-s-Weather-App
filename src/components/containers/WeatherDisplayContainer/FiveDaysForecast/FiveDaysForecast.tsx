@@ -7,7 +7,6 @@ import {
 } from '../../../../utilities/convert-functions/dates';
 import fahrenheitToCelsius from '../../../../utilities/convert-functions/fahrenheitToCelsius';
 import styles from './FiveDaysForecast.module.css';
-import { Fade } from 'react-bootstrap';
 
 interface IProps {
 	forecastResults: {
@@ -53,7 +52,7 @@ export const FiveDaysForecast: React.FC<IProps> = ({ forecastResults }) => {
 					const date = setCorrectDateFormat(Date);
 
 					return (
-						<Fade in={!!EpochDate} mountOnEnter timeout={10000}>
+						
 							<Card
 								key={EpochDate}
 								mainHeading={day}
@@ -63,7 +62,7 @@ export const FiveDaysForecast: React.FC<IProps> = ({ forecastResults }) => {
 								description={IconPhrase}
 								link={Link}
 							/>
-						</Fade>
+					
 					);
 				}
 			)}
