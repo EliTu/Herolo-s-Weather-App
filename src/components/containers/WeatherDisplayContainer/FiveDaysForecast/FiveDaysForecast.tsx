@@ -5,6 +5,7 @@ import {
 	setCorrectDateFormat,
 	setDayOfTheWeek,
 } from '../../../../utilities/convert-functions/dates';
+import fahrenheitToCelsius from '../../../../utilities/convert-functions/fahrenheitToCelsius';
 import styles from './FiveDaysForecast.module.css';
 
 interface IProps {
@@ -13,7 +14,7 @@ interface IProps {
 		Date: string;
 		Temperature: {
 			Minimum: { Value: number; Unit: string };
-			Maximum: { Value: Number; Unit: string };
+			Maximum: { Value: number; Unit: string };
 		};
 		Day: { IconPhrase: string };
 		Link: string;
@@ -36,17 +37,13 @@ export const FiveDaysForecast: React.FC<IProps> = ({ forecastResults }) => {
 							? `${day} (Tomorrow)`
 							: day;
 
-					const {
-						Value: maxVal,
-						Unit: maxUnit,
-					} = Temperature.Minimum;
-					const maxTemp = `${maxVal}${maxUnit}`;
+					const { Value: maxVal } = Temperature.Minimum;
+					const maxCelsiusVal = fahrenheitToCelsius(maxVal);
+					const maxTemp = `${maxCelsiusVal}C`;
 
-					const {
-						Value: minVal,
-						Unit: minUnit,
-					} = Temperature.Maximum;
-					const minTemp = `${minVal}${minUnit}`;
+					const { Value: minVal } = Temperature.Maximum;
+					const minCelsiusVal = fahrenheitToCelsius(minVal);
+					const minTemp = `${minCelsiusVal}C`;
 
 					// Get the weather text:
 					const { IconPhrase } = Day;
