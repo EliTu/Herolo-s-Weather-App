@@ -27,4 +27,5 @@
     border-bottom: 7px solid;
     color: var(--color-main-black);
     border-bottom-color: var(--color-main-herolo-purple);
+    font-size: 1.3rem;
 }

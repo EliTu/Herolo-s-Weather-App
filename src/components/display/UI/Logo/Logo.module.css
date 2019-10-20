@@ -6,6 +6,7 @@
     align-items: center;
     justify-content: center;
     justify-items: center;
+    user-select: none;
 }
 
 .LogoStyles div {

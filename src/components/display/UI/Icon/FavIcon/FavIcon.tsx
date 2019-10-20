@@ -10,7 +10,7 @@ interface IProps {
 
 const FavIcon: React.FC<IProps> = ({ isFavorite }) => {
 	const { FavIconStyles } = styles;
-	const innerHeartColor = !isFavorite ? 'transparent' : 'red';
+	const innerHeartColor = !isFavorite ? 'transparent' : '#a85be7d2';
 	const hallowHeartColor = !isFavorite ? '#282828c0' : 'black';
 
 	return (
