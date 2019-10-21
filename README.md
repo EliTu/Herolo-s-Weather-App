@@ -10,20 +10,20 @@ Using the various [Accuweather API](<https://developer.accuweather.com>) endpoin
 
 ### Tech details
 
-* Main tech stack: React.js (Using hooks), TypeScript, and CSS modules.
+* **Main tech stack**: React.js (Using hooks), TypeScript, and CSS modules.
 
-* State management: Redux for Flux architecture state management, and redux-thunk as a middleware for async actions.
+* **State management**: Redux for Flux architecture state management, and redux-thunk as a middleware for async actions.
 
-* Testing: Embracing a TDD methedology, this app is using Jest as a test runner and assertion library, also using Enzyme to test React components. Every component and reducer has a unit & snapshot test coverage.
+* **Testing**: Embracing a TDD methedology, this app is using Jest as a test runner and assertion library, also using Enzyme to test React components. Every component and reducer has a unit & snapshot test coverage.
 
-* Routes: This app uses React-router as the main routing solution between the app's different sections.
+* **Routes**: This app uses React-router as the main routing solution between the app's different sections.
 
-* React features: This app is fully embracing the best and latest React features: Hooks, Lazy loading with Suspense, Memoization for the main components, HOC and more.
+* **React features**: This app is fully embracing the best and latest React features: Hooks, Lazy loading with Suspense, Memoization for the main components, HOC and more.
 
-* Styling: This app uses CSS modules for styling and for scoped styles. The app is fully responsive, suitable both for large & small screens, by using Flexbox, CSS Grid, Media Queries. Also it's employing CSS variables for better control on specific styling rules.
+* **Styling**: This app uses CSS modules for styling and for scoped styles. The app is fully responsive, suitable both for large & small screens, by using Flexbox, CSS Grid, Media Queries. Also it's employing CSS variables for better control on specific styling rules.
 
-* HTTP: Using Axios library to make async HTTP request to the various API endpoints.
+* **HTTP**: Using Axios library to make async HTTP request to the various API endpoints.
 
-* localStorage: This app uses the native localStorage API to store & fetch the user selected favorite locations.
+* **localStorage**: This app uses the native localStorage API to store & fetch the user selected favorite locations.
 
-* Hosting: This app is hosted on Google's [Firebase server](<https://firebase.google.com>) using the Firebase CLI.
+* **Hosting**: This app is hosted on Google's [Firebase server](<https://firebase.google.com>) using the Firebase CLI.
