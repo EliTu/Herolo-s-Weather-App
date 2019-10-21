@@ -1,4 +1,4 @@
-# Eliad-Tuksher-10-10-2019
+# Herolo's Weather app
 
 ### In brief
 
