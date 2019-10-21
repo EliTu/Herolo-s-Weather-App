@@ -57,7 +57,7 @@ export const App: React.FC<IProps> = ({
 							/>
 							<Route
 								path="/about"
-								componenet={LazyLoader(About)}
+								component={LazyLoader(About)}
 							/>
 							<Route path="/" component={WeatherContent} />
 						</Switch>

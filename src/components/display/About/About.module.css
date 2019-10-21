@@ -1,4 +1,71 @@
+@import '../../../variables.css';
+
 .AboutStyles {
     width: 80%;
-    height: 600px;
+    height: auto;
+    margin: 1.5rem auto;
+}
+
+.contentWrapper {
+    width: 70%;
+    margin: 1.3rem auto;
+    text-align: justify;
+
+}
+
+.contentWrapper h3 {
+    margin: 1rem 0;
+}
+
+.contentWrapper a {
+    color: var(--color-main-herolo-purple);
+    text-decoration: none;
+}
+
+.contentWrapper a:hover {
+    color: var(--color-hover-purple);
+}
+
+.contentWrapper p {
+    width: 80%;
+    margin-left: 2.5rem;
+    font-size: var(--text-size-medium-small);
+}
+
+.contentWrapper li {
+    list-style: none;
+    margin: 0.5rem 0;
+    width: 80%;
+    font-size: var(--text-size-medium-small);
+}
+
+.listHeading {
+    font-weight: 700;
+}
+
+/* medium screens */
+@media only screen and (max-width: 900px) {
+    .contentWrapper {
+        width: 90%;
+    }
+}
+
+/* Small screen */
+@media only screen and (max-width: 600px) {
+    .AboutStyles {
+        width: 90%;
+    }
+
+    .contentWrapper {
+        width: 95%;
+    }
+
+    .contentWrapper p {
+        width: 90%;
+        margin-left: 1.5rem;
+    }
+
+    .contentWrapper li {
+        width: 95%;
+    }
 }
