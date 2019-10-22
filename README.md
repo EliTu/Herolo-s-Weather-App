@@ -1,5 +1,7 @@
 # Herolo's Weather app
 
+App link: https://weather-app-6737c.firebaseapp.com/
+
 ### In brief
 
 [Herolo's Weather app](<https://github.com/EliTu/Eliad-Tuksher-10-10-2019>) is a small SPA that was built for [Herolo](<https://herolo.co.il>) as an intro project, using React.js (+Redux & React Router), TypeScript and CSS modules.
